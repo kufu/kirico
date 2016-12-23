@@ -18,6 +18,10 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 200
 
+Metrics/BlockLength:
+  Exclude:
+    - 'kirico.gemspec'
+
 Metrics/LineLength:
   Exclude:
     - 'kirico.gemspec'
