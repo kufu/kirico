@@ -10,7 +10,7 @@ module Kirico
     end
 
     def to_csv
-      CSV.table('spec/fixtures/changing_address_SHFD0006.CSV', encoding: 'Shift_JIS:UTF-8', headers: false, converters: nil)[5]
+      CSV.table('spec/fixtures/changing_address_SHFD0006.CSV', encoding: 'Shift_JIS:UTF-8', headers: false, converters: nil)[5].join(',')
     end
   end
 end

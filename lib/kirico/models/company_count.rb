@@ -12,7 +12,7 @@ module Kirico
     end
 
     def to_csv
-      [nil, COUNT]
+      [nil, COUNT].join(',')
     end
   end
 end

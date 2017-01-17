@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Kirico::CompanyCount do
   describe '#to_csv' do
-    subject { Kirico::Company.new.to_csv }
-    it { expect(subject.join(',')).to eq ',001' }
+    subject { Kirico::CompanyCount.new.to_csv }
+    it { is_expected.to eq ',001' }
   end
 end

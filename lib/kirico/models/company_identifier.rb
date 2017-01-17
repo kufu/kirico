@@ -8,7 +8,7 @@ module Kirico
     IDENTIFIER = '[kanri]'
 
     def to_csv
-      [IDENTIFIER]
+      [IDENTIFIER].join(',')
     end
   end
 end
