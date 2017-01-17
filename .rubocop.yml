@@ -19,7 +19,7 @@ Style/MutableConstant:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 18
+  Max: 50
 
 Metrics/BlockLength:
   Enabled: false
@@ -31,3 +31,6 @@ Metrics/LineLength:
   Max: 200
   Exclude:
     - 'kirico.gemspec'
+
+Metrics/MethodLength:
+  Max: 30
