@@ -1,0 +1,16 @@
+mappers:
+  helper_mock:
+    gender:
+      男性: 0
+      女性: 1
+  changing_address_record:
+    birth_at:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+    created_at:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
