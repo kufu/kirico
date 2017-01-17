@@ -6,6 +6,7 @@ require 'kirico/models/company_identifier'
 require 'kirico/models/company'
 require 'kirico/models/data_identifier'
 require 'kirico/models/fd_management_record'
+require 'kirico/models/helper'
 require 'kirico/csv_generator'
 
 module Kirico
