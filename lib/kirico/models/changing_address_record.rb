@@ -14,19 +14,20 @@ module Kirico
     attribute :ip_code, String
     attribute :basic_pension_number1, String
     attribute :basic_pension_number2, String
-    attribute :birth_at_era_code, String
-    attribute :birth_at, String
+    attribute :birth_at, Date
     attribute :zip_code1, String
     attribute :zip_code2, String
     attribute :new_address_yomi, String
     attribute :new_address, String
-    attribute :updated_at_era_code, String
-    attribute :updated_at, String
+    attribute :updated_at, Date
     attribute :ip_name_yomi, String
     attribute :ip_name, String
     attribute :old_address_yomi, String
     attribute :old_address, String
     attribute :memo, String
+
+    define_format_date_method :birth_at, :updated_at
+    define_code_mapper_method :birth_at_era_nengo, :updated_at_era_nengo
 
     def initialize
       yield(self) if block_given?
@@ -40,14 +41,14 @@ module Kirico
         ip_code,
         basic_pension_number1,
         basic_pension_number2,
-        birth_at_era_code,
-        birth_at,
+        mapped_birth_at_era_nengo,
+        fmt_era_ymd_birth_at,
         zip_code1,
         zip_code2,
         new_address_yomi,
         new_address,
-        updated_at_era_code,
-        updated_at,
+        mapped_updated_at_era_nengo,
+        fmt_era_ymd_updated_at,
         ip_name_yomi,
         ip_name,
         old_address_yomi,

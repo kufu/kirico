@@ -10,8 +10,8 @@ describe Kirico::Helper do
 
     let(:obj) { HelperMock.new }
 
-    describe '#fmt_created_at' do
-      subject { obj.fmt_created_at }
+    describe '#fmt_ymd_created_at' do
+      subject { obj.fmt_ymd_created_at }
 
       context 'when created_at is nil' do
         before { allow(obj).to receive(:created_at).and_return(nil) }
@@ -20,6 +20,19 @@ describe Kirico::Helper do
       context 'when created_at is 1984-07-23' do
         before { allow(obj).to receive(:created_at).and_return(Date.new(1984, 7, 23)) }
         it { is_expected.to eq '19840723' }
+      end
+    end
+
+    describe '#fmt_era_ymd_created_at' do
+      subject { obj.fmt_era_ymd_created_at }
+
+      context 'when created_at is nil' do
+        before { allow(obj).to receive(:created_at).and_return(nil) }
+        it { is_expected.to be_nil }
+      end
+      context 'when created_at is 1984-07-23' do
+        before { allow(obj).to receive(:created_at).and_return(Date.new(1984, 7, 23)) }
+        it { is_expected.to eq '590723' }
       end
     end
 

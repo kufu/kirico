@@ -11,9 +11,15 @@ module Kirico
     #    created_at メソッドを整形
     #
     # # 2015/04/09 => 20150409
-    # def fmt_created_at
+    # def fmt_ymd_created_at
     #   return nil if submit_at.nil?
     #   submit_at.try(:to_era, '%Y%m%d')
+    # end
+    #
+    # # 2015/04/09 => 270409
+    # def fmt_era_ymd_created_at
+    #   return nil if submit_at.nil?
+    #   submit_at.try(:to_era, '%E%m%d')
     # end
     #
     # # 2015/04/09 => H
@@ -27,8 +33,12 @@ module Kirico
     # end
     def define_format_date_method(*fields)
       fields.each do |attr_name|
-        define_method("fmt_#{attr_name}") do
+        define_method("fmt_ymd_#{attr_name}") do
           send(attr_name).try(:strftime, '%Y%m%d')
+        end
+
+        define_method("fmt_era_ymd_#{attr_name}") do
+          send(attr_name).try(:to_era, '%E%m%d')
         end
 
         define_method("#{attr_name}_era_nengo") do

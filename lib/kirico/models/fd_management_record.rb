@@ -25,7 +25,7 @@ module Kirico
         area_code,
         office_code,
         fd_seq_number,
-        fmt_created_at,
+        fmt_ymd_created_at,
         MAIN_DOC_CODE
       ].join(',')
     end
