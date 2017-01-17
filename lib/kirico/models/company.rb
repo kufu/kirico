@@ -5,12 +5,32 @@ module Kirico
   class Company
     include Virtus.model
 
+    attribute :area_code, String
+    attribute :office_code, String
+    attribute :office_number, String
+    attribute :zip_code1, String
+    attribute :zip_code2, String
+    attribute :address, String
+    attribute :name, String
+    attribute :owner_name, String
+    attribute :tel_number, String
+
     def initialize
-      super
+      yield(self) if block_given?
     end
 
     def to_csv
-      CSV.table('spec/fixtures/changing_address_SHFD0006.CSV', encoding: 'Shift_JIS:UTF-8', headers: false, converters: nil)[3].join(',')
+      [
+        area_code,
+        office_code,
+        office_number,
+        zip_code1,
+        zip_code2,
+        address,
+        name,
+        owner_name,
+        tel_number
+      ].join(',')
     end
   end
 end
