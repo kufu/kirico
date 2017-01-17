@@ -5,12 +5,30 @@ module Kirico
   class FDManagementRecord
     include Virtus.model
 
+    MAIN_DOC_CODE = '22223'
+
+    attribute :area_code, String
+    attribute :office_code, String
+    attribute :fd_seq_number, String
+    attribute :created_at, Date
+
     def initialize
-      super
+      yield(self) if block_given?
     end
 
     def to_csv
-      CSV.table('spec/fixtures/changing_address_SHFD0006.CSV', encoding: 'Shift_JIS:UTF-8', headers: false, converters: nil)[0].join(',')
+      [
+        area_code,
+        office_code,
+        fd_seq_number,
+        fmt_created_at,
+        MAIN_DOC_CODE
+      ].join(',')
+    end
+
+    def fmt_created_at
+      return nil if created_at.nil?
+      created_at.strftime('%Y%m%d')
     end
   end
 end

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require 'kirico/version'
-require 'kirico/models/changing_address_form'
 require 'kirico/models/changing_address_record'
 require 'kirico/models/company_count'
 require 'kirico/models/company_identifier'
