@@ -2,7 +2,7 @@
 require 'virtus'
 
 module Kirico
-  class ChangingAddressForm
+  class Company
     include Virtus.model
 
     def initialize
@@ -10,7 +10,7 @@ module Kirico
     end
 
     def to_csv
-      CSV.table('spec/fixtures/changing_address_SHFD0006.CSV', encoding: 'Shift_JIS:UTF-8', headers: false, converters: nil)
+      CSV.table('spec/fixtures/changing_address_SHFD0006.CSV', encoding: 'Shift_JIS:UTF-8', headers: false, converters: nil)[3]
     end
   end
 end

@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Kirico::ChangingAddressForm do
   describe '#to_csv' do
     # http://qiita.com/fisherman08/items/84c0c380de96fa3ee591
-    let(:table) { CSV.table('spec/fixtures/changing_address_SHFD0006.CSV', encoding: 'Shift_JIS:UTF-8', headers: false, converters: nil) }
+    let(:table) { Kirico::ChangingAddressForm.new.to_csv }
     describe '1st row' do
       it { expect(table[0].join(',')).to eq '14,ｸﾄﾜ,005,20170117,22223' }
     end

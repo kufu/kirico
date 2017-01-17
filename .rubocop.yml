@@ -12,6 +12,12 @@ Style/Documentation:
 Style/DoubleNegation:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/MutableConstant:
+  Enabled: false
+
 Metrics/AbcSize:
   Max: 18
 

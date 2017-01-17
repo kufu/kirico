@@ -2,15 +2,17 @@
 require 'virtus'
 
 module Kirico
-  class ChangingAddressForm
+  class CompanyCount
     include Virtus.model
+
+    COUNT = '001'
 
     def initialize
       super
     end
 
     def to_csv
-      CSV.table('spec/fixtures/changing_address_SHFD0006.CSV', encoding: 'Shift_JIS:UTF-8', headers: false, converters: nil)
+      [nil, COUNT]
     end
   end
 end
