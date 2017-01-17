@@ -15,13 +15,14 @@ Style/DoubleNegation:
 Metrics/AbcSize:
   Max: 18
 
-Metrics/ClassLength:
-  Max: 200
-
 Metrics/BlockLength:
   Exclude:
     - 'kirico.gemspec'
 
+Metrics/ClassLength:
+  Max: 200
+
 Metrics/LineLength:
+  Max: 200
   Exclude:
     - 'kirico.gemspec'
