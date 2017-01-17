@@ -1,3 +1,5 @@
+![kirico logo](https://cloud.githubusercontent.com/assets/2214179/22003901/8ca32334-dc9a-11e6-8c27-4551709f735d.png)
+
 # Kirico
 
 [![CircleCI](https://circleci.com/gh/kufu/kirico.svg?style=svg)](https://circleci.com/gh/kufu/kirico)
