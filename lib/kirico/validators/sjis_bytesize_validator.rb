@@ -47,6 +47,8 @@ module Kirico
     end
 
     def validate_each(record, attribute, value)
+      return if value.nil? || value.empty?
+
       value_length = value.encode('Shift_JIS').bytesize
       errors_options = options.except(*RESERVED_OPTIONS)
 
