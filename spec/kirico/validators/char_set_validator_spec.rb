@@ -2,8 +2,46 @@
 require 'spec_helper'
 
 describe Kirico::CharsetValidator do
+  describe '#check_validity!' do
+    context 'when specifying valid options' do
+      let(:options) { { attributes: :hoge, accept: [:kanji, :latin] } }
+      it 'does raise an ArgumentError' do
+        expect(
+          Kirico::CharsetValidator.new(options)
+        ).to be_a(Kirico::CharsetValidator)
+      end
+    end
+
+    context 'when specifying w/o any options' do
+      let(:options) { { attributes: :hoge } }
+      it 'does raise an ArgumentError' do
+        expect {
+          Kirico::CharsetValidator.new(options)
+        }.to raise_error(ArgumentError, ':accept unspecified. Specify the :numeric, :latin, :katakana, :kanji, or :all option.')
+      end
+
+      context 'when specifying invalid accept option - 1' do
+        let(:options) { { attributes: :hoge, accept: :foo } }
+        it 'does raise an ArgumentError' do
+          expect {
+            Kirico::CharsetValidator.new(options)
+          }.to raise_error(ArgumentError, ':accept unspecified. Specify the :numeric, :latin, :katakana, :kanji, or :all option.')
+        end
+      end
+
+      context 'when specifying invalid accept option - 2' do
+        let(:options) { { attributes: :hoge, accept: [:foo, :bar] } }
+        it 'does raise an ArgumentError' do
+          expect {
+            Kirico::CharsetValidator.new(options)
+          }.to raise_error(ArgumentError, ':accept unspecified. Specify the :numeric, :latin, :katakana, :kanji, or :all option.')
+        end
+      end
+    end
+  end
+
   describe '#retrieve_error_chars' do
-    let(:validator) { Kirico::CharsetValidator.new(attributes: :hoge) }
+    let(:validator) { Kirico::CharsetValidator.new(attributes: :hoge, accept: [:all]) }
     subject { validator.retrieve_error_chars(str) }
     context 'when str contains valid chars' do
       let(:str) { 'あいうえお' }
@@ -26,7 +64,7 @@ describe Kirico::CharsetValidator do
           体重: 69㎏
         TEXT
       }
-      it { is_expected.to match_array %W(髙 﨑 № ㊤ Ⅲ ℡ ㍼ ㎝ ㎏ \n - :) }
+      it { is_expected.to match_array %W(髙 﨑 № ㊤ Ⅲ ℡ ㍼ ㎝ ㎏ \n :) }
     end
   end
 
@@ -175,9 +213,13 @@ describe Kirico::CharsetValidator do
     end
 
     shared_examples 'latin' do
-      describe '半角スペース' do
-        let(:my_field) { ' ' }
-        it { is_expected.to be_valid }
+      describe '半角記号' do
+        [' ', '-'].each do |ch|
+          let(:my_field) { ch }
+          it "#{ch} is allowed" do
+            expect(subject).to be_valid
+          end
+        end
       end
 
       context '半角英数字' do
@@ -334,8 +376,64 @@ describe Kirico::CharsetValidator do
       end
     end
 
+    context 'when accept: [:numeric]' do
+      subject { CharSetTestNumeric.new(my_field: my_field) }
+
+      context 'empty' do
+        let(:my_field) { nil }
+        it { expect(subject).to be_valid }
+      end
+      it_behaves_like 'common'
+      it_behaves_like 'numeric'
+      # it_behaves_like 'latin'
+      # it_behaves_like 'kanji'
+      # it_behaves_like 'katakana'
+    end
+
+    context 'when accept: [:latin]' do
+      subject { CharSetTestLatin.new(my_field: my_field) }
+
+      context 'empty' do
+        let(:my_field) { nil }
+        it { expect(subject).to be_valid }
+      end
+      it_behaves_like 'common'
+      # it_behaves_like 'numeric'
+      it_behaves_like 'latin'
+      # it_behaves_like 'kanji'
+      # it_behaves_like 'katakana'
+    end
+
+    context 'when accept: [:katakana]' do
+      subject { CharSetTestKatakana.new(my_field: my_field) }
+
+      context 'empty' do
+        let(:my_field) { nil }
+        it { expect(subject).to be_valid }
+      end
+      it_behaves_like 'common'
+      # it_behaves_like 'numeric'
+      # it_behaves_like 'latin'
+      # it_behaves_like 'kanji'
+      it_behaves_like 'katakana'
+    end
+
     context 'when accept: [:kanji]' do
       subject { CharSetTestKanji.new(my_field: my_field) }
+
+      context 'empty' do
+        let(:my_field) { nil }
+        it { expect(subject).to be_valid }
+      end
+      it_behaves_like 'common'
+      # it_behaves_like 'numeric'
+      # it_behaves_like 'latin'
+      it_behaves_like 'kanji'
+      # it_behaves_like 'katakana'
+    end
+
+    context 'when accept: [:all]' do
+      subject { CharSetTestAll.new(my_field: my_field) }
 
       context 'empty' do
         let(:my_field) { nil }

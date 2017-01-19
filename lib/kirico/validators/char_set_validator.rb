@@ -30,11 +30,24 @@ require 'active_model/validator'
 # 漢字                  889F-9872, 989F-EAA4
 module Kirico
   class CharsetValidator < ActiveModel::EachValidator
-    # REGEXP = /(#{"[^ -~　-〓０-я亜-腕弌-熙\r\n]".encode("CP932")})/
-    NUMERIC_CHARS = '0-9'
-    LATIN_CHARS = 'A-Za-z'
-    KATAKANA_CHARS = ' ｦ-ﾟ'
-    KANJI_CHARS = '　-〓０-я亜-腕弌-熙'
+    NUMERIC_RULE  = '0-9'
+    LATIN_RULE    = 'A-Za-z\- '
+    KATAKANA_RULE = ' ｦ-ﾟ'
+    KANJI_RULE    = '　-〓０-я亜-腕弌-熙'
+
+    CHECKS = {
+      numeric: NUMERIC_RULE,
+      latin: LATIN_RULE,
+      katakana: KATAKANA_RULE,
+      kanji: KANJI_RULE,
+      all: [NUMERIC_RULE, LATIN_RULE, KATAKANA_RULE, KANJI_RULE].join
+    }.freeze
+
+    def check_validity!
+      keys = CHECKS.keys & ([options[:accept]].flatten || [])
+      raise ArgumentError, ':accept unspecified. Specify the :numeric, :latin, :katakana, :kanji, or :all option.' if keys.empty?
+    end
+
     def validate_each(record, attribute, value)
       error_chars = retrieve_error_chars(value)
 
@@ -45,9 +58,7 @@ module Kirico
       # value.blank? はタブ文字等の場合でも true となるため注意
       return error_chars if value.nil? || value.empty?
 
-      str = "[^#{NUMERIC_CHARS}#{LATIN_CHARS}#{KATAKANA_CHARS}#{KANJI_CHARS}]".encode('CP932')
-      regex = /(#{str})/
-      match = regex.match(value.encode('CP932'))
+      match = regex(options[:accept]).match(value.encode('CP932'))
       return error_chars if match.nil?
 
       ch = match.captures[0].encode('UTF-8')
@@ -57,6 +68,16 @@ module Kirico
       ch = e.error_char
       error_chars << ch
       retrieve_error_chars(value.gsub(/#{ch}/, ''), error_chars)
+    end
+
+    private
+
+    def regex(accept = [])
+      joined_rules = CHECKS.select { |k, _v| accept.include?(k) }.values.join
+      str = "[^#{joined_rules}]".encode('CP932')
+      /(#{str})/
+      # str = "[^#{NUMERIC_CHARS}#{LATIN_CHARS}#{KATAKANA_CHARS}#{KANJI_CHARS}]".encode('CP932')
+      # /(#{str})/
     end
   end
 end

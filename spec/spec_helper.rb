@@ -13,6 +13,9 @@ RSpec.configure do |config|
   config.before(:suite) do
     FactoryGirl.find_definitions
   end
+
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
 end
 
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
