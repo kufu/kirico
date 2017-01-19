@@ -76,8 +76,6 @@ module Kirico
       joined_rules = CHECKS.select { |k, _v| accept.include?(k) }.values.join
       str = "[^#{joined_rules}]".encode('CP932')
       /(#{str})/
-      # str = "[^#{NUMERIC_CHARS}#{LATIN_CHARS}#{KATAKANA_CHARS}#{KANJI_CHARS}]".encode('CP932')
-      # /(#{str})/
     end
   end
 end
