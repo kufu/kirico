@@ -2,14 +2,13 @@
 require 'active_model'
 require 'active_model/validator'
 
-
 # 文字種別を検証する
 #
 # 設定例:
-#   validate :area_code, char_set: { accept: [:numeric] }
-#   validate :office_code, char_set: { accept: [:numeric, :latin, :katakana] }
-#   validate :office_address, char_set: { accept: [:all] }
-#   validate :office_name, char_set: { accept: [:kanji, :katakana] }
+#   validate :area_code, charset: { accept: [:numeric] }
+#   validate :office_code, charset: { accept: [:numeric, :latin, :katakana] }
+#   validate :office_address, charset: { accept: [:all] }
+#   validate :office_name, charset: { accept: [:kanji, :katakana] }
 #
 # accept に指定可能なオプション:
 #
