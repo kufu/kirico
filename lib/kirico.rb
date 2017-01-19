@@ -10,4 +10,6 @@ require 'kirico/models/helper'
 require 'kirico/csv_generator'
 
 module Kirico
+  I18n.load_path = [File.expand_path('../kirico/config/errors.ja.yml', __FILE__)]
+  I18n.locale = :ja
 end
