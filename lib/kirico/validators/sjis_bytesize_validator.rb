@@ -3,7 +3,11 @@ require 'active_model'
 require 'active_model/validator'
 
 # SJIS 換算の文字長を検証する
-# See:  https://github.com/rails/rails/blob/fe1f4b2ad56f010a4e9b93d547d63a15953d9dc2/activemodel/lib/active_model/validations/length.rb
+#
+# 設定例:
+#   validate :address, sjis_bytesize: { in: 1..30 }
+#
+# 参考:  https://github.com/rails/rails/blob/fe1f4b2ad56f010a4e9b93d547d63a15953d9dc2/activemodel/lib/active_model/validations/length.rb
 module Kirico
   class SjisBytesizeValidator < ActiveModel::EachValidator
     MESSAGES  = { is: :wrong_length, minimum: :too_short, maximum: :too_long }.freeze

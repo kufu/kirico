@@ -2,16 +2,27 @@
 require 'active_model'
 require 'active_model/validator'
 
-# [numeric]
+
+# 文字種別を検証する
+#
+# 設定例:
+#   validate :area_code, char_set: { accept: [:numeric] }
+#   validate :office_code, char_set: { accept: [:numeric, :latin, :katakana] }
+#   validate :office_address, char_set: { accept: [:all] }
+#   validate :office_name, char_set: { accept: [:kanji, :katakana] }
+#
+# accept に指定可能なオプション:
+#
+# :numeric
 # 0~9 の1 バイトの半角文字
 #
-# [latin]
+# :latin
 # アルファベットおよび記号の 1 バイトの半角文字
 #
-# [katakana]
+# :katakana
 # カタカナの1バイトの半角文字（スペースを含む）
 #
-# [kanji]
+# :kanji
 # 2 バイトの全角文字
 # see: http://charset.7jp.net/sjis2.html
 #
