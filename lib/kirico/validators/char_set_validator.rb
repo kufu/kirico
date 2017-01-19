@@ -5,7 +5,7 @@ require 'active_model/validator'
 # JIS X 0201 + JIS X 0208（機種依存文字を除く）
 module Kirico
   class CharsetValidator < ActiveModel::EachValidator
-    REGEXP = /(#{"[^ -~　-〓０-╂亜-腕弌-熙\r\n]".encode("CP932")})/
+    REGEXP = /(#{"[^ -~　-〓０-я亜-腕弌-熙\r\n]".encode("CP932")})/
     def validate_each(record, attribute, value)
       error_chars = retrieve_error_chars(value)
 

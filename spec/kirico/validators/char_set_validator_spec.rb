@@ -99,6 +99,48 @@ describe Kirico::CharsetValidator do
       end
     end
 
+    context 'ギリシア文字' do
+      %w(
+        Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π
+        Ρ Σ Τ Υ Φ Χ Ψ Ω
+        α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π
+        ρ σ τ υ φ χ ψ ω
+      ).each do |ch|
+        let(:my_field) { ch }
+        it "#{ch} is allowed" do
+          expect(subject).to be_valid
+        end
+      end
+    end
+
+    context 'ロシア文字' do
+      %w(
+        А Б В Г Д Е Ё Ж З И Й К Л М Н О
+        П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю
+        Я
+        а б в г д е ё ж з и й к л м н о
+        п р с т у ф х ц ч ш щ ъ ы ь э ю
+        я
+      ).each do |ch|
+        let(:my_field) { ch }
+        it "#{ch} is allowed" do
+          expect(subject).to be_valid
+        end
+      end
+    end
+
+    context '罫線素辺' do
+      %w(
+        ─ │ ┌ ┐ ┘ └ ├ ┬ ┤ ┴ ┼ ━ ┃ ┏ ┓ ┛
+        ┗ ┣ ┳ ┫ ┻ ╋ ┠ ┯ ┨ ┷ ┿ ┝ ┰ ┥ ┸ ╂
+      ).each do |ch|
+        let(:my_field) { ch }
+        it "#{ch} is NOT allowed" do
+          expect(subject).not_to be_valid
+        end
+      end
+    end
+
     context '全角ひらがな' do
       %w(
         ぁ あ ぃ い ぅ う ぇ え ぉ お
