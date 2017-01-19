@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 require 'virtus'
+require 'active_model'
 require 'kirico/models/helper'
 
 module Kirico
   class FDManagementRecord
     include Virtus.model
+    include ActiveModel::Validations
     extend Kirico::Helper
 
     MAIN_DOC_CODE = '22223'
@@ -13,6 +15,8 @@ module Kirico
     attribute :office_code, String
     attribute :fd_seq_number, String
     attribute :created_at, Date
+
+    validates :area_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
 
     define_format_date_method :created_at
 

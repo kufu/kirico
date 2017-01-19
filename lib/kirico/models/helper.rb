@@ -2,9 +2,15 @@
 require 'era_ja'
 require 'active_support/core_ext/object'
 require 'yaml'
+require 'kirico/validators/charset_validator'
+require 'kirico/validators/sjis_bytesize_validator'
 
 module Kirico
   module Helper
+    # Validator の追加
+    ActiveModel::Validations::CharsetValidator = Kirico::CharsetValidator
+    ActiveModel::Validations::SjisBytesizeValidator = Kirico::SjisBytesizeValidator
+
     # 指定した date 型のフィールドを整形するメソッドを生やす
     #
     # 例:
