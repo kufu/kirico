@@ -11,6 +11,11 @@ class TestModel
   end
 end
 
+# For CharsetValidator
+class CharSetTestKanji < TestModel
+  validates_with Kirico::CharsetValidator, attributes: :my_field, accept: [:kanji]
+end
+
 # For SjisBytesizeValidator
 class SjisBytesizeTestIs3 < TestModel
   validates_with Kirico::SjisBytesizeValidator, attributes: :my_field, is: 3

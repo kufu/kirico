@@ -2,14 +2,39 @@
 require 'active_model'
 require 'active_model/validator'
 
-# JIS X 0201 + JIS X 0208（機種依存文字を除く）
+# [numeric]
+# 0~9 の1 バイトの半角文字
+#
+# [latin]
+# アルファベットおよび記号の 1 バイトの半角文字
+#
+# [katakana]
+# カタカナの1バイトの半角文字（スペースを含む）
+#
+# [kanji]
+# 2 バイトの全角文字
+# see: http://charset.7jp.net/sjis2.html
+#
+# 特殊記号（間隔）      8140
+# 特殊記号（記述記号）  8141-8164
+# 特殊記号（括弧記号）  8165-817A
+# 特殊記号（学術記号）  817B-818A
+# 特殊記号（単位記号）  818B-8193
+# 特殊記号（一般記号）  8194-819E, 819F-81AC
+# 数字                  824F-8258
+# ローマ字              8260-8279, 8281-829A
+# 平仮名                829F-82F1
+# 片仮名                8340-8396
+# ギリシア文字          839F-83B6, 83BF-83D6
+# ロシア文字            8440-8460, 8470-8491
+# 漢字                  889F-9872, 989F-EAA4
 module Kirico
   class CharsetValidator < ActiveModel::EachValidator
     REGEXP = /(#{"[^ -~　-〓０-я亜-腕弌-熙\r\n]".encode("CP932")})/
     def validate_each(record, attribute, value)
       error_chars = retrieve_error_chars(value)
 
-      record.errors.add(attribute, (options[:message] || :e_gov_invalid_charset), error_chars: error_chars.join(', ')) unless error_chars.empty?
+      record.errors.add(attribute, (options[:message] || :invalid_charset), error_chars: error_chars.join(', ')) unless error_chars.empty?
     end
 
     def retrieve_error_chars(value, error_chars = [])
