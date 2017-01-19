@@ -12,16 +12,25 @@ Style/Documentation:
 Style/DoubleNegation:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/MutableConstant:
+  Enabled: false
+
 Metrics/AbcSize:
-  Max: 18
+  Max: 50
+
+Metrics/BlockLength:
+  Enabled: false
 
 Metrics/ClassLength:
   Max: 200
 
-Metrics/BlockLength:
+Metrics/LineLength:
+  Max: 200
   Exclude:
     - 'kirico.gemspec'
 
-Metrics/LineLength:
-  Exclude:
-    - 'kirico.gemspec'
+Metrics/MethodLength:
+  Max: 30

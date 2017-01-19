@@ -2,11 +2,13 @@
 require 'virtus'
 
 module Kirico
-  class Hoge
+  class DataIdentifier
     include Virtus.model
 
-    def foo
-      'foo'
+    IDENTIFIER = '[data]'
+
+    def to_csv
+      [IDENTIFIER].join(',')
     end
   end
 end
