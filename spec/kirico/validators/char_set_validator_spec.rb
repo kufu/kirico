@@ -10,8 +10,8 @@ describe Kirico::CharsetValidator do
       it { is_expected.to be_empty }
     end
     context 'when str contains INVALID char(s) - 1' do
-      let(:str) { 'あ ｨ い ｩ う ｧ え' }
-      it { is_expected.to eq %w(ｨ ｩ ｧ) }
+      let(:str) { 'あ 髙 い 﨑 う 亝 え' }
+      it { is_expected.to match_array %w(髙 﨑 亝) }
     end
     context 'when str contains INVALID char(s) - 2' do
       let(:str) {
@@ -20,13 +20,13 @@ describe Kirico::CharsetValidator do
           生年月日: ㍼59年06月09日
           社員№: 69
           役職: ㊤級役員
-          住所: ロクロタワーⅢ'
+          住所: ロクロタワーⅢ
           ℡: 080-696-6969
-          身長: 169.6㎝
-          体重: 69.6㎏
+          身長: 169㎝
+          体重: 69㎏
         TEXT
       }
-      it { is_expected.to match_array %w(髙 﨑 № ㊤ Ⅲ ℡ ㍼ ㎝ ㎏) }
+      it { is_expected.to match_array %W(髙 﨑 № ㊤ Ⅲ ℡ ㍼ ㎝ ㎏ \n - :) }
     end
   end
 
@@ -35,6 +35,31 @@ describe Kirico::CharsetValidator do
       describe 'タブ文字' do
         let(:my_field) { "\t" }
         it { is_expected.not_to be_valid }
+      end
+
+      context '半角記号' do
+        %w(
+          ! " # $ % & ' ( ) * + , - . /
+          : ; < = > ? @
+          [ \ ] ^ _ `
+          { | } ~
+        ).each do |ch|
+          let(:my_field) { ch }
+          it "#{ch} is allowed" do
+            expect(subject).not_to be_valid
+          end
+        end
+      end
+
+      context '半角カナ記号' do
+        %w(
+          ｡ ｢ ｣ ､ ･
+        ).each do |ch|
+          let(:my_field) { ch }
+          it "#{ch} is allowed" do
+            expect(subject).not_to be_valid
+          end
+        end
       end
 
       context 'ローマ数字' do
@@ -150,20 +175,6 @@ describe Kirico::CharsetValidator do
     end
 
     shared_examples 'latin' do
-      context '半角記号' do
-        %w(
-          ! " # $ % & ' ( ) * + , - . /
-          : ; < = > ? @
-          [ \ ] ^ _ `
-          { | } ~
-        ).each do |ch|
-          let(:my_field) { ch }
-          it "#{ch} is allowed" do
-            expect(subject).to be_valid
-          end
-        end
-      end
-
       describe '半角スペース' do
         let(:my_field) { ' ' }
         it { is_expected.to be_valid }
@@ -184,9 +195,8 @@ describe Kirico::CharsetValidator do
     end
 
     shared_examples 'katakana' do
-      context '半角カタカナ等' do
+      context '半角カタカナ' do
         %w(
-          ｡ ｢ ｣ ､ ･
           ｦ ｧ ｨ ｩ ｪ ｫ ｬ ｭ ｮ ｯ ｰ
           ｱ ｲ ｳ ｴ ｵ ｶ ｷ ｸ ｹ ｺ ｻ ｼ ｽ ｾ ｿ
           ﾀ ﾁ ﾂ ﾃ ﾄ ﾅ ﾆ ﾇ ﾈ ﾉ ﾊ ﾋ ﾌ ﾍ ﾎ
@@ -195,7 +205,7 @@ describe Kirico::CharsetValidator do
         ).each do |ch|
           let(:my_field) { ch }
           it "#{ch} is NOT allowed" do
-            expect(subject).not_to be_valid
+            expect(subject).to be_valid
           end
         end
       end

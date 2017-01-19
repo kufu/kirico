@@ -30,7 +30,11 @@ require 'active_model/validator'
 # 漢字                  889F-9872, 989F-EAA4
 module Kirico
   class CharsetValidator < ActiveModel::EachValidator
-    REGEXP = /(#{"[^ -~　-〓０-я亜-腕弌-熙\r\n]".encode("CP932")})/
+    # REGEXP = /(#{"[^ -~　-〓０-я亜-腕弌-熙\r\n]".encode("CP932")})/
+    NUMERIC_CHARS = '0-9'
+    LATIN_CHARS = 'A-Za-z'
+    KATAKANA_CHARS = ' ｦ-ﾟ'
+    KANJI_CHARS = '　-〓０-я亜-腕弌-熙'
     def validate_each(record, attribute, value)
       error_chars = retrieve_error_chars(value)
 
@@ -41,7 +45,9 @@ module Kirico
       # value.blank? はタブ文字等の場合でも true となるため注意
       return error_chars if value.nil? || value.empty?
 
-      match = REGEXP.match(value.encode('CP932'))
+      str = "[^#{NUMERIC_CHARS}#{LATIN_CHARS}#{KATAKANA_CHARS}#{KANJI_CHARS}]".encode('CP932')
+      regex = /(#{str})/
+      match = regex.match(value.encode('CP932'))
       return error_chars if match.nil?
 
       ch = match.captures[0].encode('UTF-8')
