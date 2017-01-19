@@ -9,6 +9,7 @@ require 'kirico/models/fd_management_record'
 require 'kirico/models/helper'
 require 'kirico/csv_generator'
 require 'kirico/validators/char_set_validator'
+require 'kirico/validators/sjis_bytesize_validator'
 
 module Kirico
   # Your code goes here...
