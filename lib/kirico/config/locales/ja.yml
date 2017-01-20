@@ -1,4 +1,4 @@
 ja:
   errors:
     messages:
-      invalid_charset: "利用できない文字が入力されています。%{error_chars}"
+      invalid_charset: "に利用できない文字が入力されています。%{error_chars}"

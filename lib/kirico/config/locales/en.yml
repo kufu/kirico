@@ -1,4 +1,4 @@
 en:
   errors:
     messages:
-      invalid_charset: "invalid character(s) specified: %{error_chars}"
+      invalid_charset: "has invalid character(s): %{error_chars}"
