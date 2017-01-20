@@ -27,6 +27,11 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   Max: 200
 
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - lib/kirico/csv_generator.rb
+    - lib/kirico/validators/sjis_bytesize_validator.rb
+
 Metrics/LineLength:
   Max: 200
   Exclude:

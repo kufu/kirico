@@ -10,5 +10,6 @@ require 'kirico/models/helper'
 require 'kirico/csv_generator'
 
 module Kirico
-  # Your code goes here...
+  locale_path = Dir.glob("#{File.dirname(__FILE__)}/kirico/config/locales/*.yml")
+  I18n.load_path += locale_path unless I18n.load_path.include?(locale_path)
 end
