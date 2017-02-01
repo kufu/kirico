@@ -36,12 +36,12 @@ module Kirico
     validates :zip_code1, charset: { accept: [:numeric] }, sjis_bytesize: { is: 3 }
     validates :zip_code2, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }
     validates :new_address_yomi, charset: { accept: [:numeric, :latin, :katakana] }, sjis_bytesize: { in: 1..75 }
-    validates :new_address, charset: { accept: [:kanji] }, sjis_bytesize: { in: 0..74 }
+    validates :new_address, charset: { accept: [:all] }, sjis_bytesize: { in: 0..74 }, allow_blank: true
     validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }
-    validates :ip_name, charset: { accept: [:kanji] }, sjis_bytesize: { in: 0..24 }
+    validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true
     validates :old_address_yomi, charset: { accept: [:numeric, :latin, :katakana] }, sjis_bytesize: { in: 1..75 }
-    validates :old_address, charset: { accept: [:kanji] }, sjis_bytesize: { in: 0..74 }
-    validates :memo, charset: { accept: [:all] }, sjis_bytesize: { in: 0..75 }
+    validates :old_address, charset: { accept: [:all] }, sjis_bytesize: { in: 0..74 }, allow_blank: true
+    validates :memo, charset: { accept: [:all] }, sjis_bytesize: { in: 0..75 }, allow_blank: true
 
     define_format_date_method :birth_at, :updated_at
     define_code_mapper_method :birth_at_era_nengo, :updated_at_era_nengo
