@@ -47,6 +47,12 @@ describe Kirico::SjisBytesizeValidator do
     end
   end
 
+  context 'when the string is nil' do
+    it 'should be invlaid' do
+      expect(SjisBytesizeTestIs3.new(my_field: nil)).not_to be_valid
+    end
+  end
+
   context 'when the string is NOT in Shift_JIS' do
     it 'raises exception' do
       expect {
