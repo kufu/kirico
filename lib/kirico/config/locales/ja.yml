@@ -5,3 +5,55 @@ ja:
       too_long: は%{count}文字以内で入力してください。
       too_short: は%{count}文字以上で入力してください。
       wrong_length: は%{count}文字で入力してください。
+      invalid_date: "は正しい形式で入力してください。"
+      invalid_time: "は正しい形式で入力してください。"
+      invalid_datetime: "は正しい形式で入力してください。"
+      is_at: "は %{restriction} である必要があります。"
+      before: "は %{restriction} より前を指定してください。"
+      on_or_before: "は %{restriction} 以前を指定してください。"
+      after: "は %{restriction} より後を指定してください。"
+      on_or_after: "は %{restriction} 以降を指定してください。"
+  activemodel:
+    models:
+      kirico/changing_address_record: 住所変更データレコード
+      kirico/company_count: 事業所数情報
+      kirico/company_identifier: 事業所識別符号
+      kirico/company: 事業所情報
+      kirico/data_identifier: データ識別符号
+      kirico/fd_management_record: FD管理レコード
+    attributes:
+      kirico/changing_address_record:
+        area_code: 都市区符号
+        office_code: 事業所記号
+        ip_code: 被保険者整理番号
+        basic_pension_number1: 基礎年金番号（課所符号）
+        basic_pension_number2: 基礎年金番号（一連番号）
+        birth_at: 生年月日
+        zip_code1: 郵便番号（親番号）
+        zip_code2: 郵便番号（子番号）
+        new_address_yomi: 変更後被保険者住所（カナ）
+        new_address: 変更後被保険者住所（漢字）
+        updated_at: 変更年月日
+        ip_name_yomi: 被保険者氏名（カナ）
+        ip_name: 被保険者氏名（漢字）
+        old_address_yomi: 変更前被保険者住所（カナ）
+        old_address: 変更前被保険者住所（漢字）
+        memo: 備考欄
+      kirico/company:
+        sr_name: 社会保険労務士氏名
+        count: 事業所数情報
+        area_code: 都市区符号
+        office_code: 事業所記号
+        office_number: 事業所番号
+        zip_code1: 郵便番号.親番号
+        zip_code2: 郵便番号.子番号
+        address: 事業所所在地
+        name: 事業所名称
+        owner_name: 事業主氏名
+        tel_number: 電話番号
+      kirico/fd_management_record:
+        area_code: 都市区符号
+        office_code: 事業所記号
+        fd_seq_number: FD通番
+        created_at: 作成年月日
+        main_doc_code: 代表届書コード
