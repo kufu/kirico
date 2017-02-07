@@ -2,6 +2,7 @@
 require 'virtus'
 require 'active_model'
 require 'kirico/models/helper'
+require 'validates_timeliness'
 
 module Kirico
   class ChangingAddressRecord
@@ -37,6 +38,7 @@ module Kirico
     validates :zip_code2, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }
     validates :new_address_yomi, charset: { accept: [:numeric, :latin, :katakana] }, sjis_bytesize: { in: 1..75 }
     validates :new_address, charset: { accept: [:all] }, sjis_bytesize: { in: 0..74 }, allow_blank: true
+    validates :updated_at, timeliness: { on_or_before: :today, type: :date }
     validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }
     validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true
     validates :old_address_yomi, charset: { accept: [:numeric, :latin, :katakana] }, sjis_bytesize: { in: 1..75 }
