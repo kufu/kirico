@@ -1,4 +1,4 @@
-<img width="446" alt="kirico-logo" src="https://cloud.githubusercontent.com/assets/2214179/22003901/8ca32334-dc9a-11e6-8c27-4551709f735d.png">
+<img width="446" alt="kirico-logo" src="https://cloud.githubusercontent.com/assets/2214179/22500174/267fa8a8-e8a6-11e6-905f-fc79a049afab.png">
 
 # Kirico
 
