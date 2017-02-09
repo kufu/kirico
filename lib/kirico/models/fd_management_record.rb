@@ -17,6 +17,8 @@ module Kirico
     attribute :created_at, Date
 
     validates :area_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
+    validates :office_code, charset: { accept: [:numeric, :latin, :katakana] }, sjis_bytesize: { in: 1..4 }
+    validates :fd_seq_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 3 }
 
     define_format_date_method :created_at
 
