@@ -25,7 +25,7 @@ module Kirico
     validates :address, charset: { accept: [:all] }, sjis_bytesize: { in: 1..75 }
     validates :name, charset: { accept: [:katakana, :kanji] }, sjis_bytesize: { in: 1..50 }
     validates :owner_name, charset: { accept: [:katakana, :kanji] }, sjis_bytesize: { in: 1..25 }
-    validates :tel_number, charset: { accept: [:latin, :number] }, sjis_bytesize: { in: 1..12 }
+    validates :tel_number, charset: { accept: [:latin, :numeric] }, sjis_bytesize: { in: 1..12 }
 
     def initialize
       yield(self) if block_given?
