@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Kirico::FDManagementRecord do
+describe Kirico::FDManagementRecord, type: :model do
   let(:record) { FactoryGirl.build(:fd_management_record) }
 
   describe '#to_csv' do

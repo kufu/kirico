@@ -57,3 +57,7 @@ ja:
         fd_seq_number: FD通番
         created_at: 作成年月日
         main_doc_code: 代表届書コード
+      kirico/form:
+        records: 届書情報
+        company: 事業所情報
+        fd: FD管理情報

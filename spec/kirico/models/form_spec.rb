@@ -1,8 +1,32 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Kirico::Form do
+describe Kirico::Form, type: :model do
   let(:record) { FactoryGirl.build(:form) }
+
+  describe 'validations' do
+    subject { record }
+    it { is_expected.to validate_presence_of(:fd) }
+    it { is_expected.to validate_presence_of(:company) }
+    it { is_expected.to validate_presence_of(:records) }
+  end
+
+  describe '#validate_children', focus: true do
+    context 'when there are some errors' do
+      before do
+        record.fd.area_code = '生卵'
+        record.fd.office_code = '豚バラ肉'
+      end
+      it 'contains some error messages' do
+        expect(record.valid?).to be_falsy
+        expect(record.errors.full_messages.count).to eq 4
+        expect(record.errors.full_messages[0]).to eq 'Fd Area code has invalid character(s): 生, 卵'
+        expect(record.errors.full_messages[1]).to eq 'Fd Area code is the wrong length (should be 2 characters)'
+        expect(record.errors.full_messages[2]).to eq 'Fd Office code has invalid character(s): 豚, バ, ラ, 肉'
+        expect(record.errors.full_messages[3]).to eq 'Fd Office code is too long (maximum is 4 characters)'
+      end
+    end
+  end
 
   describe '#to_csv' do
     let(:result) { record.to_csv.split("\n") }
