@@ -1,15 +1,6 @@
 # frozen_string_literal: true
-require 'virtus'
-require 'active_model'
-require 'kirico/models/helper'
-require 'validates_timeliness'
-
 module Kirico
-  class ChangingAddressRecord
-    include Virtus.model
-    include ActiveModel::Validations
-    extend Kirico::Helper
-
+  class ChangingAddressRecord < ApplicationRecord
     DOC_CODE = '22187041'
 
     attribute :area_code, String
