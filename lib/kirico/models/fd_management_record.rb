@@ -33,7 +33,7 @@ module Kirico
         fd_seq_number,
         fmt_ymd_created_at,
         MAIN_DOC_CODE
-      ].join(',')
+      ].map { |attr| attr.to_s.encode('Shift_JIS') }.join(',')
     end
   end
 end

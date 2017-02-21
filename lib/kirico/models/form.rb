@@ -29,8 +29,9 @@ module Kirico
         Kirico::CompanyCount.new.to_csv,
         @company.to_csv,
         Kirico::DataIdentifier.new.to_csv,
-        @records.map(&:to_csv).join("\n")
-      ].join("\n")
+        @records.map(&:to_csv).join("\r\n"),
+        ''
+      ].join("\r\n")
     end
 
     private
