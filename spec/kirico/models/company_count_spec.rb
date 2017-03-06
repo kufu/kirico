@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Kirico::CompanyCount do
+describe Kirico::CompanyCount, type: :model do
   describe '#to_csv' do
-    subject { Kirico::CompanyCount.new.to_csv }
+    subject { Kirico::CompanyCount.new.to_csv.encode('UTF-8') }
     it { is_expected.to eq ',001' }
   end
 end

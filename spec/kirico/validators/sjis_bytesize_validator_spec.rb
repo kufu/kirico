@@ -54,10 +54,8 @@ describe Kirico::SjisBytesizeValidator do
   end
 
   context 'when the string is NOT in Shift_JIS' do
-    it 'raises exception' do
-      expect {
-        SjisBytesizeTestIs3.new(my_field: '髙').valid?
-      }.to raise_error(Encoding::UndefinedConversionError)
+    it 'counts the chars length as 1' do
+      expect(SjisBytesizeTestIs3.new(my_field: '－髙－')).to be_valid
     end
   end
 
