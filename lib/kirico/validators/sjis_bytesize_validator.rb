@@ -3,6 +3,7 @@ require 'active_model'
 require 'active_model/validator'
 
 # SJIS 換算の文字長を検証する
+# SJIS 変換不可文字が設定された場合は 1 文字としてカウントする
 #
 # 設定例:
 #   validate :address, sjis_bytesize: { in: 1..30 }
@@ -47,7 +48,7 @@ module Kirico
     end
 
     def validate_each(record, attribute, value = '')
-      value_length = value.to_s.encode('Shift_JIS').bytesize
+      value_length = value.to_s.encode('Shift_JIS', undef: :replace).bytesize
 
       errors_options = options.except(*RESERVED_OPTIONS)
 
