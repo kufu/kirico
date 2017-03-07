@@ -99,6 +99,10 @@ company.errors #=> 略
 **データレコード（住所変更届）**
 
 ```ruby
+require 'kirico'
+require 'i18n'
+I18n.locale = :ja
+
 # 住所変更届データレコード
 address_record = Kirico::ChangingAddressRecord.new do |rec|
   rec.area_code = '03'
@@ -129,6 +133,9 @@ address_record.errors #=> 略
 **CSV 生成用フォーム**
 
 ```ruby
+require 'kirico'
+require 'i18n'
+I18n.locale = :ja
 
 # FD 管理用レコード
 fd = Kirico::FDManagementRecord.new do |rec|
