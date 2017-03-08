@@ -64,7 +64,7 @@ module Kirico
         old_address_yomi,
         old_address,
         memo
-      ].map { |attr| attr.to_s.encode('Shift_JIS') }.join(',')
+      ].map { |attr| attr.to_s.encode('CP932') }.join(',')
     end
   end
 end

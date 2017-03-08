@@ -8,7 +8,7 @@ module Kirico
     IDENTIFIER = '[kanri]'
 
     def to_csv
-      [IDENTIFIER].map { |attr| attr.to_s.encode('Shift_JIS') }.join(',')
+      [IDENTIFIER].map { |attr| attr.to_s.encode('CP932') }.join(',')
     end
   end
 end

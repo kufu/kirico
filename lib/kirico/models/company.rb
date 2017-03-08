@@ -42,7 +42,7 @@ module Kirico
         name,
         owner_name,
         tel_number
-      ].map { |attr| attr.to_s.encode('Shift_JIS') }.join(',')
+      ].map { |attr| attr.to_s.encode('CP932') }.join(',')
     end
   end
 end
