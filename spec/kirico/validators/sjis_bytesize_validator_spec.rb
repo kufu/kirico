@@ -53,9 +53,15 @@ describe Kirico::SjisBytesizeValidator do
     end
   end
 
-  context 'when the string is NOT in Shift_JIS' do
+  context 'when the string is NOT in CP932（U+301C: WAVE DASH）' do
     it 'counts the chars length as 1' do
-      expect(SjisBytesizeTestIs3.new(my_field: '－髙－')).to be_valid
+      expect(SjisBytesizeTestIs3.new(my_field: '〜〜〜')).to be_valid
+    end
+  end
+
+  context 'when the string contains（U+FF0D: FULLWIDTH HYPHEN-MINUS）' do
+    it 'counts the char length as 2' do
+      expect(SjisBytesizeTestIs3.new(my_field: 'x－')).to be_valid
     end
   end
 

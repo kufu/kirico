@@ -365,13 +365,20 @@ describe Kirico::CharsetValidator do
       end
 
       context '全角チルダ（U+FF5E）と波ダッシュ（U+301C）' do
-        describe '全角チルダ（U+FF5E） is NOT allowed' do
+        describe '全角チルダ（U+FF5E） is allowed' do
           let(:my_field) { '～' }
           it { expect(subject).to be_valid }
         end
-        describe '波ダッシュ（U+301C） is allowed' do
+        describe '波ダッシュ（U+301C） is NOT allowed' do
           let(:my_field) { '〜' }
           it { expect(subject).not_to be_valid }
+        end
+      end
+
+      context 'ハイフン' do
+        describe 'FULLWIDTH HYPHEN-MINUS（U+FF0D） is allowed' do
+          let(:my_field) { '－' }
+          it { expect(subject).to be_valid }
         end
       end
     end

@@ -68,6 +68,8 @@ module Kirico
       # value.blank? はタブ文字等の場合でも true となるため注意
       return error_chars if value.nil? || value.empty?
 
+      # e-Gov では U+FF0D (FULLWIDTH HYPHEN-MINUS) を許容しているようだ
+      # -> Shift_JIS ではなく CP932 が適当
       match = regex(options[:accept]).match(value.encode('CP932'))
       return error_chars if match.nil?
 
