@@ -19,8 +19,11 @@ ja:
       kirico/company_count: 事業所数情報
       kirico/company_identifier: 事業所識別符号
       kirico/company: 事業所情報
+      kirico/company_count: 事業所情報（事業所数）
       kirico/data_identifier: データ識別符号
       kirico/fd_management_record: FD管理レコード
+      kirico/sr_company_count: 事業所情報（事業所数）
+      kirico/sr_fd_management_record: FD管理レコード
     attributes:
       kirico/changing_address_record:
         area_code: 都市区符号
@@ -57,7 +60,15 @@ ja:
         fd_seq_number: FD通番
         created_at: 作成年月日
         main_doc_code: 代表届書コード
+      kirico/sr_company_count:
+        name: 社会保険労務士名
+      kirico/sr_fd_management_record:
+        sr_code: 社会保険労務士コード
+        fd_seq_number: FD通番
+        created_at: 作成年月日
+        main_doc_code: 代表届書コード
       kirico/form:
         records: 届書情報
+        company_count: 事業所情報（事業所数）
         company: 事業所情報
         fd: FD管理情報

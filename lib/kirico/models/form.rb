@@ -9,15 +9,17 @@ module Kirico
 
     FILE_NAME = 'SHFD0006.CSV'
 
-    attribute :fd, Kirico::FDManagementRecord
+    attribute :fd, Kirico::BaseFDManagementRecord
+    attribute :company_count, Kirico::BaseCompanyCount
     attribute :company, Kirico::Company
     attribute :records, Array[Kirico::ApplicationRecord]
 
-    validates :fd, :company, :records, presence: true
+    validates :fd, :company_count, :company, :records, presence: true
     validate :validate_children
 
-    def initialize(fd:, company:, records: [])
+    def initialize(fd:, company_count: Kirico::CompanyCount.new, company:, records: [])
       @fd = fd
+      @company_count = company_count
       @company = company
       @records = records
     end
@@ -26,7 +28,7 @@ module Kirico
       [
         @fd.to_csv,
         Kirico::CompanyIdentifier.new.to_csv,
-        Kirico::CompanyCount.new.to_csv,
+        @company_count.to_csv,
         @company.to_csv,
         Kirico::DataIdentifier.new.to_csv,
         @records.map(&:to_csv).join("\r\n"),
@@ -38,7 +40,7 @@ module Kirico
 
     # 子のエラーを自身のエラーとして設定する
     def validate_children
-      [:fd, :company, :records].each do |attribute|
+      [:fd, :company, :company_count, :records].each do |attribute|
         records = [send(attribute)].flatten.compact
         records.each do |rec|
           next if rec.valid?

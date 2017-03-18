@@ -9,6 +9,8 @@ require 'kirico/models/data_identifier'
 require 'kirico/models/fd_management_record'
 require 'kirico/models/helper'
 require 'kirico/models/form'
+require 'kirico/models/sr_company_count'
+require 'kirico/models/sr_fd_management_record'
 require 'kirico/csv_generator'
 
 module Kirico
