@@ -1,17 +1,9 @@
 # frozen_string_literal: true
-require 'virtus'
-require 'active_model'
+require 'kirico/models/base_company_count'
 
 module Kirico
-  class CompanyCount
-    include Virtus.model
-    include ActiveModel::Validations
-
+  class CompanyCount < BaseCompanyCount
     COUNT = '001'
-
-    def initialize
-      super
-    end
 
     def to_csv
       [nil, COUNT].map { |attr| attr.to_s.encode('CP932') }.join(',')

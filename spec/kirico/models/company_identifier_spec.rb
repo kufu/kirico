@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Kirico::CompanyIdentifier, type: :model do
+describe Kirico::CompanyCount, type: :model do
+  let(:record) { FactoryGirl.build(:company_count) }
+
   describe '#to_csv' do
-    subject { Kirico::CompanyIdentifier.new.to_csv.encode('UTF-8') }
-    it { is_expected.to eq '[kanri]' }
+    subject { record.to_csv.encode('UTF-8') }
+    it { is_expected.to eq ',001' }
   end
 end
