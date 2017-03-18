@@ -3,21 +3,21 @@ require 'virtus'
 require 'active_model'
 
 module Kirico
-  class Form
+  class SrForm
     include Virtus.model
     include ActiveModel::Validations
 
     FILE_NAME = 'SHFD0006.CSV'
 
-    attribute :fd, Kirico::FDManagementRecord
-    attribute :company_count, Kirico::CompanyCount
+    attribute :fd, Kirico::SrFDManagementRecord
+    attribute :company_count, Kirico::SrCompanyCount
     attribute :company, Kirico::Company
     attribute :records, Array[Kirico::ApplicationRecord]
 
     validates :fd, :company_count, :company, :records, presence: true
     validate :validate_children
 
-    def initialize(fd:, company_count: Kirico::CompanyCount.new, company:, records: [])
+    def initialize(fd:, company_count:, company:, records: [])
       @fd = fd
       @company_count = company_count
       @company = company
@@ -40,7 +40,7 @@ module Kirico
 
     # 子のエラーを自身のエラーとして設定する
     def validate_children
-      [:fd, :company, :company_count, :records].each do |attribute|
+      [:fd, :company_count, :company, :records].each do |attribute|
         records = [send(attribute)].flatten.compact
         records.each do |rec|
           next if rec.valid?

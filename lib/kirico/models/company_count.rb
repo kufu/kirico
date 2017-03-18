@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 require 'virtus'
+require 'active_model'
 
 module Kirico
   class CompanyCount
     include Virtus.model
+    include ActiveModel::Validations
 
     COUNT = '001'
 
