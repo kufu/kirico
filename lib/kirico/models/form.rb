@@ -9,8 +9,8 @@ module Kirico
 
     FILE_NAME = 'SHFD0006.CSV'
 
-    attribute :fd, Kirico::FDManagementRecord
-    attribute :company_count, Kirico::CompanyCount
+    attribute :fd, Kirico::BaseFDManagementRecord
+    attribute :company_count, Kirico::BaseCompanyCount
     attribute :company, Kirico::Company
     attribute :records, Array[Kirico::ApplicationRecord]
 
