@@ -72,8 +72,3 @@ ja:
         company_count: 事業所情報（事業所数）
         company: 事業所情報
         fd: FD管理情報
-      kirico/sr_form:
-        records: 届書情報
-        company_count: 事業所情報（事業所数）
-        company: 事業所情報
-        fd: FD管理情報
