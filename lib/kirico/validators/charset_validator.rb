@@ -75,11 +75,11 @@ module Kirico
 
       ch = match.captures[0].encode('UTF-8')
       error_chars << ch
-      retrieve_error_chars(value.gsub(/#{ch}/, ''), error_chars)
+      retrieve_error_chars(value.gsub(/#{Regexp.escape(ch)}/, ''), error_chars)
     rescue Encoding::UndefinedConversionError => e
       ch = e.error_char
       error_chars << ch
-      retrieve_error_chars(value.gsub(/#{ch}/, ''), error_chars)
+      retrieve_error_chars(value.gsub(/#{Regexp.escape(ch)}/, ''), error_chars)
     end
 
     private

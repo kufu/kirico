@@ -446,6 +446,10 @@ describe Kirico::CharsetValidator do
         let(:my_field) { nil }
         it { expect(subject).to be_valid }
       end
+      context 'when there exists regex character(s)' do
+        let(:my_field) { '+' }
+        it { expect(subject).not_to be_valid }
+      end
       it_behaves_like 'common'
       it_behaves_like 'numeric'
       it_behaves_like 'latin'
