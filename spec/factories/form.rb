@@ -5,7 +5,7 @@ FactoryGirl.define do
       new(
         fd: FactoryGirl.build(:fd_management_record),
         company: FactoryGirl.build(:company),
-        records: FactoryGirl.build_list(:changing_address_record, 3)
+        records: FactoryGirl.build_list(:data_record22187041, 3)
       )
     }
   end
@@ -16,7 +16,7 @@ FactoryGirl.define do
         fd: FactoryGirl.build(:sr_fd_management_record),
         company_count: FactoryGirl.build(:sr_company_count),
         company: FactoryGirl.build(:company),
-        records: FactoryGirl.build_list(:changing_address_record, 3)
+        records: FactoryGirl.build_list(:data_record22187041, 3)
       )
     }
   end

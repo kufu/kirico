@@ -3,7 +3,8 @@ mappers:
     gender:
       男性: 0
       女性: 1
-  kirico/changing_address_record:
+  # 住所変更届
+  kirico/data_record22187041:
     birth_at_era_nengo:
       M: 1
       T: 3
