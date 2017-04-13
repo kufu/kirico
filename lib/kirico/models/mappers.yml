@@ -15,3 +15,32 @@ mappers:
       T: 3
       S: 5
       H: 7
+  # 算定基礎届
+  kirico/data_record22257041:
+    birth_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+    applied_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+    old_applied_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+    income_updated_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+    ip_type:
+      regular_worker: 0
+      part_timer: 1
+      part_timer_at_enterprise: 2
+    income_updated_type:
+      up: 0
+      down: 1
