@@ -61,6 +61,49 @@ describe Kirico::Helper do
         it { is_expected.to eq '昭和' }
       end
     end
+
+    describe '#created_at_era_year' do
+      subject { obj.created_at_era_year }
+
+      context 'when created_at is nil' do
+        before { allow(obj).to receive(:created_at).and_return(nil) }
+        it { is_expected.to be_nil }
+      end
+      context 'when created_at is 1984-07-23' do
+        before { allow(obj).to receive(:created_at).and_return(Date.new(1984, 7, 23)) }
+        it { is_expected.to eq '59' }
+      end
+      context 'when created_at is 2017-07-23' do
+        before { allow(obj).to receive(:created_at).and_return(Date.new(2017, 7, 23)) }
+        it { is_expected.to eq '29' }
+      end
+    end
+
+    describe '#created_at_month' do
+      subject { obj.created_at_month }
+
+      context 'when created_at is nil' do
+        before { allow(obj).to receive(:created_at).and_return(nil) }
+        it { is_expected.to be_nil }
+      end
+      context 'when created_at is 1984-07-01' do
+        before { allow(obj).to receive(:created_at).and_return(Date.new(1984, 7, 1)) }
+        it { is_expected.to eq '07' }
+      end
+    end
+
+    describe '#created_at_day' do
+      subject { obj.created_at_day }
+
+      context 'when created_at is nil' do
+        before { allow(obj).to receive(:created_at).and_return(nil) }
+        it { is_expected.to be_nil }
+      end
+      context 'when created_at is 1984-07-01' do
+        before { allow(obj).to receive(:created_at).and_return(Date.new(1984, 7, 1)) }
+        it { is_expected.to eq '01' }
+      end
+    end
   end
 
   describe '#define_code_mapper_method' do

@@ -37,6 +37,21 @@ module Kirico
     # def submit_at_era_nengo_kanji
     #   submit_at.try(:to_era, '%O%E').try(:gsub, /\d+\z/, '')
     # end
+    #
+    # # 2015/04/09 => 2015
+    # def submit_at_year
+    #   submit_at.try(:strftime, '%Y')
+    # end
+    #
+    # # 2015/04/09 => 04
+    # def submit_at_month
+    #   submit_at.try(:strftime, '%m')
+    # end
+    #
+    # 2015/04/09 => 09
+    # def submit_at_day
+    #   submit_at.try(:strftime, '%d')
+    # end
     def define_format_date_method(*fields)
       fields.each do |attr_name|
         define_method("fmt_ymd_#{attr_name}") do
@@ -53,6 +68,18 @@ module Kirico
 
         define_method("#{attr_name}_era_nengo_kanji") do
           send(attr_name).try(:to_era, '%O%E').try(:gsub, /\d+\z/, '')
+        end
+
+        define_method("#{attr_name}_era_year") do
+          send(attr_name).try(:to_era, '%E')
+        end
+
+        define_method("#{attr_name}_month") do
+          send(attr_name).try(:strftime, '%m')
+        end
+
+        define_method("#{attr_name}_day") do
+          send(attr_name).try(:strftime, '%d')
         end
       end
     end
