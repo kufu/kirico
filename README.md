@@ -104,7 +104,7 @@ require 'i18n'
 I18n.locale = :ja
 
 # 住所変更届データレコード
-address_record = Kirico::ChangingAddressRecord.new do |rec|
+address_record = Kirico::DataRecord22187041.new do |rec|
   rec.area_code = '03'
   rec.office_code = 'ｷﾘｺ'
   rec.ip_code = '100'
