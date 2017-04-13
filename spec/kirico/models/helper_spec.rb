@@ -135,4 +135,120 @@ describe Kirico::Helper do
       end
     end
   end
+
+  describe '#define_in_k_method' do
+    class HelperMock
+      extend Kirico::Helper
+      define_in_k_method :currency
+      define_in_k_method :currency_ceil, op: :ceil
+      define_in_k_method :currency_floor, op: :floor
+      define_in_k_method :currency_round, op: :round, precision: 2
+    end
+
+    subject { HelperMock.new }
+
+    context 'w/o any arithmatic operation options' do
+      context 'when currency is 10,499' do
+        before { allow(subject).to receive(:currency).and_return(10_499) }
+
+        describe '#currency_in_k' do
+          it { expect(subject.currency_in_k).to eq('10') }
+        end
+      end
+
+      context 'when currency is 10,500' do
+        before { allow(subject).to receive(:currency).and_return(10_500) }
+
+        describe '#currency_in_k' do
+          it { expect(subject.currency_in_k).to eq('11') }
+        end
+      end
+
+      context 'when currency is nil' do
+        before { allow(subject).to receive(:currency).and_return(nil) }
+
+        describe '#currency_in_k' do
+          it { expect(subject.currency_in_k).to be_nil }
+        end
+      end
+    end
+
+    context 'w/ arithmatic operation option - ceil' do
+      context 'when currency is 10,499' do
+        before { allow(subject).to receive(:currency_ceil).and_return(10_499) }
+
+        describe '#currency_ceil_in_k' do
+          it { expect(subject.currency_ceil_in_k).to eq('11') }
+        end
+      end
+
+      context 'when currency is 10,500' do
+        before { allow(subject).to receive(:currency_ceil).and_return(10_500) }
+
+        describe '#currency_ceil_in_k' do
+          it { expect(subject.currency_ceil_in_k).to eq('11') }
+        end
+      end
+
+      context 'when currency is nil' do
+        before { allow(subject).to receive(:currency_ceil).and_return(nil) }
+
+        describe '#currency_ceil_in_k' do
+          it { expect(subject.currency_ceil_in_k).to be_nil }
+        end
+      end
+    end
+
+    context 'w/ arithmatic operation option - floor' do
+      context 'when currency is 10,499' do
+        before { allow(subject).to receive(:currency_floor).and_return(10_499) }
+
+        describe '#currency_floor_in_k' do
+          it { expect(subject.currency_floor_in_k).to eq('10') }
+        end
+      end
+
+      context 'when currency is 10,500' do
+        before { allow(subject).to receive(:currency_floor).and_return(10_500) }
+
+        describe '#currency_floor_in_k' do
+          it { expect(subject.currency_floor_in_k).to eq('10') }
+        end
+      end
+
+      context 'when currency is nil' do
+        before { allow(subject).to receive(:currency_floor).and_return(nil) }
+
+        describe '#currency_floor_in_k' do
+          it { expect(subject.currency_floor_in_k).to be_nil }
+        end
+      end
+    end
+
+    context 'w/ arithmatic operation option - round' do
+      context 'when currency is 5,014' do
+        before { allow(subject).to receive(:currency_round).and_return(5_014) }
+
+        describe '#currency_round_in_k' do
+          it { expect(subject.currency_round_in_k).to eq('5.01') }
+        end
+      end
+
+      context 'when currency is 5,015' do
+        before { allow(subject).to receive(:currency_round).and_return(5_015) }
+
+        describe '#currency_round_in_k' do
+          it { expect(subject.currency_round_in_k).to eq('5.02') }
+        end
+      end
+
+      context 'when currency is nil' do
+        before { allow(subject).to receive(:currency_round).and_return(nil) }
+
+        describe '#currency_round_in_k' do
+          it { expect(subject.currency_round_in_k).to be_nil }
+        end
+      end
+    end
+  end
 end
