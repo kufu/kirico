@@ -15,7 +15,7 @@ ja:
       on_or_after: "は %{restriction} 以降を指定してください。"
   activemodel:
     models:
-      kirico/changing_address_record: 住所変更データレコード
+      kirico/data_record22187041: 住所変更届データレコード
       kirico/company_count: 事業所数情報
       kirico/company_identifier: 事業所識別符号
       kirico/company: 事業所情報
@@ -25,7 +25,8 @@ ja:
       kirico/sr_company_count: 事業所情報（事業所数）
       kirico/sr_fd_management_record: FD管理レコード
     attributes:
-      kirico/changing_address_record:
+      # 住所変更届
+      kirico/data_record22187041:
         area_code: 都市区符号
         office_code: 事業所記号
         ip_code: 被保険者整理番号

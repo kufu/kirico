@@ -5,7 +5,7 @@ describe Kirico::CSVGenerator do
   describe '#to_csv' do
     let(:fd_management_record) { FactoryGirl.build(:fd_management_record) }
     let(:company) { FactoryGirl.build(:company) }
-    let(:data) { FactoryGirl.build_list(:changing_address_record, 2) }
+    let(:data) { FactoryGirl.build_list(:data_record22187041, 2) }
     let(:csv) { Kirico::CSVGenerator.new(fd_management_record, company, data).generate }
     let(:table) { CSV.parse(csv) }
 

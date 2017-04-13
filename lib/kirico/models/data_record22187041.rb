@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+# 住所変更届データレコード
 module Kirico
-  class ChangingAddressRecord < ApplicationRecord
+  class DataRecord22187041 < ApplicationRecord
     DOC_CODE = '22187041'
 
     attribute :area_code, String
