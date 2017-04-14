@@ -152,11 +152,11 @@ module Kirico
     #    15 日以上の月を対象とする。
     def target_months
       threshold = case ip_type
-                  when :regular_worker
+                  when :ip_type_0
                     17
-                  when :part_timer
+                  when :ip_type_1
                     COVERED_MONTHS.all? { |month| send("#{month}_days").to_i < 17 } ? 15 : 17
-                  when :part_timer_at_enterprise
+                  when :ip_type_2
                     11
                   else
                     17

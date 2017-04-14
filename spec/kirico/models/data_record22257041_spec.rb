@@ -53,8 +53,8 @@ describe Kirico::DataRecord22257041, type: :model do
       )
     }
     subject { rec.target_months }
-    context 'when the person is regular_worker' do
-      let(:ip_type) { :regular_worker }
+    context 'when the person is ip_type_0' do
+      let(:ip_type) { :ip_type_0 }
       context 'when all days are greather than or equal to 17' do
         let(:apr_days) { 17 }
         let(:may_days) { 17 }
@@ -74,8 +74,8 @@ describe Kirico::DataRecord22257041, type: :model do
         it { is_expected.to match_array [] }
       end
     end
-    context 'when the person is part_timer' do
-      let(:ip_type) { :part_timer }
+    context 'when the person is ip_type_1' do
+      let(:ip_type) { :ip_type_1 }
       context 'when all days are greather than or equal to 17' do
         let(:apr_days) { 17 }
         let(:may_days) { 17 }
@@ -109,8 +109,8 @@ describe Kirico::DataRecord22257041, type: :model do
         end
       end
     end
-    context 'when the person is regular_worker_at_enterprise' do
-      let(:ip_type) { :part_timer_at_enterprise }
+    context 'when the person is ip_type_2' do
+      let(:ip_type) { :ip_type_2 }
       context 'when all days are greather than or equal to 11' do
         let(:apr_days) { 11 }
         let(:may_days) { 11 }
