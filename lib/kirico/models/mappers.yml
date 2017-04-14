@@ -37,10 +37,17 @@ mappers:
       T: 3
       S: 5
       H: 7
+    gender_type:
+      gender_type_1: 1
+      gender_type_2: 2
+      gender_type_3: 3
+      gender_type_5: 5
+      gender_type_6: 6
+      gender_type_7: 7
     ip_type:
-      regular_worker: 0
-      part_timer: 1
-      part_timer_at_enterprise: 2
+      ip_type_0: 0
+      ip_type_1: 1
+      ip_type_2: 2
     income_updated_type:
-      up: 0
-      down: 1
+      income_updated_type_0: 0
+      income_updated_type_1: 1

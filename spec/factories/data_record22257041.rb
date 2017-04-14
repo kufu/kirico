@@ -9,7 +9,7 @@ FactoryGirl.define do
     applied_at Date.new(2016, 9, 1)
     ip_name_yomi 'ﾖｼﾀﾞ ﾀﾛｳ'
     ip_name '吉田 太郎'
-    gender_type '1'
+    gender_type :gender_type_1
     old_monthly_standard_income_hel_ins 410_000
     old_monthly_standard_income_pns_ins 200_000
     old_applied_at Date.new(2015, 7, 1)
@@ -22,10 +22,10 @@ FactoryGirl.define do
     apr_income_goods 444
     may_income_goods 555
     jun_income_goods 666
-    avg_adjustment 999
-    ip_type :regular_worker
+    avg_adjustment 1_000
+    ip_type :ip_type_0
     retroacted_payment 344
-    income_updated_type :down
+    income_updated_type :income_updated_type_1
     income_diff_amount 3333
     income_updated_at Date.new(1991, 3, 1)
     memo 'bikoooooo'

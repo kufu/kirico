@@ -3,6 +3,10 @@
 require 'spec_helper'
 
 describe Kirico::DataRecord22257041, type: :model do
+  describe 'regsitered valid factory' do
+    subject { FactoryGirl.build(:data_record22257041).valid? }
+    it { is_expected.to be_truthy }
+  end
   describe '#income_total' do
     let(:rec) { FactoryGirl.build(:data_record22257041) }
     subject { rec.income_total(currency, goods) }

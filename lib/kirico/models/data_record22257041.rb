@@ -12,7 +12,7 @@ module Kirico
     attribute :applied_at, Date
     attribute :ip_name_yomi, String
     attribute :ip_name, String
-    attribute :gender_type, String
+    attribute :gender_type, Symbol
     attribute :old_monthly_standard_income_hel_ins, Integer
     attribute :old_monthly_standard_income_pns_ins, Integer
     attribute :old_applied_at, Date
@@ -32,8 +32,33 @@ module Kirico
     define_format_date_method :birth_at, :applied_at, :old_applied_at, :income_updated_at
     define_code_mapper_method :birth_at_era_nengo, :applied_at_era_nengo,
                               :old_applied_at_era_nengo, :income_updated_at_era_nengo,
-                              :ip_type, :income_updated_type
+                              :gender_type, :ip_type, :income_updated_type
     define_in_k_method :old_monthly_standard_income_hel_ins, :old_monthly_standard_income_pns_ins
+
+    validates :area_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
+    validates :office_code, charset: { accept: [:numeric, :latin, :katakana] }, sjis_bytesize: { in: 1..4 }
+    validates :ip_code, charset: { accept: [:numeric] }, sjis_bytesize: { in: 1..6 }
+    validates :applied_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
+    validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }
+    validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true
+    validates :gender_type, inclusion: { in: [:gender_type_1, :gender_type_2, :gender_type_3, :gender_type_5, :gender_type_6, :gender_type_7] }
+    validates :old_monthly_standard_income_hel_ins, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
+    validates :old_monthly_standard_income_pns_ins, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
+    validates :old_applied_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
+    validates :apr_days, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 30 }
+    validates :may_days, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 31 }
+    validates :jun_days, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 30 }
+    COVERED_MONTHS.each do |month|
+      validates "#{month}_income_currency", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
+      validates "#{month}_income_goods", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
+    end
+    validates :avg_adjustment, numericality: { greater_than_or_equal_to: 0, greater_than_or_equal_to: 1_000, less_than_or_equal_to: 9_999_999 }, allow_blank: true
+    validates :ip_type, inclusion: { in: [:ip_type_0, :ip_type_1, :ip_type_2] }
+    validates :retroacted_payment, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
+    validates :income_updated_type, inclusion: { in: [:income_updated_type_0, :income_updated_type_1] }, allow_blank: true
+    validates :income_diff_amount, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
+    validates :income_updated_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }, allow_blank: true
+    validates :memo, charset: { accept: [:all] }, sjis_bytesize: { in: 0..75 }, allow_blank: true
 
     def initialize
       yield(self) if block_given?
@@ -54,7 +79,7 @@ module Kirico
         applied_at_month,
         ip_name_yomi,
         ip_name,
-        gender_type,
+        mapped_gender_type,
         old_monthly_standard_income_hel_ins.nil? ? nil : old_monthly_standard_income_hel_ins_in_k.to_s.rjust(4, '0'),
         old_monthly_standard_income_pns_ins.nil? ? nil : old_monthly_standard_income_pns_ins_in_k.to_s.rjust(4, '0'),
         mapped_old_applied_at_era_nengo,
