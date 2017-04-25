@@ -52,7 +52,7 @@ module Kirico
       validates "#{month}_income_currency", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
       validates "#{month}_income_goods", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
     end
-    validates :avg_adjustment, numericality: { greater_than_or_equal_to: 0, greater_than_or_equal_to: 1_000, less_than_or_equal_to: 9_999_999 }, allow_blank: true
+    validates :avg_adjustment, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
     validates :ip_type, inclusion: { in: [:ip_type_0, :ip_type_1, :ip_type_2] }
     validates :retroacted_payment, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
     validates :income_updated_type, inclusion: { in: [:income_updated_type_0, :income_updated_type_1] }, allow_blank: true
@@ -64,7 +64,7 @@ module Kirico
       yield(self) if block_given?
     end
 
-    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+    # rubocop:disable all
     def to_csv
       [
         DOC_CODE,
@@ -114,7 +114,7 @@ module Kirico
         memo
       ].map { |attr| attr.to_s.encode('CP932') }.join(',')
     end
-    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+    # rubocop:enable all
 
     def income_total(currency, goods)
       total = currency.to_i + goods.to_i
