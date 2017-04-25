@@ -15,3 +15,39 @@ mappers:
       T: 3
       S: 5
       H: 7
+  # 算定基礎届
+  kirico/data_record22257041:
+    birth_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+    applied_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+    old_applied_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+    income_updated_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+    gender_type:
+      gender_type_1: 1
+      gender_type_2: 2
+      gender_type_3: 3
+      gender_type_5: 5
+      gender_type_6: 6
+      gender_type_7: 7
+    ip_type:
+      ip_type_0: 0
+      ip_type_1: 1
+      ip_type_2: 2
+    income_updated_type:
+      income_updated_type_0: 0
+      income_updated_type_1: 1

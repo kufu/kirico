@@ -43,6 +43,35 @@ ja:
         old_address_yomi: 変更前被保険者住所（カナ）
         old_address: 変更前被保険者住所（漢字）
         memo: 備考欄
+      # 算定基礎届
+      kirico/data_record22257041:
+        area_code: 都市区符号
+        office_code: 事業所記号
+        ip_code: 被保険者整理番号
+        birth_at: 生年月日
+        applied_at: 適用年月日
+        ip_name_yomi: 被保険者氏名（カナ）
+        ip_name: 被保険者氏名（漢字）
+        gender_type: 種別（性別）
+        old_monthly_standard_income_hel_ins: 従前の標準報酬月額（健保）
+        old_monthly_standard_income_pns_ins: 従前の標準報酬月額（厚保）
+        old_applied_at: 従前の改定年月日
+        apr_days: 支払基礎日数（4月）
+        may_days: 支払基礎日数（5月）
+        jun_days: 支払基礎日数（6月）
+        apr_income_currency: 通貨によるものの額（4月）
+        may_income_currency: 通貨によるものの額（5月）
+        jun_income_currency: 通貨によるものの額（6月）
+        apr_income_goods: 現物によるものの額（4月）
+        may_income_goods: 現物によるものの額（5月）
+        jun_income_goods: 現物によるものの額（6月）
+        avg_adjustment: 修正平均額
+        ip_type: 被保険者区分
+        retroacted_payment: 遡及支払額
+        income_updated_type: 昇（降）給区分
+        income_diff_amount: 昇（降）給差の月額
+        income_updated_at: 昇（降）給年月日
+        memo: 備考欄
       kirico/company:
         sr_name: 社会保険労務士氏名
         count: 事業所数情報
