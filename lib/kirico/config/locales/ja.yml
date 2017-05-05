@@ -2,6 +2,7 @@ ja:
   errors:
     messages:
       invalid_charset: "に利用できない文字が入力されています。%{error_chars}"
+      invalid_space_divider: "は%{space_type}で区切ってください。"
       too_long: は%{count}文字以内で入力してください。
       too_short: は%{count}文字以上で入力してください。
       wrong_length: は%{count}文字で入力してください。
@@ -13,6 +14,10 @@ ja:
       on_or_before: "は %{restriction} 以前を指定してください。"
       after: "は %{restriction} より後を指定してください。"
       on_or_after: "は %{restriction} 以降を指定してください。"
+  space_type:
+    full_width: 全角スペース
+    half_width: 半角スペース
+    both_width: 全半角スペース
   activemodel:
     models:
       kirico/data_record22187041: 住所変更届データレコード
