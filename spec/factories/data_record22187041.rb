@@ -14,7 +14,7 @@ FactoryGirl.define do
     new_address '東京都世田谷区上馬'
     updated_at Date.new(2017, 1, 3)
     ip_name_yomi 'ﾀﾅｶ ﾀﾛｳ'
-    ip_name '田中 太郎'
+    ip_name '田中　太郎'
     old_address_yomi 'ﾄｳｷｮｳﾄﾈﾘﾏｸﾄﾖﾀﾏｶﾐ'
     old_address '東京都練馬区豊玉上2-5-1モゲラ801'
     memo '備考備考'

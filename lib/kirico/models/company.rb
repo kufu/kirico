@@ -24,7 +24,7 @@ module Kirico
     validates :zip_code2, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }
     validates :address, charset: { accept: [:all] }, sjis_bytesize: { in: 1..75 }
     validates :name, charset: { accept: [:katakana, :kanji] }, sjis_bytesize: { in: 1..50 }
-    validates :owner_name, charset: { accept: [:katakana, :kanji] }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :full_width }
+    validates :owner_name, charset: { accept: [:katakana, :kanji] }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :both_width }
     validates :tel_number, charset: { accept: [:latin, :numeric] }, sjis_bytesize: { in: 1..12 }
 
     def initialize

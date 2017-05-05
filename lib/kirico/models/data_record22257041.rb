@@ -39,8 +39,8 @@ module Kirico
     validates :office_code, charset: { accept: [:numeric, :latin, :katakana] }, sjis_bytesize: { in: 1..4 }
     validates :ip_code, charset: { accept: [:numeric] }, sjis_bytesize: { in: 1..6 }
     validates :applied_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
-    validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }
-    validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true
+    validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :half_width }
+    validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true, space_divider: { space: :full_width }
     validates :gender_type, inclusion: { in: [:gender_type_1, :gender_type_2, :gender_type_3, :gender_type_5, :gender_type_6, :gender_type_7] }
     validates :old_monthly_standard_income_hel_ins, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
     validates :old_monthly_standard_income_pns_ins, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
