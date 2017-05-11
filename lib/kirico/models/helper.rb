@@ -4,12 +4,14 @@ require 'active_support/core_ext/object'
 require 'yaml'
 require 'kirico/validators/charset_validator'
 require 'kirico/validators/sjis_bytesize_validator'
+require 'kirico/validators/space_divider_validator'
 
 module Kirico
   module Helper
     # Validator の追加
     ActiveModel::Validations::CharsetValidator = Kirico::CharsetValidator
     ActiveModel::Validations::SjisBytesizeValidator = Kirico::SjisBytesizeValidator
+    ActiveModel::Validations::SpaceDividerValidator = Kirico::SpaceDividerValidator
 
     # 指定した date 型のフィールドを整形するメソッドを生やす
     #

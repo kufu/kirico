@@ -8,7 +8,7 @@ FactoryGirl.define do
     birth_at Date.new(1984, 5, 27)
     applied_at Date.new(2016, 9, 1)
     ip_name_yomi 'ﾖｼﾀﾞ ﾀﾛｳ'
-    ip_name '吉田 太郎'
+    ip_name '吉田　太郎'
     gender_type :gender_type_1
     old_monthly_standard_income_hel_ins 410_000
     old_monthly_standard_income_pns_ins 200_000

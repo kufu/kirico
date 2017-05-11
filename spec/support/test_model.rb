@@ -52,3 +52,20 @@ end
 class SjisBytesizeTestMin3Max5 < TestModel
   validates_with Kirico::SjisBytesizeValidator, attributes: :my_field, minimum: 3, maximum: 5
 end
+
+# For SpaceDividerValidator
+class SpaceDividerTestFullWidth < TestModel
+  validates_with Kirico::SpaceDividerValidator, attributes: :my_field, space: :full_width
+end
+
+class SpaceDividerTestHalfWidth < TestModel
+  validates_with Kirico::SpaceDividerValidator, attributes: :my_field, space: :half_width
+end
+
+class SpaceDividerTestBothWidth < TestModel
+  validates_with Kirico::SpaceDividerValidator, attributes: :my_field, space: :both_width
+end
+
+class SpaceDividerTestDefault < TestModel
+  validates_with Kirico::SpaceDividerValidator, attributes: :my_field
+end

@@ -5,7 +5,7 @@ describe Kirico::CharsetValidator do
   describe '#check_validity!' do
     context 'when specifying valid options' do
       let(:options) { { attributes: :hoge, accept: [:kanji, :latin] } }
-      it 'does raise an ArgumentError' do
+      it 'does NOT raise an ArgumentError' do
         expect(
           Kirico::CharsetValidator.new(options)
         ).to be_a(Kirico::CharsetValidator)

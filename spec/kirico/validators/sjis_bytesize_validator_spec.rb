@@ -5,7 +5,7 @@ describe Kirico::SjisBytesizeValidator do
   describe '#initialize' do
     context 'when specifying :in by Range' do
       let(:options) { { attributes: :hoge, in: 1..3 } }
-      it 'does not raise any errors' do
+      it 'does NOT raise any errors' do
         expect(Kirico::SjisBytesizeValidator.new(options)).to be_a(Kirico::SjisBytesizeValidator)
       end
     end
