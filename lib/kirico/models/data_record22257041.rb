@@ -45,9 +45,9 @@ module Kirico
     validates :old_monthly_standard_income_hel_ins, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
     validates :old_monthly_standard_income_pns_ins, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
     validates :old_applied_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
-    validates :apr_days, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 30 }
+    validates :apr_days, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 31 }
     validates :may_days, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 31 }
-    validates :jun_days, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 30 }
+    validates :jun_days, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 31 }
     COVERED_MONTHS.each do |month|
       validates "#{month}_income_currency", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
       validates "#{month}_income_goods", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
