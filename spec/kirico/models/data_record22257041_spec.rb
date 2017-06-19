@@ -162,7 +162,7 @@ describe Kirico::DataRecord22257041, type: :model do
       let(:jun_income_currency) { 999_999 }
       it { is_expected.to eq 166 }
     end
-    context 'when avg is bigger thant 9_999_999' do
+    context 'when avg is bigger than 9_999_999' do
       let(:target_months) { [:apr, :may] }
       let(:apr_income_currency) { 10_000_000 }
       let(:may_income_currency) { 20_000_000 }
