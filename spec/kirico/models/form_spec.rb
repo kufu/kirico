@@ -3,10 +3,10 @@ require 'spec_helper'
 
 describe Kirico::Form, type: :model do
   context 'when the form is for general use' do
-    let(:record) { FactoryGirl.build(:form) }
+    let(:form) { FactoryGirl.build(:form) }
 
     describe 'validations' do
-      subject { record }
+      subject { form }
       it { is_expected.to validate_presence_of(:fd) }
       it { is_expected.to validate_presence_of(:company_count) }
       it { is_expected.to validate_presence_of(:company) }
@@ -16,22 +16,48 @@ describe Kirico::Form, type: :model do
     describe '#validate_children' do
       context 'when there are some errors' do
         before do
-          record.fd.area_code = '生卵'
-          record.fd.office_code = '豚バラ肉'
+          form.fd.area_code = '生卵'
+          form.fd.office_code = '豚バラ肉'
         end
         it 'contains some error messages' do
-          expect(record.valid?).to be_falsy
-          expect(record.errors.full_messages.count).to eq 4
-          expect(record.errors.full_messages[0]).to eq 'Fd Area code has invalid character(s): 生, 卵'
-          expect(record.errors.full_messages[1]).to eq 'Fd Area code is the wrong length (should be 2 characters)'
-          expect(record.errors.full_messages[2]).to eq 'Fd Office code has invalid character(s): 豚, バ, ラ, 肉'
-          expect(record.errors.full_messages[3]).to eq 'Fd Office code is too long (maximum is 4 characters)'
+          expect(form.valid?).to be_falsy
+          expect(form.errors.full_messages.count).to eq 4
+          expect(form.errors.full_messages[0]).to eq 'Fd Area code has invalid character(s): 生, 卵'
+          expect(form.errors.full_messages[1]).to eq 'Fd Area code is the wrong length (should be 2 characters)'
+          expect(form.errors.full_messages[2]).to eq 'Fd Office code has invalid character(s): 豚, バ, ラ, 肉'
+          expect(form.errors.full_messages[3]).to eq 'Fd Office code is too long (maximum is 4 characters)'
+        end
+      end
+    end
+
+    describe '#validate_children - data records' do
+      context 'when a single record has some errors' do
+        before do
+          form.records = FactoryGirl.build_list(:data_record22257041, 1)
+          form.records[0].may_days = 999
+        end
+        it 'contains error messages w/o row information' do
+          expect(form.valid?).to be_falsy
+          expect(form.errors.full_messages[0]).to eq 'Records May days must be less than or equal to 31'
+        end
+      end
+
+      context 'when some records have some errors' do
+        before do
+          form.records = FactoryGirl.build_list(:data_record22257041, 2)
+          form.records[0].may_days = 999
+          form.records[1].may_days = 999
+        end
+        it 'contains error messages w/o row information' do
+          expect(form.valid?).to be_falsy
+          expect(form.errors.full_messages[0]).to eq 'Records Row 1: May days must be less than or equal to 31'
+          expect(form.errors.full_messages[1]).to eq 'Records Row 2: May days must be less than or equal to 31'
         end
       end
     end
 
     describe '#to_csv' do
-      let(:result) { record.to_csv.split("\r\n") }
+      let(:result) { form.to_csv.split("\r\n") }
       describe '1st line' do
         subject { result[0].encode('UTF-8') }
         it { is_expected.to eq '14,ｸﾄﾜ,005,20170117,22223' }
@@ -72,10 +98,10 @@ describe Kirico::Form, type: :model do
   end
 
   context 'when the form is for SR use' do
-    let(:record) { FactoryGirl.build(:sr_form) }
+    let(:form) { FactoryGirl.build(:sr_form) }
 
     describe 'validations' do
-      subject { record }
+      subject { form }
       it { is_expected.to validate_presence_of(:fd) }
       it { is_expected.to validate_presence_of(:company_count) }
       it { is_expected.to validate_presence_of(:company) }
@@ -85,18 +111,18 @@ describe Kirico::Form, type: :model do
     describe '#validate_children' do
       context 'when there are some errors' do
         before do
-          record.fd.sr_code = '生卵'
+          form.fd.sr_code = '生卵'
         end
         it 'contains some error messages' do
-          expect(record.valid?).to be_falsy
-          expect(record.errors.full_messages.count).to eq 1
-          expect(record.errors.full_messages[0]).to eq 'Fd Sr code has invalid character(s): 生, 卵'
+          expect(form.valid?).to be_falsy
+          expect(form.errors.full_messages.count).to eq 1
+          expect(form.errors.full_messages[0]).to eq 'Fd Sr code has invalid character(s): 生, 卵'
         end
       end
     end
 
     describe '#to_csv' do
-      let(:result) { record.to_csv.split("\r\n") }
+      let(:result) { form.to_csv.split("\r\n") }
       describe '1st line' do
         subject { result[0].encode('UTF-8') }
         it { is_expected.to eq ',0007,004,20170227,22223' }

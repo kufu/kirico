@@ -1,5 +1,6 @@
 en:
   errors:
+    row_counter: "Row %{num}: "
     messages:
       invalid_charset: "has invalid character(s): %{error_chars}"
       invalid_space_divider: "must be dividied by %{space_type}"
