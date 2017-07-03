@@ -1,5 +1,6 @@
 ja:
   errors:
+    row_counter: "%{num}行目: "
     messages:
       invalid_charset: "に利用できない文字が入力されています。%{error_chars}"
       invalid_space_divider: "は%{space_type}で区切ってください。"
