@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'kirico'
 require 'pry'
@@ -7,7 +8,7 @@ require 'factory_girl'
 require 'shoulda-matchers'
 
 # データ定義ファイルの配置パスを設定し、定義させる。
-FactoryGirl.definition_file_paths = %w(./spec/factories)
+FactoryGirl.definition_file_paths = %w[./spec/factories]
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 

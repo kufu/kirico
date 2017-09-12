@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'era_ja'
 require 'active_support/core_ext/object'
 require 'yaml'

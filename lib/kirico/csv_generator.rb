@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Kirico
   class CSVGenerator
     def initialize(fd_management_record, company, data = [])

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'kirico/models/base_company_count'
 
 module Kirico

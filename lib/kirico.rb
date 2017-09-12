@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'kirico/version'
 require 'kirico/models/application_record'
 require 'kirico/models/company_count'

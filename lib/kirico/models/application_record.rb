@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'virtus'
 require 'active_model'
 require 'kirico/models/helper'
