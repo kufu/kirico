@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 # 算定基礎届データレコード
 module Kirico
   class DataRecord22257041 < ApplicationRecord
     DOC_CODE = '22257041'
-    COVERED_MONTHS = [:apr, :may, :jun].freeze
+    COVERED_MONTHS = %i[apr may jun].freeze
 
     attribute :area_code, String
     attribute :office_code, String
@@ -36,12 +37,12 @@ module Kirico
     define_in_k_method :old_monthly_standard_income_hel_ins, :old_monthly_standard_income_pns_ins
 
     validates :area_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
-    validates :office_code, charset: { accept: [:numeric, :latin, :katakana] }, sjis_bytesize: { in: 1..4 }
+    validates :office_code, charset: { accept: %i[numeric latin katakana] }, sjis_bytesize: { in: 1..4 }
     validates :ip_code, charset: { accept: [:numeric] }, sjis_bytesize: { in: 1..6 }
     validates :applied_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
     validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :half_width }
     validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true, space_divider: { space: :full_width }
-    validates :gender_type, inclusion: { in: [:gender_type_1, :gender_type_2, :gender_type_3, :gender_type_5, :gender_type_6, :gender_type_7] }
+    validates :gender_type, inclusion: { in: %i[gender_type_1 gender_type_2 gender_type_3 gender_type_5 gender_type_6 gender_type_7] }
     validates :old_monthly_standard_income_hel_ins, numericality: { greater_than_or_equal_to: 1_000, less_than_or_equal_to: 9_999_999 }, allow_blank: true
     validates :old_monthly_standard_income_pns_ins, numericality: { greater_than_or_equal_to: 1_000, less_than_or_equal_to: 9_999_999 }, allow_blank: true
     validates :old_applied_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
@@ -53,9 +54,9 @@ module Kirico
       validates "#{month}_income_goods", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
     end
     validates :avg_adjustment, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
-    validates :ip_type, inclusion: { in: [:ip_type_0, :ip_type_1, :ip_type_2] }
+    validates :ip_type, inclusion: { in: %i[ip_type_0 ip_type_1 ip_type_2] }
     validates :retroacted_payment, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
-    validates :income_updated_type, inclusion: { in: [:income_updated_type_0, :income_updated_type_1] }, allow_blank: true
+    validates :income_updated_type, inclusion: { in: %i[income_updated_type_0 income_updated_type_1] }, allow_blank: true
     validates :income_diff_amount, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
     validates :income_updated_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }, allow_blank: true
     validates :memo, charset: { accept: [:all] }, sjis_bytesize: { in: 0..75 }, allow_blank: true

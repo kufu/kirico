@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'virtus'
 require 'active_model'
 
@@ -40,7 +41,7 @@ module Kirico
 
     # 子のエラーを自身のエラーとして設定する
     def validate_children
-      [:fd, :company, :company_count].each do |attribute|
+      %i[fd company company_count].each do |attribute|
         rec = send(attribute)
         next if rec.nil? || rec.valid?
         rec.errors.full_messages.each do |msg|
