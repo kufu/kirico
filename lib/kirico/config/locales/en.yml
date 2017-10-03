@@ -4,6 +4,15 @@ en:
     messages:
       invalid_charset: "has invalid character(s): %{error_chars}"
       invalid_space_divider: "must be dividied by %{space_type}"
+      too_long_in_bytes:
+        one: is too long (maximum is 1 byte)
+        other: is too long (maximum is %{count} bytes)
+      too_short_in_bytes:
+        one: is too short (minimum is 1 byte)
+        other: is too short (minimum is %{count} bytes)
+      wrong_length_in_bytes:
+        one: is the wrong length (should be 1 byte)
+        other: is the wrong length (should be %{count} bytes)
       invalid_date: "is not a valid date"
       invalid_time: "is not a valid time"
       invalid_datetime: "is not a valid datetime"

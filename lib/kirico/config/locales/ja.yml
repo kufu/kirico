@@ -4,9 +4,9 @@ ja:
     messages:
       invalid_charset: "に利用できない文字が入力されています。%{error_chars}"
       invalid_space_divider: "は%{space_type}で区切ってください。"
-      too_long: は%{count}文字以内で入力してください。
-      too_short: は%{count}文字以上で入力してください。
-      wrong_length: は%{count}文字で入力してください。
+      too_long_in_bytes: は%{count}バイト以内で入力してください。
+      too_short_in_bytes: は%{count}バイト以上で入力してください。
+      wrong_length_in_bytes: は%{count}バイトで入力してください。
       invalid_date: "は正しい形式で入力してください。"
       invalid_time: "は正しい形式で入力してください。"
       invalid_datetime: "は正しい形式で入力してください。"
