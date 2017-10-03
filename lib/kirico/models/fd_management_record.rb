@@ -8,7 +8,7 @@ module Kirico
     attribute :office_code, String
 
     validates :area_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
-    validates :office_code, charset: { accept: %i[numeric latin katakana] }, sjis_bytesize: { in: 1..4 }
+    validates :office_code, charset: { accept: %i(numeric latin katakana) }, sjis_bytesize: { in: 1..4 }
 
     def to_csv
       [
