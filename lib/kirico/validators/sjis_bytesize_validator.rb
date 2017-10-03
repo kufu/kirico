@@ -12,7 +12,7 @@ require 'active_model/validator'
 # 参考:  https://github.com/rails/rails/blob/fe1f4b2ad56f010a4e9b93d547d63a15953d9dc2/activemodel/lib/active_model/validations/length.rb
 module Kirico
   class SjisBytesizeValidator < ActiveModel::EachValidator
-    MESSAGES  = { is: :wrong_length, minimum: :too_short, maximum: :too_long }.freeze
+    MESSAGES  = { is: :wrong_length_in_bytes, minimum: :too_short_in_bytes, maximum: :too_long_in_bytes }.freeze
     CHECKS    = { is: :==, minimum: :>=, maximum: :<= }.freeze
 
     RESERVED_OPTIONS = %i(minimum maximum within is too_short too_long)
