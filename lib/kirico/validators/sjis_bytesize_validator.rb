@@ -15,7 +15,7 @@ module Kirico
     MESSAGES  = { is: :wrong_length_in_bytes, minimum: :too_short_in_bytes, maximum: :too_long_in_bytes }.freeze
     CHECKS    = { is: :==, minimum: :>=, maximum: :<= }.freeze
 
-    RESERVED_OPTIONS = %i(minimum maximum within is too_short too_long)
+    RESERVED_OPTIONS = %i[minimum maximum within is too_short too_long]
 
     def initialize(options)
       range = (options.delete(:in) || options.delete(:within))
