@@ -68,7 +68,7 @@ describe Kirico::SjisBytesizeValidator do
 
   describe 'validate w/ option { is: 3 }' do
     context 'given valid lenght of strings' do
-      %w(123 ｱｲｳ abc あx).each do |str|
+      %w[123 ｱｲｳ abc あx].each do |str|
         it "#{str} should be valid" do
           expect(SjisBytesizeTestIs3.new(my_field: str)).to be_valid
         end
@@ -86,7 +86,7 @@ describe Kirico::SjisBytesizeValidator do
 
   describe 'validate w/ option { within: 3..5 }' do
     context 'given valid lenght of strings' do
-      %w(333 4444 55555).each do |str|
+      %w[333 4444 55555].each do |str|
         it "#{str} should be valid" do
           expect(SjisBytesizeTestRange3to5.new(my_field: str)).to be_valid
         end
@@ -104,7 +104,7 @@ describe Kirico::SjisBytesizeValidator do
 
   describe 'validate w/ option { minimum: 5 }' do
     context 'given valid lenght of strings' do
-      %w(55555 666666 7777777).each do |str|
+      %w[55555 666666 7777777].each do |str|
         it "#{str} should be valid" do
           expect(SjisBytesizeTestMin5.new(my_field: str)).to be_valid
         end
@@ -130,7 +130,7 @@ describe Kirico::SjisBytesizeValidator do
     end
 
     context 'given invalid lenght of strings' do
-      %w(666666 7777777).each do |str|
+      %w[666666 7777777].each do |str|
         it "#{str} should be invalid" do
           expect(SjisBytesizeTestMax5.new(my_field: str)).not_to be_valid
         end
@@ -140,7 +140,7 @@ describe Kirico::SjisBytesizeValidator do
 
   describe 'validate w/ option { minimum: 3, maximum: 5 }' do
     context 'given valid lenght of strings' do
-      %w(333 4444 55555).each do |str|
+      %w[333 4444 55555].each do |str|
         it "#{str} should be valid" do
           expect(SjisBytesizeTestMin3Max5.new(my_field: str)).to be_valid
         end

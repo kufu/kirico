@@ -60,13 +60,13 @@ describe Kirico::DataRecord22257041, type: :model do
         let(:apr_days) { 17 }
         let(:may_days) { 17 }
         let(:jun_days) { 17 }
-        it { is_expected.to match_array %i(apr may jun) }
+        it { is_expected.to match_array %i[apr may jun] }
       end
       context 'when some days are greather than or equal to 17' do
         let(:apr_days) { 17 }
         let(:may_days) { 16 }
         let(:jun_days) { 17 }
-        it { is_expected.to match_array %i(apr jun) }
+        it { is_expected.to match_array %i[apr jun] }
       end
       context 'when all days are less than 17' do
         let(:apr_days) { 16 }
@@ -81,26 +81,26 @@ describe Kirico::DataRecord22257041, type: :model do
         let(:apr_days) { 17 }
         let(:may_days) { 17 }
         let(:jun_days) { 17 }
-        it { is_expected.to match_array %i(apr may jun) }
+        it { is_expected.to match_array %i[apr may jun] }
       end
       context 'when some days are greather than or equal to 17' do
         let(:apr_days) { 17 }
         let(:may_days) { 16 }
         let(:jun_days) { 17 }
-        it { is_expected.to match_array %i(apr jun) }
+        it { is_expected.to match_array %i[apr jun] }
       end
       context 'when all days are less than 17' do
         context 'when all days are greather than or equal to 15' do
           let(:apr_days) { 15 }
           let(:may_days) { 15 }
           let(:jun_days) { 15 }
-          it { is_expected.to match_array %i(apr may jun) }
+          it { is_expected.to match_array %i[apr may jun] }
         end
         context 'when some days are greather than or equal to 15' do
           let(:apr_days) { 15 }
           let(:may_days) { 14 }
           let(:jun_days) { 15 }
-          it { is_expected.to match_array %i(apr jun) }
+          it { is_expected.to match_array %i[apr jun] }
         end
         context 'when all days are less than 15' do
           let(:apr_days) { 14 }
@@ -116,13 +116,13 @@ describe Kirico::DataRecord22257041, type: :model do
         let(:apr_days) { 11 }
         let(:may_days) { 11 }
         let(:jun_days) { 11 }
-        it { is_expected.to match_array %i(apr may jun) }
+        it { is_expected.to match_array %i[apr may jun] }
       end
       context 'when some days are greather than or equal to 11' do
         let(:apr_days) { 11 }
         let(:may_days) { 10 }
         let(:jun_days) { 11 }
-        it { is_expected.to match_array %i(apr jun) }
+        it { is_expected.to match_array %i[apr jun] }
       end
       context 'when all days are less than 11' do
         let(:apr_days) { 10 }
@@ -157,14 +157,14 @@ describe Kirico::DataRecord22257041, type: :model do
       it { is_expected.to eq 0 }
     end
     context 'when target_months Apr & May' do
-      let(:target_months) { %i(apr may) }
+      let(:target_months) { %i[apr may] }
       let(:apr_income_currency) { 111 }
       let(:may_income_currency) { 222 }
       let(:jun_income_currency) { 999_999 }
       it { is_expected.to eq 166 }
     end
     context 'when avg is bigger than 9_999_999' do
-      let(:target_months) { %i(apr may) }
+      let(:target_months) { %i[apr may] }
       let(:apr_income_currency) { 10_000_000 }
       let(:may_income_currency) { 20_000_000 }
       let(:jun_income_currency) { nil }

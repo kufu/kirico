@@ -23,18 +23,18 @@ module Kirico
     attribute :memo, String
 
     validates :area_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
-    validates :office_code, charset: { accept: %i(numeric latin katakana) }, sjis_bytesize: { in: 1..4 }
+    validates :office_code, charset: { accept: %i[numeric latin katakana] }, sjis_bytesize: { in: 1..4 }
     validates :ip_code, charset: { accept: [:numeric] }, sjis_bytesize: { in: 1..6 }
     validates :basic_pension_number1, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }, allow_blank: true
     validates :basic_pension_number2, charset: { accept: [:numeric] }, sjis_bytesize: { is: 6 }, allow_blank: true
     validates :zip_code1, charset: { accept: [:numeric] }, sjis_bytesize: { is: 3 }
     validates :zip_code2, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }
-    validates :new_address_yomi, charset: { accept: %i(numeric latin katakana) }, sjis_bytesize: { in: 1..75 }
+    validates :new_address_yomi, charset: { accept: %i[numeric latin katakana] }, sjis_bytesize: { in: 1..75 }
     validates :new_address, charset: { accept: [:all] }, sjis_bytesize: { in: 0..74 }, allow_blank: true
     validates :updated_at, timeliness: { on_or_before: :today, type: :date }
     validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :half_width }
     validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true, space_divider: { space: :full_width }
-    validates :old_address_yomi, charset: { accept: %i(numeric latin katakana) }, sjis_bytesize: { in: 1..75 }
+    validates :old_address_yomi, charset: { accept: %i[numeric latin katakana] }, sjis_bytesize: { in: 1..75 }
     validates :old_address, charset: { accept: [:all] }, sjis_bytesize: { in: 0..74 }, allow_blank: true
     validates :memo, charset: { accept: [:all] }, sjis_bytesize: { in: 0..75 }, allow_blank: true
 

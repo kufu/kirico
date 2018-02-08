@@ -9,7 +9,7 @@ module Kirico
 
     attribute :name, String
 
-    validates :name, charset: { accept: %i(katakana kanji) }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :both_width }
+    validates :name, charset: { accept: %i[katakana kanji] }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :both_width }
 
     def to_csv
       [name, COUNT].map { |attr| attr.to_s.encode('CP932') }.join(',')
