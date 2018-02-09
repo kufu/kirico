@@ -25,9 +25,7 @@ module Kirico
         options[:maximum] = range.max
       end
 
-      if options[:allow_blank] == false && options[:minimum].nil? && options[:is].nil?
-        options[:minimum] = 1
-      end
+      options[:minimum] = 1 if options[:allow_blank] == false && options[:minimum].nil? && options[:is].nil?
 
       super
     end
@@ -35,16 +33,12 @@ module Kirico
     def check_validity!
       keys = CHECKS.keys & options.keys
 
-      if keys.empty?
-        raise ArgumentError, 'Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.'
-      end
+      raise ArgumentError, 'Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.' if keys.empty?
 
       keys.each do |key|
         value = options[key]
 
-        unless (value.is_a?(Integer) && value >= 0) || value == Float::INFINITY
-          raise ArgumentError, ":#{key} must be a nonnegative Integer or Infinity"
-        end
+        raise ArgumentError, ":#{key} must be a nonnegative Integer or Infinity" unless (value.is_a?(Integer) && value >= 0) || value == Float::INFINITY
       end
     end
 
