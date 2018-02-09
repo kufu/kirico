@@ -12,6 +12,9 @@ Style/Documentation:
 Style/DoubleNegation:
   Enabled: false
 
+Style/FormatStringToken:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: true
 

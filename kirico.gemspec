@@ -1,5 +1,3 @@
-# coding: utf-8
-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'kirico/version'
@@ -30,21 +28,21 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.3.1'
 
-  spec.add_dependency 'activesupport'
   spec.add_dependency 'activemodel'
+  spec.add_dependency 'activesupport'
   spec.add_dependency 'era_ja'
   spec.add_dependency 'validates_timeliness'
   spec.add_dependency 'virtus'
 
   spec.add_development_dependency 'bundler', '~> 1.10'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'factory_girl'
   spec.add_development_dependency 'guard'
-  spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'guard-bundler'
+  spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'guard-rubocop'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'pry-byebug'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'shoulda-matchers'
 end
