@@ -38,4 +38,4 @@ Metrics/LineLength:
     - 'kirico.gemspec'
 
 Metrics/MethodLength:
-  Max: 30
+  Enabled: false

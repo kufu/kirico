@@ -10,6 +10,6 @@ guard :bundler do
   watch(/^.+\.gemspec/)
 end
 
-guard :rubocop, all_on_start: true, cli: ['-D', '--format', 'clang'] do
-  watch(/.+\.rb$/)
-end
+# guard :rubocop, all_on_start: true, cli: ['-D', '--format', 'clang'] do
+#   watch(/.+\.rb$/)
+# end

@@ -1,8 +1,50 @@
 mappers:
-  helper_mock:
-    gender:
-      男性: 0
-      女性: 1
+  # 被扶養者(異動)届・国民年金第３号被保険者関係届データレコードのうち「配偶者である被扶養者」の情報
+  kirico/data_record2202700_spouse:
+    submit_at_era_nengo:
+      H: 7
+    birth_at_era_nengo:
+      S: 5
+      H: 7
+    gender_type:
+      gender_type_1: 1
+      gender_type_2: 2
+    living_together_type:
+      living_together_type_1: 1
+      living_together_type_2: 2
+    # TODO: 都道府県コード
+    address_pref_type:
+      address_pref_type_0: 0
+      address_pref_type_1: 1
+    tel_number_type:
+      tel_number_type_1: 1
+      tel_number_type_2: 2
+      tel_number_type_3: 3
+      tel_number_type_4: 4
+    qualified_at_era_nengo:
+      H: 7
+    qualified_reason_type:
+      qualified_reason_type_1: 1
+      qualified_reason_type_2: 2
+      qualified_reason_type_3: 3
+      qualified_reason_type_4: 4
+      qualified_reason_type_5: 5
+    job_type:
+      job_type_1: 1
+      job_type_2: 2
+      job_type_3: 3
+      job_type_4: 4
+    disqualified_at_era_nengo:
+      H: 7
+    disqualified_reason_type:
+      disqualified_reason_type_1: 1
+      disqualified_reason_type_2: 2
+      disqualified_reason_type_3: 3
+      disqualified_reason_type_4: 4
+      disqualified_reason_type_5: 5
+      disqualified_reason_type_6: 6
+    death_at_era_nengo:
+      H: 7
   # 住所変更届
   kirico/data_record22187041:
     birth_at_era_nengo:
