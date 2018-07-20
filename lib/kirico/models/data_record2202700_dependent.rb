@@ -2,52 +2,57 @@
 
 # 被扶養者(異動)届・国民年金第３号被保険者関係届データレコードのうち「その他の被扶養者1~3」の情報
 module Kirico
-  class DataRecord2202700SDependent < ApplicationRecord
+  class DataRecord2202700Dependent < ApplicationRecord
     attribute :ip_code, String
     attribute :name, String
     attribute :name_yomi, String
     attribute :birth_at, Date
-    attribute :gender_type, String
-    attribute :relation_type, String
+    attribute :gender_type, Symbol
+    attribute :relation_type, Symbol
     attribute :relation_type_etc, String
     attribute :my_number_digits, String
-    attribute :living_together_type, String
+    attribute :living_together_type, Symbol
     attribute :qualified_at, Date
-    attribute :job, String
-    attribute :address, String
-    attribute :income, String
-    attribute :qualified_reason_type, String
+    attribute :job_type, Symbol
+    attribute :address_pref_type, Symbol
+    attribute :income, Integer
+    attribute :qualified_reason_type, Symbol
     attribute :qualified_reason_etc, String
     attribute :disqualified_at, Date
-    attribute :disqualified_reason_type, String
+    attribute :disqualified_reason_type, Symbol
     attribute :disqualified_reason_etc, String
     attribute :memo, String
-  end
 
-  def to_csv
-    [
-      ip_code,
-      name,
-      name_yomi,
-      mapped_birth_at_nengo,
-      fmt_era_ymd_birth_at,
-      mapped_gender_type,
-      mapped_relation_type,
-      relation_type_etc,
-      my_number_digits,
-      living_together_type,
-      mapped_spouse_qualified_at_nengo,
-      fmt_era_ymd_spouse_qualified_at,
-      job,
-      address,
-      income,
-      qualified_reason_type,
-      qualified_reason_etc,
-      mapped_disqualified_at_nengo,
-      fmt_era_ymd_disqualified_at,
-      disqualified_reason_type,
-      disqualified_reason_etc,
-      memo
-    ].map { |attr| attr.to_s.encode('CP932') }.join(',')
+    define_format_date_method :birth_at, :qualified_at, :disqualified_at
+    define_code_mapper_method :birth_at_era_nengo, :qualified_at_era_nengo, :disqualified_at_era_nengo
+    define_code_mapper_method :gender_type, :relation_type, :living_together_type,
+                              :job_type, :address_pref_type, :qualified_reason_type, :disqualified_reason_type
+
+    def to_csv
+      [
+        ip_code,
+        name_yomi,
+        name,
+        mapped_birth_at_era_nengo,
+        fmt_era_ymd_birth_at,
+        mapped_gender_type,
+        mapped_relation_type,
+        relation_type_etc,
+        my_number_digits,
+        mapped_living_together_type,
+        mapped_qualified_at_era_nengo,
+        fmt_era_ymd_qualified_at,
+        mapped_job_type,
+        mapped_address_pref_type,
+        income.to_s.rjust(7, '0'),
+        mapped_qualified_reason_type,
+        qualified_reason_etc,
+        mapped_disqualified_at_era_nengo,
+        fmt_era_ymd_disqualified_at,
+        mapped_disqualified_reason_type,
+        disqualified_reason_etc,
+        memo
+      ].map { |attr| attr.to_s.encode('CP932') }.join(',')
+    end
   end
 end

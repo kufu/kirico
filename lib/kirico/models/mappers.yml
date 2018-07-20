@@ -1,4 +1,55 @@
 mappers:
+  kirico/data_record2202700_dependent:
+  # 被扶養者(異動)届・国民年金第３号被保険者関係届データレコードのうち「その他の被扶養者1~3」の情報
+    birth_at_era_nengo:
+      S: 5
+      H: 7
+    qualified_at_era_nengo:
+      H: 7
+    disqualified_at_era_nengo:
+      H: 7
+    gender_type:
+      gender_type_1: 1
+      gender_type_2: 2
+    relation_type:
+      relation_type_01: '01'
+      relation_type_02: '02'
+      relation_type_03: '03'
+      relation_type_04: '04'
+      relation_type_05: '05'
+      relation_type_06: '06'
+      relation_type_07: '07'
+      relation_type_08: '08'
+      relation_type_09: '09'
+      relation_type_10: '10'
+    living_together_type:
+      living_together_type_1: 1
+      living_together_type_2: 2
+    job_type:
+      job_type_1: 1
+      job_type_2: 2
+      job_type_3: 3
+      job_type_4: 4
+      job_type_5: 5
+      job_type_6: 6
+    # TODO: 都道府県コード
+    address_pref_type:
+      address_pref_type_1: 1
+      address_pref_type_2: 2
+      address_pref_type_3: 3
+    qualified_reason_type:
+      qualified_reason_type_1: 1
+      qualified_reason_type_2: 2
+      qualified_reason_type_3: 3
+      qualified_reason_type_4: 4
+      qualified_reason_type_5: 5
+    disqualified_reason_type:
+      disqualified_reason_type_1: 1
+      disqualified_reason_type_2: 2
+      disqualified_reason_type_3: 3
+      disqualified_reason_type_4: 4
+      disqualified_reason_type_5: 5
+      disqualified_reason_type_6: 6
   # 被扶養者(異動)届・国民年金第３号被保険者関係届データレコードのうち「配偶者である被扶養者」の情報
   kirico/data_record2202700_spouse:
     submit_at_era_nengo:
