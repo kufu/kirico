@@ -27,6 +27,7 @@ module Kirico
     define_code_mapper_method :birth_at_era_nengo, :qualified_at_era_nengo, :disqualified_at_era_nengo
     define_code_mapper_method :gender_type, :relation_type, :living_together_type,
                               :job_type, :address_pref_type, :qualified_reason_type, :disqualified_reason_type
+    define_padding_zero_method :income
 
     def to_csv
       [
@@ -44,7 +45,7 @@ module Kirico
         fmt_era_ymd_qualified_at,
         mapped_job_type,
         mapped_address_pref_type,
-        income.to_s.rjust(7, '0'),
+        padding_zero_income,
         mapped_qualified_reason_type,
         qualified_reason_etc,
         mapped_disqualified_at_era_nengo,

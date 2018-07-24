@@ -1,4 +1,77 @@
 mappers:
+  # NOTE: テスト用区分
+  helper_mock:
+    gender:
+      男性: 0
+      女性: 1
+  kirico:
+    address_pref_type: &address_pref_type
+      address_pref_type_01: '01'
+      address_pref_type_02: '02'
+      address_pref_type_03: '03'
+      address_pref_type_04: '04'
+      address_pref_type_05: '05'
+      address_pref_type_06: '06'
+      address_pref_type_07: '07'
+      address_pref_type_08: '08'
+      address_pref_type_09: '09'
+      address_pref_type_10: '10'
+      address_pref_type_11: '11'
+      address_pref_type_12: '12'
+      address_pref_type_21: '21'
+      address_pref_type_31: '31'
+      address_pref_type_32: '32'
+      address_pref_type_33: '33'
+      address_pref_type_34: '34'
+      address_pref_type_35: '35'
+      address_pref_type_36: '36'
+      address_pref_type_37: '37'
+      address_pref_type_38: '38'
+      address_pref_type_39: '39'
+      address_pref_type_41: '41'
+      address_pref_type_42: '42'
+      address_pref_type_51: '51'
+      address_pref_type_52: '52'
+      address_pref_type_53: '53'
+      address_pref_type_54: '54'
+      address_pref_type_55: '55'
+      address_pref_type_56: '56'
+      address_pref_type_57: '57'
+      address_pref_type_58: '58'
+      address_pref_type_59: '59'
+      address_pref_type_60: '60'
+      address_pref_type_61: '61'
+      address_pref_type_71: '71'
+      address_pref_type_72: '72'
+      address_pref_type_73: '73'
+      address_pref_type_74: '74'
+      address_pref_type_75: '75'
+      address_pref_type_76: '76'
+      address_pref_type_77: '77'
+      address_pref_type_78: '78'
+      address_pref_type_79: '79'
+      address_pref_type_80: '80'
+      address_pref_type_81: '81'
+      address_pref_type_82: '82'
+  kirico/data_record2202700:
+  # 被扶養者(異動)届・国民年金第３号被保険者関係届データレコード
+    owner_accepted_at_era_nengo:
+      H: 7
+    birth_at_era_nengo:
+      S: 5
+      H: 7
+    address_pref_type:
+      *address_pref_type
+    owner_confirmation_type:
+      owner_confirmation_type_0: 0
+      owner_confirmation_type_1: 1
+    gender_type:
+      gender_type_1: 1
+      gender_type_2: 2
+    change_type:
+      change_type_1: 1
+      change_type_2: 2
+      change_type_3: 3
   kirico/data_record2202700_dependent:
   # 被扶養者(異動)届・国民年金第３号被保険者関係届データレコードのうち「その他の被扶養者1~3」の情報
     birth_at_era_nengo:
@@ -32,11 +105,8 @@ mappers:
       job_type_4: 4
       job_type_5: 5
       job_type_6: 6
-    # TODO: 都道府県コード
     address_pref_type:
-      address_pref_type_1: 1
-      address_pref_type_2: 2
-      address_pref_type_3: 3
+      *address_pref_type
     qualified_reason_type:
       qualified_reason_type_1: 1
       qualified_reason_type_2: 2
@@ -63,10 +133,8 @@ mappers:
     living_together_type:
       living_together_type_1: 1
       living_together_type_2: 2
-    # TODO: 都道府県コード
     address_pref_type:
-      address_pref_type_0: 0
-      address_pref_type_1: 1
+      *address_pref_type
     tel_number_type:
       tel_number_type_1: 1
       tel_number_type_2: 2
