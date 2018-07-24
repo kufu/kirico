@@ -137,5 +137,20 @@ module Kirico
         end
       end
     end
+
+    # 左 0 埋めした文字列を帰す
+    # def padding_zero_income
+    #   return nil if income.nil?
+    #   income.to_s.rjust(7, '0')
+    # end
+    def define_padding_zero_method(*fields, length: 7)
+      fields.each do |attr_name|
+        define_method("padding_zero_#{attr_name}") do
+          original = send(attr_name)
+          return nil if original.nil?
+          original.to_s.rjust(length, '0')
+        end
+      end
+    end
   end
 end
