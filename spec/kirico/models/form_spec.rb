@@ -24,9 +24,9 @@ describe Kirico::Form, type: :model do
           expect(form.valid?).to be_falsy
           expect(form.errors.full_messages.count).to eq 4
           expect(form.errors.full_messages[0]).to eq 'Fd Area code has invalid character(s): 生, 卵'
-          expect(form.errors.full_messages[1]).to eq 'Fd Area code is the wrong length (should be 2 characters)'
+          expect(form.errors.full_messages[1]).to eq 'Fd Area code is the wrong length (should be 2 bytes)'
           expect(form.errors.full_messages[2]).to eq 'Fd Office code has invalid character(s): 豚, バ, ラ, 肉'
-          expect(form.errors.full_messages[3]).to eq 'Fd Office code is too long (maximum is 4 characters)'
+          expect(form.errors.full_messages[3]).to eq 'Fd Office code is too long (maximum is 4 bytes)'
         end
       end
     end

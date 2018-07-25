@@ -5,7 +5,7 @@ FactoryGirl.define do
   factory :data_record2202700_spouse, class: Kirico::DataRecord2202700Spouse do
     submit_at Date.new(2018, 7, 10)
     name_yomi 'ﾀﾅｶ ﾅｵ'
-    name '田中 菜緒'
+    name '田中　菜緒'
     birth_at Date.new(1982, 6, 19)
     gender_type :gender_type_2
     my_number_digits '000000000000'
@@ -13,11 +13,11 @@ FactoryGirl.define do
     basic_pension_number2 '808240'
     nationality '外国籍の場合'
     foreign_name_kana 'ｶﾞｲｺｸｼﾞﾝ ﾂｳｼｮｳ'
-    foreign_name '外国人 通称'
+    foreign_name '外国人　通称'
     living_together_type :living_together_type_2
     address_pref_type ''
     zip_code1 '739'
-    spoues_zip_code2 '1742'
+    zip_code2 '1742'
     address '広島県広島市安佐北区亀崎'
     tel_number_type :tel_number_type_2
     tel_number1 '080'

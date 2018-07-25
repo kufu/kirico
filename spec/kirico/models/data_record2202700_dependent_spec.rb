@@ -9,6 +9,6 @@ describe Kirico::DataRecord2202700Dependent, type: :model do
   end
   describe '#to_csv' do
     subject { FactoryGirl.build(:data_record2202700_dependent).to_csv.encode('UTF-8') }
-    it { is_expected.to eq ',ﾀﾅｶ ﾀﾛｳ,田中 太郎,7,100808,1,02,,000000000000,1,7,300701,2,,0000333,1,,,,,,あああ' }
+    it { is_expected.to eq ',ﾀﾅｶ ﾀﾛｳ,田中　太郎,7,100808,1,02,,000000000000,1,7,300701,2,,0000333,1,,,,,,あああ' }
   end
 end

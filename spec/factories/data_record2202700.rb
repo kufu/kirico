@@ -10,7 +10,7 @@ FactoryGirl.define do
     owner_accepted_at Date.new(2018, 7, 10)
     ip_code '000003'
     ip_name_yomi 'ﾀﾅｶ ｹﾝｽｹ'
-    ip_name '田中 研介'
+    ip_name '田中　研介'
     birth_at Date.new(1984, 7, 23)
     gender_type :gender_type_1
     my_number_digits '000000000000'

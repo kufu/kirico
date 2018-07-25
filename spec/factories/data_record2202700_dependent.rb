@@ -4,7 +4,7 @@
 FactoryGirl.define do
   factory :data_record2202700_dependent, class: Kirico::DataRecord2202700Dependent do
     ip_code nil
-    name '田中 太郎'
+    name '田中　太郎'
     name_yomi 'ﾀﾅｶ ﾀﾛｳ'
     birth_at Date.new(1998, 8, 8)
     gender_type :gender_type_1
