@@ -59,7 +59,7 @@ module Kirico
     ] }, allow_blank: true
     validates :zip_code1, charset: { accept: [:numeric] }, sjis_bytesize: { is: 3 }, allow_blank: true
     validates :zip_code2, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }, allow_blank: true
-    validates :address, charset: { accept: [:all] }, sjis_bytesize: { in: 0..37 }, allow_blank: true
+    validates :address, charset: { accept: [:all] }, sjis_bytesize: { in: 0..74 }, allow_blank: true
     validates :tel_number_type, inclusion: { in: %i[tel_number_type_1 tel_number_type_2 tel_number_type_3 tel_number_type_4] }, allow_blank: true
     validates :tel_number1, charset: { accept: [:numeric] }, sjis_bytesize: { in: 2..5 }, allow_blank: true
     validates :tel_number2, charset: { accept: [:numeric] }, sjis_bytesize: { in: 1..4 }, allow_blank: true
