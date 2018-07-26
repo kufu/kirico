@@ -35,7 +35,7 @@ module Kirico
     attribute :memo, String
 
     validates :name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 0..25 }, space_divider: { space: :half_width }, allow_blank: true
-    validates :name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, space_divider: { space: :full_width }, allow_blank: true
+    validates :name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..12 }, space_divider: { space: :full_width }, allow_blank: true
     validates :my_number_digits, charset: { accept: [:numeric] }, sjis_bytesize: { is: 12 }, allow_blank: true
     validates :gender_type, inclusion: { in: %i[gender_type_1 gender_type_2 gender_type_3 gender_type_4] }, allow_blank: true
     validates :basic_pension_number1, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }, allow_blank: true
@@ -44,6 +44,7 @@ module Kirico
     validates :foreign_name_kana, charset: { accept: [:katakana] }, sjis_bytesize: { in: 0..25 }, allow_blank: true
     validates :foreign_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..12 }, space_divider: { space: :full_width }, allow_blank: true
     validates :living_together_type, inclusion: { in: %i[living_together_type_1 living_together_type_2] }, allow_blank: true
+    # FIXME: 共通化できそ
     validates :address_pref_type, inclusion: { in: %i[
       address_pref_type_01 address_pref_type_02 address_pref_type_03 address_pref_type_04 address_pref_type_05
       address_pref_type_06 address_pref_type_07 address_pref_type_08 address_pref_type_09 address_pref_type_10
