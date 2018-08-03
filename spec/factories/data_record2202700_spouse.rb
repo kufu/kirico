@@ -3,6 +3,7 @@
 # 被扶養者(異動)届・国民年金第３号被保険者関係届データレコードのうち「配偶者である被扶養者」の情報
 FactoryGirl.define do
   factory :data_record2202700_spouse, class: Kirico::DataRecord2202700Spouse do
+    change_type :change_type_1
     submit_at Date.new(2018, 7, 10)
     name_yomi 'ﾀﾅｶ ﾅｵ'
     name '田中　菜緒'
