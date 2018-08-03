@@ -152,5 +152,28 @@ module Kirico
         end
       end
     end
+
+    # 条件によって表示/非表示を切替えるメソッドを生やす
+    #
+    # 例:
+    #
+    # マインナンバーが存在する場合のみ、
+    # 現在の給与を出力するメソッドを生やす。
+    # define_conditional_display_method :salary do |obj|
+    #   obj.my_number_digist.present?
+    # end
+    #
+    # ↓
+    #
+    # def cond_current_salary
+    #   current_salary if obj.my_number_digist.present?
+    # end
+    def define_conditional_display_method(*fields)
+      fields.each do |attr_name|
+        define_method("cond_#{attr_name}") do
+          public_send(attr_name) if yield(self)
+        end
+      end
+    end
   end
 end

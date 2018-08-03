@@ -291,4 +291,28 @@ describe Kirico::Helper do
       end
     end
   end
+
+  describe '#define_conditional_display_method' do
+    class HelperMock
+      extend Kirico::Helper
+      define_conditional_display_method :income, &:condition
+    end
+
+    subject { HelperMock.new }
+
+    before { allow(subject).to receive(:income).and_return(1_000_000) }
+    before { allow(subject).to receive(:condition).and_return(condition) }
+    context 'when condition is true' do
+      let(:condition) { true }
+      it { expect(subject.cond_income).to eq 1_000_000 }
+    end
+    context 'when condition is false' do
+      let(:condition) { false }
+      it { expect(subject.cond_income).to eq nil }
+    end
+    context 'when condition is nil' do
+      let(:condition) { nil }
+      it { expect(subject.cond_income).to eq nil }
+    end
+  end
 end
