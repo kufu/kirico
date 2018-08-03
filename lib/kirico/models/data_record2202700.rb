@@ -67,6 +67,12 @@ module Kirico
     define_code_mapper_method :owner_accepted_at_era_nengo, :birth_at_era_nengo
     define_code_mapper_method :address_pref_type, :owner_confirmation_type, :gender_type, :change_type
     define_padding_zero_method :salary, :spouse_annual_income
+    define_conditional_display_method :padding_zero_salary, :spouse_annual_income do |rec|
+      rec.change_type == :change_type_1
+    end
+    define_conditional_display_method :zip_code1, :zip_code2, :address do |rec|
+      rec.my_number_digits.present?
+    end
 
     def initialize
       yield(self) if block_given?
@@ -94,13 +100,13 @@ module Kirico
         my_number_digits,
         basic_pension_number1,
         basic_pension_number2,
-        padding_zero_salary,
+        cond_padding_zero_salary,
         zip_code1,
         zip_code2,
         address,
         mapped_change_type,
         spouse_record.to_csv,
-        spouse_annual_income,
+        cond_spouse_annual_income,
         dependent_record1.to_csv,
         dependent_record2.to_csv,
         dependent_record3.to_csv
