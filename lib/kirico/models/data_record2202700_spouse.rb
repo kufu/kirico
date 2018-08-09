@@ -130,14 +130,6 @@ module Kirico
       rec.disqualified_reason_type == :disqualified_reason_type_1
     end
 
-    define_conditional_display_method :memo do |rec|
-      rec.change_type == :change_type_3
-    end
-
-    def initialize
-      yield(self) if block_given?
-    end
-
     # 主要な項目を検証し、配偶者である被扶養者情報として
     # 設定されているかを判定する
     def assigned?

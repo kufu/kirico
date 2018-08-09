@@ -3,6 +3,7 @@
 # 被扶養者(異動)届・国民年金第３号被保険者関係届データレコードのうち「配偶者である被扶養者」の情報
 FactoryGirl.define do
   factory :data_record2202700_dependent, class: Kirico::DataRecord2202700Dependent do
+    change_type :change_type_1
     ip_code nil
     name '田中　太郎'
     name_yomi 'ﾀﾅｶ ﾀﾛｳ'
