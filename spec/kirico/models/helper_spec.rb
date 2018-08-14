@@ -252,4 +252,67 @@ describe Kirico::Helper do
       end
     end
   end
+
+  describe '#define_padding_zero_method' do
+    class HelperMock
+      extend Kirico::Helper
+      define_padding_zero_method :income
+      define_padding_zero_method :income_with_length, length: 5
+    end
+
+    subject { HelperMock.new }
+
+    context 'w/o any length option' do
+      context 'when income is nil' do
+        before { allow(subject).to receive(:income).and_return(nil) }
+        describe '#padding_zero_income' do
+          it { expect(subject.padding_zero_income).to be_nil }
+        end
+      end
+      context 'when income is 1,234' do
+        before { allow(subject).to receive(:income).and_return(1_234) }
+        describe '#padding_zero_income' do
+          it { expect(subject.padding_zero_income).to eq '0001234' }
+        end
+      end
+    end
+    context 'w/ a length option' do
+      context 'when income_with_length is nil' do
+        before { allow(subject).to receive(:income_with_length).and_return(nil) }
+        describe '#padding_zero_income' do
+          it { expect(subject.padding_zero_income_with_length).to be_nil }
+        end
+      end
+      context 'when income is 1,234' do
+        before { allow(subject).to receive(:income_with_length).and_return(1_234) }
+        describe '#padding_zero_income' do
+          it { expect(subject.padding_zero_income_with_length).to eq '01234' }
+        end
+      end
+    end
+  end
+
+  describe '#define_conditional_display_method' do
+    class HelperMock
+      extend Kirico::Helper
+      define_conditional_display_method :income, &:condition
+    end
+
+    subject { HelperMock.new }
+
+    before { allow(subject).to receive(:income).and_return(1_000_000) }
+    before { allow(subject).to receive(:condition).and_return(condition) }
+    context 'when condition is true' do
+      let(:condition) { true }
+      it { expect(subject.cond_income).to eq 1_000_000 }
+    end
+    context 'when condition is false' do
+      let(:condition) { false }
+      it { expect(subject.cond_income).to eq nil }
+    end
+    context 'when condition is nil' do
+      let(:condition) { nil }
+      it { expect(subject.cond_income).to eq nil }
+    end
+  end
 end
