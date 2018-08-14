@@ -106,7 +106,7 @@ module Kirico
     define_padding_zero_method :income
 
     define_conditional_display_method :mapped_living_together_type, :mapped_qualified_reason_type,
-                                      :mapped_job_type do |rec|
+                                      :mapped_job_type, :padding_zero_income do |rec|
       rec.change_type == :change_type_1
     end
 
@@ -129,7 +129,6 @@ module Kirico
     define_conditional_display_method :mapped_death_at_era_nengo do |rec|
       rec.disqualified_reason_type == :disqualified_reason_type_1
     end
-
     # 主要な項目を検証し、配偶者である被扶養者情報として
     # 設定されているかを判定する
     def assigned?
@@ -165,7 +164,7 @@ module Kirico
         cond_mapped_qualified_reason_type,
         qualified_reason_etc,
         cond_mapped_job_type,
-        padding_zero_income,
+        cond_padding_zero_income,
         cond_mapped_disqualified_at_era_nengo,
         cond_fmt_era_ymd_disqualified_at,
         cond_mapped_disqualified_reason_type,
