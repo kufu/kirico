@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :fd_management_record, class: Kirico::FDManagementRecord do
     area_code '14'
     office_code 'ｸﾄﾜ'
