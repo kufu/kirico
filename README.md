@@ -1,6 +1,6 @@
 <img width="300" alt="kirico-logo" src="https://cloud.githubusercontent.com/assets/2214179/22500174/267fa8a8-e8a6-11e6-905f-fc79a049afab.png">
 
-# kirico
+# kirico [ ![](https://img.shields.io/gem/v/kirico.svg)](https://rubygems.org/gems/kirico) [ ![](https://img.shields.io/gem/dt/kirico.svg)](https://rubygems.org/gems/kirico)
 
 [![CircleCI](https://circleci.com/gh/kufu/kirico.svg?style=svg)](https://circleci.com/gh/kufu/kirico)
 
@@ -8,14 +8,14 @@ A Ruby implementation of 届書作成プログラム
 
 ## 理念
 
-2008 年より[電子政府（e-Gov）のウェブサイト](http://www.e-gov.go.jp/shinsei/index.html)上で社会保険・労働保険関連手続きの電子申請の受付が開始されました。  
-2010 年には e-Gov の使い勝手の向上を図り、一括申請機能の提供が開始されました。  
-そして 2014 年 10 月、さらなる利便性の向上を目的に、外部連携 API 仕様が公開されました。  
+2008 年より[電子政府（e-Gov）のウェブサイト](http://www.e-gov.go.jp/shinsei/index.html)上で社会保険・労働保険関連手続きの電子申請の受付が開始されました。
+2010 年には e-Gov の使い勝手の向上を図り、一括申請機能の提供が開始されました。
+そして 2014 年 10 月、さらなる利便性の向上を目的に、外部連携 API 仕様が公開されました。
 
-これまで様々な取組が行われてきた一方で、確定申告などで利用される国税の電子申告（e-Tax）と比べるとまだまだ普及度が低いのが実情です。  
-また、一部の電子申請では年金機構の公開する「届書作成プログラム」を利用して CSV ファイルを生成する必要があり、一般利用者、ソフトウェア開発者共に負担となるものでした。  
+これまで様々な取組が行われてきた一方で、確定申告などで利用される国税の電子申告（e-Tax）と比べるとまだまだ普及度が低いのが実情です。
+また、一部の電子申請では年金機構の公開する「届書作成プログラム」を利用して CSV ファイルを生成する必要があり、一般利用者、ソフトウェア開発者共に負担となるものでした。
 
-わたしたちは kirico の開発・公開によって CSV 形式の電子申請への対応を容易にすることで e-Gov 外部連携 API に対応したソフトウェアが増えることを期待します。  
+わたしたちは kirico の開発・公開によって CSV 形式の電子申請への対応を容易にすることで e-Gov 外部連携 API に対応したソフトウェアが増えることを期待します。
 そして、電子政府の認知度の向上、利用率の向上、及び利用の拡大に貢献し、もってユーザの利便性の向上を目指します。
 
 
@@ -165,12 +165,12 @@ end
 
 ## 生成した CSV の検証
 
-日本年金機構の公開している検証プログラムで生成した CSV ファイルを検証することもできます。  
+日本年金機構の公開している検証プログラムで生成した CSV ファイルを検証することもできます。
 ※動作には Windows 環境が必要となります
 
 <img width="400" alt="kirico-logo" src="https://cloud.githubusercontent.com/assets/2214179/23650706/609ed1e6-0366-11e7-92d9-625354982b9f.png">
 
-検証プログラムのダウンロードはこちらから。  
+検証プログラムのダウンロードはこちらから。
 [届出システムを自社開発または市販ソフトを使用する場合｜日本年金機構](https://www.nenkin.go.jp/denshibenri/setsumei/20150415.html)
 
 
@@ -212,7 +212,7 @@ end
 
 ## Copyright
 
-Copyright (c) 2017 Kensuke NAITO and SmartHR, Inc.  
+Copyright (c) 2017 Kensuke NAITO and SmartHR, Inc.
 ライセンスはこちら: [kirico/LICENSE.md](https://github.com/kufu/kirico/blob/master/LICENSE.md)
 
 
@@ -220,18 +220,18 @@ Copyright (c) 2017 Kensuke NAITO and SmartHR, Inc.
 
 <img src="https://user-images.githubusercontent.com/2214179/30309095-3fb58b08-97c4-11e7-939b-b4b97414bb1d.png" width="300">
 
-kirico は株式会社 SmartHR によってメンテナンス、開発が行われています。  
-わたしたちは OSS の力を信じています。  
+kirico は株式会社 SmartHR によってメンテナンス、開発が行われています。
+わたしたちは OSS の力を信じています。
 
-SmartHR では OSS 活動に積極的なエンジニアを募集しています！  
+SmartHR では OSS 活動に積極的なエンジニアを募集しています！
 
 [「雇用」×「国のAPI」をハックする Ruby エンジニア募集！](https://www.wantedly.com/projects/3788)
 
 
 # kirico について
 
-切子（kirico）とは江戸時代末期より生産されている伝統的なガラス細工です。  
-中でも薩摩切子は薩摩藩御用達の工芸品であり、多くの大名に珍重されてきました。  
-色付きの厚いガラスを被せ文様を彫るため、薄く繊細な江戸切子と比較すると、重厚な印象が特徴的です。  
-幕末の動乱の中で生産設備に壊滅的な被害を受け、その技術は一時途絶えていましたが、  
+切子（kirico）とは江戸時代末期より生産されている伝統的なガラス細工です。
+中でも薩摩切子は薩摩藩御用達の工芸品であり、多くの大名に珍重されてきました。
+色付きの厚いガラスを被せ文様を彫るため、薄く繊細な江戸切子と比較すると、重厚な印象が特徴的です。
+幕末の動乱の中で生産設備に壊滅的な被害を受け、その技術は一時途絶えていましたが、
 近年、各地の職人の努力により復刻に成功しました。
