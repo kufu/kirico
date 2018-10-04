@@ -21,6 +21,9 @@ Style/FrozenStringLiteralComment:
 Style/MutableConstant:
   Enabled: false
 
+Naming/UncommunicativeMethodParamName:
+  MinNameLength: 2
+
 Metrics/AbcSize:
   Max: 50
 
