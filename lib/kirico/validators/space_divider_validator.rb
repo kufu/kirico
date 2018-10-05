@@ -38,7 +38,7 @@ module Kirico
     }.freeze
 
     def check_validity!
-      raise ArgumentError, "Invalid space option #{space_option}. Specify the :full_width, half_width, or :both_width." unless CHECKS.keys.include?(space_option)
+      raise ArgumentError, "Invalid space option #{space_option}. Specify the :full_width, half_width, or :both_width." unless CHECKS.key?(space_option)
     end
 
     def validate_each(record, attribute, value)
