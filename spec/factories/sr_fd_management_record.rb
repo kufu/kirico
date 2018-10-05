@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :sr_fd_management_record, class: Kirico::SrFDManagementRecord do
     sr_code '0007'
     fd_seq_number '004'

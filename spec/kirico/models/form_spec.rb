@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Kirico::Form, type: :model do
   context 'when the form is for general use' do
-    let(:form) { FactoryGirl.build(:form) }
+    let(:form) { FactoryBot.build(:form) }
 
     describe 'validations' do
       subject { form }
@@ -34,7 +34,7 @@ describe Kirico::Form, type: :model do
     describe '#validate_children - data records' do
       context 'when a single record has some errors' do
         before do
-          form.records = FactoryGirl.build_list(:data_record22257041, 1)
+          form.records = FactoryBot.build_list(:data_record22257041, 1)
           form.records[0].may_days = 999
         end
         it 'contains error messages w/o row information' do
@@ -45,7 +45,7 @@ describe Kirico::Form, type: :model do
 
       context 'when some records have some errors' do
         before do
-          form.records = FactoryGirl.build_list(:data_record22257041, 2)
+          form.records = FactoryBot.build_list(:data_record22257041, 2)
           form.records[0].may_days = 999
           form.records[1].may_days = 999
         end
@@ -99,7 +99,7 @@ describe Kirico::Form, type: :model do
   end
 
   context 'when the form is for SR use' do
-    let(:form) { FactoryGirl.build(:sr_form) }
+    let(:form) { FactoryBot.build(:sr_form) }
 
     describe 'validations' do
       subject { form }

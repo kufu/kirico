@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # 住所変更届データレコード
-FactoryGirl.define do
+FactoryBot.define do
   factory :data_record22187041, class: Kirico::DataRecord22187041 do
     area_code '14'
     office_code 'ｸﾄﾜ'

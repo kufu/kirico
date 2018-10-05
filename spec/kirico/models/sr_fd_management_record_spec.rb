@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Kirico::SrFDManagementRecord, type: :model do
-  let(:record) { FactoryGirl.build(:sr_fd_management_record) }
+  let(:record) { FactoryBot.build(:sr_fd_management_record) }
 
   describe '#to_csv' do
     subject { record.to_csv.encode('UTF-8') }

@@ -5,11 +5,11 @@ require 'spec_helper'
 
 describe Kirico::DataRecord22257041, type: :model do
   describe 'regsitered valid factory' do
-    subject { FactoryGirl.build(:data_record22257041).valid? }
+    subject { FactoryBot.build(:data_record22257041).valid? }
     it { is_expected.to be_truthy }
   end
   describe '#income_total' do
-    let(:rec) { FactoryGirl.build(:data_record22257041) }
+    let(:rec) { FactoryBot.build(:data_record22257041) }
     subject { rec.income_total(currency, goods) }
     context 'when currency & goods are both nil' do
       let(:currency) { nil }
@@ -45,7 +45,7 @@ describe Kirico::DataRecord22257041, type: :model do
 
   describe '#target_months' do
     let(:rec) {
-      FactoryGirl.build(
+      FactoryBot.build(
         :data_record22257041,
         ip_type: ip_type,
         apr_days: apr_days,
@@ -135,7 +135,7 @@ describe Kirico::DataRecord22257041, type: :model do
 
   describe '#income_average' do
     let(:rec) {
-      FactoryGirl.build(
+      FactoryBot.build(
         :data_record22257041,
         apr_income_currency: apr_income_currency,
         may_income_currency: may_income_currency,
@@ -173,7 +173,7 @@ describe Kirico::DataRecord22257041, type: :model do
   end
 
   describe '#to_csv' do
-    subject { FactoryGirl.build(:data_record22257041).to_csv.encode('UTF-8') }
+    subject { FactoryBot.build(:data_record22257041).to_csv.encode('UTF-8') }
     it {
       is_expected.to eq '22257041,14,ｸﾄﾜ,000002,5,590527,,7,28,09,ﾖｼﾀﾞ ﾀﾛｳ,' \
         '吉田　太郎,1,0410,0200,7,27,07,04,05,06,03,24,17,' \
