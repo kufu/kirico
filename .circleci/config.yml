@@ -1,47 +1,15 @@
 version: 2
-
-jobs:
-  build:
-    parallelism: 3
+ jobs:
+  ruby-2.5:
     docker:
-      - image: circleci/ruby:2.4.2-jessie-node
-        environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: vendor/bundle
-          RAILS_ENV: test
+      - image: ruby:2.5.1
     steps:
       - checkout
-
-      # Which version of bundler?
-      - run:
-          name: Which bundler?
-          command: bundle -v
-
-      # Restore bundle cache
-      - restore_cache:
-          keys:
-            - kirico-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - kirico-bundle-v2-
-
-      - run:
-          name: Bundle Install
-          command: bundle check || bundle install
-
-      # Store bundle cache
-      - save_cache:
-          key: kirico-bundle-v2-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-
-      - run:
-          name: Run Rubocop
-          command: ./script/circleci/run_rubocop.sh
-
-      - run:
-          name: Run rspec in parallel
-          command: ./script/circleci/run_rspec.sh
-
-      # Save test results for timing analysis
-      - store_test_results:
-          path: test_results
+      - run: bundle install
+      - run: bundle exec rake
+      - run: bundle exec rubocop
+ workflows:
+  version: 2
+  test:
+    jobs:
+      - ruby-2.5

@@ -44,6 +44,7 @@ module Kirico
       %i[fd company company_count].each do |attribute|
         rec = send(attribute)
         next if rec.nil? || rec.valid?
+
         rec.errors.full_messages.each do |msg|
           errors.add(attribute, msg)
         end
@@ -52,6 +53,7 @@ module Kirico
       # 2行以上存在する場合は、何行目でエラーが起きたのかを知りたい
       records.each.with_index(1) do |rec, i|
         next if rec.valid?
+
         row = I18n.t('errors.row_counter', num: i) if records.length > 1
         rec.errors.full_messages.each do |msg|
           errors.add(:records, "#{row}#{msg}")

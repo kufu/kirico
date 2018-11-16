@@ -132,6 +132,7 @@ module Kirico
     # - 算定対象月が存在しない場合は「0」を返す
     def income_average
       return 0 if target_months.empty?
+
       total = target_months.map do |month|
         send("#{month}_income_currency").to_i + send("#{month}_income_goods").to_i
       end.inject(:+)
