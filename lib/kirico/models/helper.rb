@@ -104,6 +104,7 @@ module Kirico
         define_method("mapped_#{attr_name}") do
           value = send(attr_name)
           return if value.nil?
+
           class_name = self.class.name.underscore
           @mappers ||= YAML.load_file(File.join(__dir__, 'mappers.yml'))
           @mappers['mappers'][class_name.to_s].try(:[], attr_name.to_s).try(:[], value.to_s)
