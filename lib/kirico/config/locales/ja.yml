@@ -81,6 +81,7 @@ ja:
       kirico/company:
         sr_name: 社会保険労務士氏名
         count: 事業所数情報
+        prefecture_code: 都道府県コード
         area_code: 都市区符号
         office_code: 事業所記号
         office_number: 事業所番号
@@ -89,8 +90,11 @@ ja:
         address: 事業所所在地
         name: 事業所名称
         owner_name: 事業主氏名
-        tel_number: 電話番号
+        tel_area_code: 電話番号 市外局番等
+        tel_city_code: 電話番号 市内局番等
+        tel_subscriber_number: 電話番号 加入者番号
       kirico/fd_management_record:
+        prefecture_code: 都道府県コード
         area_code: 都市区符号
         office_code: 事業所記号
         fd_seq_number: FD通番
