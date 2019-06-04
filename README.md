@@ -56,6 +56,7 @@ I18n.locale = :ja
 
 # FD 管理レコード
 fd = Kirico::FDManagementRecord.new do |rec|
+  rec.prefecture_code = '21'
   rec.area_code = '03'
   rec.office_code = 'ｷﾘｺ'
   rec.fd_seq_number = '001'
@@ -78,6 +79,7 @@ I18n.locale = :ja
 
 # 事業所情報
 company = Kirico::Company.new do |rec|
+  rec.prefecture_code = '21'
   rec.area_code = '03'
   rec.office_code = 'ｷﾘｺ'
   rec.office_number = '1234'
@@ -86,7 +88,9 @@ company = Kirico::Company.new do |rec|
   rec.address = '東京都世田谷区上馬0-0-0'
   rec.name = '株式会社印度カレー'
   rec.owner_name = '内藤　キリコ'
-  rec.tel_number = '03-0000-0000'
+  rec.area_code = '03'
+  rec.city_code = '0000'
+  rec.subscriber_number = '0000'
 end
 
 company.valid? #=> true
