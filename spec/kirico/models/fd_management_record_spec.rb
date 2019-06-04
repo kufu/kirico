@@ -7,6 +7,6 @@ describe Kirico::FDManagementRecord, type: :model do
 
   describe '#to_csv' do
     subject { record.to_csv.encode('UTF-8') }
-    it { is_expected.to eq '14,ｸﾄﾜ,005,20170117,22223' }
+    it { is_expected.to eq '21,14,ｸﾄﾜ,005,20170117,22223' }
   end
 end

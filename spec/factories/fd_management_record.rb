@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :fd_management_record, class: Kirico::FDManagementRecord do
+    prefecture_code { '21' }
     area_code { '14' }
     office_code { 'ｸﾄﾜ' }
     fd_seq_number { '005' }

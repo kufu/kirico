@@ -61,7 +61,7 @@ describe Kirico::Form, type: :model do
       let(:result) { form.to_csv.split("\r\n") }
       describe '1st line' do
         subject { result[0].encode('UTF-8') }
-        it { is_expected.to eq '14,ｸﾄﾜ,005,20170117,22223' }
+        it { is_expected.to eq '21,14,ｸﾄﾜ,005,20170117,22223' }
       end
       describe '2nd line' do
         subject { result[1].encode('UTF-8') }
@@ -73,7 +73,7 @@ describe Kirico::Form, type: :model do
       end
       describe '4th line' do
         subject { result[3].encode('UTF-8') }
-        it { is_expected.to eq '14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03-5563-7662' }
+        it { is_expected.to eq '21,14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03,5563,7662' }
       end
       describe '5th line' do
         subject { result[4].encode('UTF-8') }
@@ -138,7 +138,7 @@ describe Kirico::Form, type: :model do
       end
       describe '4th line' do
         subject { result[3].encode('UTF-8') }
-        it { is_expected.to eq '14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03-5563-7662' }
+        it { is_expected.to eq '21,14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03,5563,7662' }
       end
       describe '5th line' do
         subject { result[4].encode('UTF-8') }
