@@ -51,3 +51,36 @@ mappers:
     income_updated_type:
       income_updated_type_0: 0
       income_updated_type_1: 1
+  # 2018年3月以降 算定基礎届
+  kirico/data_record2225700:
+    birth_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+      R: 9
+    applied_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+      R: 9
+    old_applied_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+      R: 9
+    income_updated_at_era_nengo:
+      M: 1
+      T: 3
+      S: 5
+      H: 7
+      R: 9
+    ip_type:
+      ip_type_0: 0
+      ip_type_1: 1
+      ip_type_2: 2
+    income_updated_type:
+      income_updated_type_0: 0
+      income_updated_type_1: 1

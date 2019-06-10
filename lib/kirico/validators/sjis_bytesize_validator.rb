@@ -21,6 +21,7 @@ module Kirico
       range = (options.delete(:in) || options.delete(:within))
       if range
         raise ArgumentError, ':in and :within must be a Range' unless range.is_a?(Range)
+
         options[:minimum] = range.min
         options[:maximum] = range.max
       end
