@@ -88,9 +88,9 @@ company = Kirico::Company.new do |rec|
   rec.address = '東京都世田谷区上馬0-0-0'
   rec.name = '株式会社印度カレー'
   rec.owner_name = '内藤　キリコ'
-  rec.area_code = '03'
-  rec.city_code = '0000'
-  rec.subscriber_number = '0000'
+  rec.tel_area_code = '03'
+  rec.tel_city_code = '0000'
+  rec.tel_subscriber_number = '0000'
 end
 
 company.valid? #=> true
