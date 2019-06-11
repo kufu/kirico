@@ -75,17 +75,17 @@ module Kirico
     validates :my_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 12 }, allow_blank: true
     validates :area_code_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }, allow_blank: true
     validates :serial_number_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 8 }, allow_blank: true
-    validates :seventy_years_and_over, inclusion: { in: 1..1 }, charset: { accept: [:numeric] }, sjis_bytesize: { is: 1 }, allow_blank: true
+    validates :seventy_years_and_over, inclusion: { in: [1] }, allow_nil: true
     validates :seventy_years_old_months, charset: { accept: [:numeric] }, sjis_bytesize: { in: 2..4 }, allow_blank: true
-    validates :work_in_multiple_company, inclusion: { in: 1..1 }, charset: { accept: [:numeric] }, sjis_bytesize: { is: 1 }, allow_blank: true
-    validates :will_change_monthly_income, inclusion: { in: 1..1 }, charset: { accept: [:numeric] }, sjis_bytesize: { is: 1 }, allow_blank: true
-    validates :join_middle_of_month, inclusion: { in: 1..1 }, charset: { accept: [:numeric] }, sjis_bytesize: { is: 1 }, allow_blank: true
-    validates :leave_of_absence, inclusion: { in: 1..1 }, charset: { accept: [:numeric] }, sjis_bytesize: { is: 1 }, allow_blank: true
-    validates :short_time_worker, inclusion: { in: 1..1 }, charset: { accept: [:numeric] }, sjis_bytesize: { is: 1 }, allow_blank: true
-    validates :part_time_worker, inclusion: { in: 1..1 }, charset: { accept: [:numeric] }, sjis_bytesize: { is: 1 }, allow_blank: true
-    validates :annual_average_caluculation, inclusion: { in: 1..1 }, charset: { accept: [:numeric] }, sjis_bytesize: { is: 1 }, allow_blank: true
-    validates :memo, charset: { accept: [:all] }, sjis_bytesize: { in: 0..75 }, allow_blank: true
-    validates :submit_only_seventy_years_and_over, inclusion: { in: 1..1 }, charset: { accept: [:numeric] }, sjis_bytesize: { is: 1 }, allow_blank: true
+    validates :work_in_multiple_company, inclusion: { in: [1] }, allow_nil: true
+    validates :will_change_monthly_income, inclusion: { in: [1] }, allow_nil: true
+    validates :join_middle_of_month, inclusion: { in: [1] }, allow_nil: true
+    validates :leave_of_absence, inclusion: { in: [1] }, allow_nil: true
+    validates :short_time_worker, inclusion: { in: [1] }, allow_nil: true
+    validates :part_time_worker, inclusion: { in: [1] }, allow_nil: true
+    validates :annual_average_caluculation, inclusion: { in: [1] }, allow_nil: true
+    validates :memo, charset: { accept: [:all] }, sjis_bytesize: { in: 0..75 }
+    validates :submit_only_seventy_years_and_over, inclusion: { in: [1] }, allow_nil: true
     validate :seventy_years_and_over_employee_need_to_input_my_number_or_basic_pension_number
 
     def initialize
