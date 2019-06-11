@@ -4,14 +4,39 @@ require 'spec_helper'
 
 describe Kirico::Form, type: :model do
   context 'when the form is for general use' do
-    let(:form) { FactoryBot.build(:form) }
+    let(:form) { FactoryBot.build(:form, fd: fd, company_count: company_count, company: company, records: records) }
+    let(:fd) { FactoryBot.build(:fd_management_record) }
+    let(:company_count) { FactoryBot.build(:company_count) }
+    let(:company) { FactoryBot.build(:company) }
+    let(:records) { FactoryBot.build_list(:data_record22187041, 3) }
 
     describe 'validations' do
       subject { form }
-      it { is_expected.to validate_presence_of(:fd) }
-      it { is_expected.to validate_presence_of(:company_count) }
-      it { is_expected.to validate_presence_of(:company) }
-      it { is_expected.to validate_presence_of(:records) }
+      it { is_expected.to be_valid }
+
+      context 'fd is nil' do
+        let(:fd) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context 'company_count is nil' do
+        let(:company_count) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context 'company is nil' do
+        let(:company) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context 'records is blank' do
+        let(:records) { [] }
+
+        it { is_expected.to be_invalid }
+      end
     end
 
     describe '#validate_children' do
@@ -61,7 +86,7 @@ describe Kirico::Form, type: :model do
       let(:result) { form.to_csv.split("\r\n") }
       describe '1st line' do
         subject { result[0].encode('UTF-8') }
-        it { is_expected.to eq '14,ｸﾄﾜ,005,20170117,22223' }
+        it { is_expected.to eq '21,14,ｸﾄﾜ,005,20170117,22223' }
       end
       describe '2nd line' do
         subject { result[1].encode('UTF-8') }
@@ -73,7 +98,7 @@ describe Kirico::Form, type: :model do
       end
       describe '4th line' do
         subject { result[3].encode('UTF-8') }
-        it { is_expected.to eq '14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03-5563-7662' }
+        it { is_expected.to eq '21,14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03,5563,7662' }
       end
       describe '5th line' do
         subject { result[4].encode('UTF-8') }
@@ -99,14 +124,39 @@ describe Kirico::Form, type: :model do
   end
 
   context 'when the form is for SR use' do
-    let(:form) { FactoryBot.build(:sr_form) }
+    let(:form) { FactoryBot.build(:sr_form, fd: fd, company_count: company_count, company: company, records: records) }
+    let(:fd) { FactoryBot.build(:sr_fd_management_record) }
+    let(:company_count) { FactoryBot.build(:sr_company_count) }
+    let(:company) { FactoryBot.build(:company) }
+    let(:records) { FactoryBot.build_list(:data_record22187041, 3) }
 
     describe 'validations' do
       subject { form }
-      it { is_expected.to validate_presence_of(:fd) }
-      it { is_expected.to validate_presence_of(:company_count) }
-      it { is_expected.to validate_presence_of(:company) }
-      it { is_expected.to validate_presence_of(:records) }
+      it { is_expected.to be_valid }
+
+      context 'fd is nil' do
+        let(:fd) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context 'company_count is nil' do
+        let(:company_count) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context 'company is nil' do
+        let(:company) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context 'records is blank' do
+        let(:records) { [] }
+
+        it { is_expected.to be_invalid }
+      end
     end
 
     describe '#validate_children' do
@@ -138,7 +188,7 @@ describe Kirico::Form, type: :model do
       end
       describe '4th line' do
         subject { result[3].encode('UTF-8') }
-        it { is_expected.to eq '14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03-5563-7662' }
+        it { is_expected.to eq '21,14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03,5563,7662' }
       end
       describe '5th line' do
         subject { result[4].encode('UTF-8') }

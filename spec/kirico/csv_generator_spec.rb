@@ -14,7 +14,7 @@ describe Kirico::CSVGenerator do
 
     describe '1st row' do
       let(:row) { 0 }
-      it { is_expected.to eq '14,ｸﾄﾜ,005,20170117,22223' }
+      it { is_expected.to eq '21,14,ｸﾄﾜ,005,20170117,22223' }
     end
 
     describe '2nd row' do
@@ -29,7 +29,7 @@ describe Kirico::CSVGenerator do
 
     describe '4th row' do
       let(:row) { 3 }
-      it { is_expected.to eq '14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03-5563-7662' }
+      it { is_expected.to eq '21,14,ｸﾄﾜ,77362,106,0041,東京都港区麻布台1-4-3 エグゼクティブタワー麻布台601,株式会社クフ,吉田　ケイ　松蔭,03,5563,7662' }
     end
 
     describe '5th row' do

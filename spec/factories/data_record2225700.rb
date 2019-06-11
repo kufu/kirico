@@ -2,7 +2,8 @@
 
 # 算定基礎届データレコード
 FactoryBot.define do
-  factory :data_record22257041, class: Kirico::DataRecord22257041 do
+  factory :data_record2225700, class: Kirico::DataRecord2225700 do
+    prefecture_code { '21' }
     area_code { '14' }
     office_code { 'ｸﾄﾜ' }
     ip_code { '000002' }
@@ -10,7 +11,6 @@ FactoryBot.define do
     applied_at { Date.new(2016, 9, 1) }
     ip_name_yomi { 'ﾖｼﾀﾞ ﾀﾛｳ' }
     ip_name { '吉田　太郎' }
-    gender_type { :gender_type_1 }
     old_monthly_standard_income_hel_ins { 410_000 }
     old_monthly_standard_income_pns_ins { 200_000 }
     old_applied_at { Date.new(2015, 7, 1) }
@@ -26,9 +26,10 @@ FactoryBot.define do
     avg_adjustment { 1_000 }
     ip_type { :ip_type_0 }
     retroacted_payment { 344 }
+    retroacted_payment_at { Date.new(2019, 5, 1) }
     income_updated_type { :income_updated_type_1 }
-    income_diff_amount { 3333 }
     income_updated_at { Date.new(1991, 3, 1) }
+    my_number { '012345678901' }
     memo { 'bikoooooo' }
   end
 end

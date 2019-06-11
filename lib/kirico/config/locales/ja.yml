@@ -78,9 +78,52 @@ ja:
         income_diff_amount: 昇（降）給差の月額
         income_updated_at: 昇（降）給年月日
         memo: 備考欄
+      # 2018年3月以降 算定基礎届
+      kirico/data_record2225700:
+        prefecture_code: 都道府県コード
+        area_code: 群市区符号
+        office_code: 事業所記号
+        ip_code: 被保険者整理番号
+        ip_name_yomi: 被保険者氏名（カナ）
+        ip_name: 被保険者氏名（漢字）
+        birth_at: 生年月日
+        applied_at: 適用年月日
+        old_monthly_standard_income_hel_ins: 従前の標準報酬月額（健保）
+        old_monthly_standard_income_pns_ins: 従前の標準報酬月額（厚保）
+        old_applied_at: 従前の改定年月日
+        apr_days: 支払基礎日数（4月）
+        may_days: 支払基礎日数（5月）
+        jun_days: 支払基礎日数（6月）
+        apr_income_currency: 通貨によるものの額（4月）
+        may_income_currency: 通貨によるものの額（5月）
+        jun_income_currency: 通貨によるものの額（6月）
+        apr_income_goods: 現物によるものの額（4月）
+        may_income_goods: 現物によるものの額（5月）
+        jun_income_goods: 現物によるものの額（6月）
+        avg_adjustment: 修正平均額
+        ip_type: 被保険者区分
+        income_updated_at: 昇（降）給年月日
+        income_updated_type: 昇（降）給区分
+        retroacted_payment_at: 遡及支払月
+        retroacted_payment: 遡及支払額
+        my_number: 個人番号
+        area_code_of_basic_pension_number: 基礎年金番号 課所符号
+        serial_number_of_basic_pension_number: 基礎年金番号 一連番号
+        seventy_years_and_over: 70歳以上被用者算定
+        seventy_years_old_months: 70歳以上被用者 算定基礎月
+        work_in_multiple_company: 二以上勤務
+        will_change_monthly_income: 月額変更予定
+        join_middle_of_month: 中途入社
+        leave_of_absence: 病休・育休・休職等
+        short_time_worker: 短時間労働者（特定適用事業所等）
+        part_time_worker: パート
+        annual_average_caluculation: 年間平均
+        memo: 備考欄
+        submit_only_seventy_years_and_over: 70歳以上被用者届のみ提出
       kirico/company:
         sr_name: 社会保険労務士氏名
         count: 事業所数情報
+        prefecture_code: 都道府県コード
         area_code: 都市区符号
         office_code: 事業所記号
         office_number: 事業所番号
@@ -89,8 +132,11 @@ ja:
         address: 事業所所在地
         name: 事業所名称
         owner_name: 事業主氏名
-        tel_number: 電話番号
+        tel_area_code: 電話番号 市外局番等
+        tel_city_code: 電話番号 市内局番等
+        tel_subscriber_number: 電話番号 加入者番号
       kirico/fd_management_record:
+        prefecture_code: 都道府県コード
         area_code: 都市区符号
         office_code: 事業所記号
         fd_seq_number: FD通番
