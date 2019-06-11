@@ -22,23 +22,23 @@ module Kirico
     # # 2015/04/09 => 20150409
     # def fmt_ymd_created_at
     #   return nil if submit_at.nil?
-    #   submit_at.try(:to_era, '%Y%m%d')
+    #   submit_at.try(:to_era_with_reiwa, '%Y%m%d')
     # end
     #
     # # 2015/04/09 => 270409
     # def fmt_era_ymd_created_at
     #   return nil if submit_at.nil?
-    #   submit_at.try(:to_era, '%E%m%d')
+    #   submit_at.try(:to_era_with_reiwa, '%E%m%d')
     # end
     #
     # # 2015/04/09 => H
     # def submit_at_era_nengo
-    #   submit_at.try(:to_era, '%o%E').try(:[], 0)
+    #   submit_at.try(:to_era_with_reiwa, '%o%E').try(:[], 0)
     # end
     #
     # # 2015/04/09 => 平成
     # def submit_at_era_nengo_kanji
-    #   submit_at.try(:to_era, '%O%E').try(:gsub, /\d+\z/, '')
+    #   submit_at.try(:to_era_with_reiwa, '%O%E').try(:gsub, /\d+\z/, '')
     # end
     #
     # # 2015/04/09 => 2015
@@ -62,19 +62,19 @@ module Kirico
         end
 
         define_method("fmt_era_ymd_#{attr_name}") do
-          send(attr_name).try(:to_era, '%E%m%d')
+          send(attr_name).try(:to_era_with_reiwa, '%E%m%d')
         end
 
         define_method("#{attr_name}_era_nengo") do
-          send(attr_name).try(:to_era, '%o%E').try(:[], 0)
+          send(attr_name).try(:to_era_with_reiwa, '%o%E').try(:[], 0)
         end
 
         define_method("#{attr_name}_era_nengo_kanji") do
-          send(attr_name).try(:to_era, '%O%E').try(:gsub, /\d+\z/, '')
+          send(attr_name).try(:to_era_with_reiwa, '%O%E').try(:gsub, /\d+\z/, '')
         end
 
         define_method("#{attr_name}_era_year") do
-          send(attr_name).try(:to_era, '%E')
+          send(attr_name).try(:to_era_with_reiwa, '%E')
         end
 
         define_method("#{attr_name}_month") do
