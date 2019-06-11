@@ -29,8 +29,8 @@ module Kirico
     attribute :avg_adjustment, Integer
     attribute :my_number, String
     attribute :ip_type, Symbol
-    attribute :area_code_of_basic_pension_number, Integer
-    attribute :serial_number_of_basic_pension_number, Integer
+    attribute :area_code_of_basic_pension_number, String
+    attribute :serial_number_of_basic_pension_number, String
     attribute :seventy_years_and_over, Integer
     attribute :seventy_years_old_months, String
     attribute :work_in_multiple_company, Integer
@@ -72,9 +72,9 @@ module Kirico
     validates :retroacted_payment_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }, allow_blank: true
     validates :income_updated_type, inclusion: { in: %i[income_updated_type_0 income_updated_type_1] }, allow_blank: true
     validates :income_updated_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }, allow_blank: true
-    validates :my_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 12 }, allow_blank: true
-    validates :area_code_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }, allow_blank: true
-    validates :serial_number_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 8 }, allow_blank: true
+    validates :my_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 12 }, allow_nil: true
+    validates :area_code_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }, allow_nil: true
+    validates :serial_number_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 8 }, allow_nil: true
     validates :seventy_years_and_over, inclusion: { in: [1] }, allow_nil: true
     validates :seventy_years_old_months, charset: { accept: [:numeric] }, sjis_bytesize: { in: 2..4 }, allow_blank: true
     validates :work_in_multiple_company, inclusion: { in: [1] }, allow_nil: true
