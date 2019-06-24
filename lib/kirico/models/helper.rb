@@ -62,19 +62,19 @@ module Kirico
         end
 
         define_method("fmt_era_ymd_#{attr_name}") do
-          send(attr_name).try(:to_era_with_reiwa, '%E%m%d')
+          send(attr_name).try(:to_era_with_reiwa, '%E%m%d') || send(attr_name).try(:to_era, '%E%m%d')
         end
 
         define_method("#{attr_name}_era_nengo") do
-          send(attr_name).try(:to_era_with_reiwa, '%o%E').try(:[], 0)
+          send(attr_name).try(:to_era_with_reiwa, '%o%E').try(:[], 0) || send(attr_name).try(:to_era, '%o%E').try(:[], 0)
         end
 
         define_method("#{attr_name}_era_nengo_kanji") do
-          send(attr_name).try(:to_era_with_reiwa, '%O%E').try(:gsub, /\d+\z/, '')
+          send(attr_name).try(:to_era_with_reiwa, '%O%E').try(:gsub, /\d+\z/, '') || send(attr_name).try(:to_era, '%O%E').try(:gsub, /\d+\z/, '')
         end
 
         define_method("#{attr_name}_era_year") do
-          send(attr_name).try(:to_era_with_reiwa, '%E')
+          send(attr_name).try(:to_era_with_reiwa, '%E') || send(attr_name).try(:to_era, '%E')
         end
 
         define_method("#{attr_name}_month") do
