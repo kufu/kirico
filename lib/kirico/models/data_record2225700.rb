@@ -74,7 +74,7 @@ module Kirico
     validates :income_updated_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }, allow_blank: true
     validates :my_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 12 }, allow_nil: true
     validates :area_code_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }, allow_nil: true
-    validates :serial_number_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 8 }, allow_nil: true
+    validates :serial_number_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 6 }, allow_nil: true
     validates :seventy_years_and_over, inclusion: { in: [1] }, allow_nil: true
     validates :seventy_years_old_months, charset: { accept: [:numeric] }, sjis_bytesize: { in: 2..4 }, allow_blank: true
     validates :work_in_multiple_company, inclusion: { in: [1] }, allow_nil: true
