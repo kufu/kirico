@@ -14,6 +14,12 @@ module Kirico
     ActiveModel::Validations::SjisBytesizeValidator = Kirico::SjisBytesizeValidator
     ActiveModel::Validations::SpaceDividerValidator = Kirico::SpaceDividerValidator
 
+    # FIXME
+    # kirico側にhanicaでしか存在しない、to_era_with_reiwaメソッドを置くのは良くないが、
+    # 一時的なブランチかつ、改修する工数もないため、to_era_with_reiwaメソッドをkirico側に置く。
+    # 令和対応が終われば、to_era_with_reiwaは存在しなくなるはず。
+    # 参考：https://kufuinc.slack.com/archives/C02RE4WCM/p1561346314318500?thread_ts=1561342879.309000&cid=C02RE4WCM
+    #
     # 指定した date 型のフィールドを整形するメソッドを生やす
     #
     # 例:
@@ -62,19 +68,19 @@ module Kirico
         end
 
         define_method("fmt_era_ymd_#{attr_name}") do
-          send(attr_name).try(:to_era_with_reiwa, '%E%m%d')
+          send(attr_name).try(:to_era_with_reiwa, '%E%m%d') || send(attr_name).try(:to_era, '%E%m%d')
         end
 
         define_method("#{attr_name}_era_nengo") do
-          send(attr_name).try(:to_era_with_reiwa, '%o%E').try(:[], 0)
+          send(attr_name).try(:to_era_with_reiwa, '%o%E').try(:[], 0) || send(attr_name).try(:to_era, '%o%E').try(:[], 0)
         end
 
         define_method("#{attr_name}_era_nengo_kanji") do
-          send(attr_name).try(:to_era_with_reiwa, '%O%E').try(:gsub, /\d+\z/, '')
+          send(attr_name).try(:to_era_with_reiwa, '%O%E').try(:gsub, /\d+\z/, '') || send(attr_name).try(:to_era, '%O%E').try(:gsub, /\d+\z/, '')
         end
 
         define_method("#{attr_name}_era_year") do
-          send(attr_name).try(:to_era_with_reiwa, '%E')
+          send(attr_name).try(:to_era_with_reiwa, '%E') || send(attr_name).try(:to_era, '%E')
         end
 
         define_method("#{attr_name}_month") do
