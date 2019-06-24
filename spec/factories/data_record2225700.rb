@@ -30,6 +30,8 @@ FactoryBot.define do
     income_updated_type { :income_updated_type_1 }
     income_updated_at { Date.new(1991, 3, 1) }
     my_number { '012345678901' }
+    area_code_of_basic_pension_number { '0123' }
+    serial_number_of_basic_pension_number { '123456' }
     memo { 'bikoooooo' }
   end
 end
