@@ -12,6 +12,7 @@ module Kirico
     def to_csv
       [
         '',
+        '',
         sr_code,
         fd_seq_number,
         fmt_ymd_created_at,
