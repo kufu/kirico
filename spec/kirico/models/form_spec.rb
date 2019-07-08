@@ -176,7 +176,7 @@ describe Kirico::Form, type: :model do
       let(:result) { form.to_csv.split("\r\n") }
       describe '1st line' do
         subject { result[0].encode('UTF-8') }
-        it { is_expected.to eq ',0007,004,20170227,22223' }
+        it { is_expected.to eq ',,0007,004,20170227,22223' }
       end
       describe '2nd line' do
         subject { result[1].encode('UTF-8') }
