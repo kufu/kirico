@@ -7,6 +7,6 @@ describe Kirico::SrFDManagementRecord, type: :model do
 
   describe '#to_csv' do
     subject { record.to_csv.encode('UTF-8') }
-    it { is_expected.to eq ',,0007,004,20170227,22223' }
+    it { is_expected.to eq ',,00000007,004,20170227,22223' }
   end
 end
