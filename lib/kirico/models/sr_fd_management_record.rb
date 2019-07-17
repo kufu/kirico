@@ -7,7 +7,7 @@ module Kirico
   class SrFDManagementRecord < BaseFDManagementRecord
     attribute :sr_code, String
 
-    validates :sr_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }
+    validates :sr_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 8 }
 
     def to_csv
       [
