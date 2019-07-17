@@ -166,7 +166,7 @@ describe Kirico::Form, type: :model do
         end
         it 'contains some error messages' do
           expect(form.valid?).to be_falsy
-          expect(form.errors.full_messages.count).to eq 1
+          expect(form.errors.full_messages.count).to eq 2
           expect(form.errors.full_messages[0]).to eq 'Fd Sr code has invalid character(s): 生, 卵'
         end
       end
@@ -176,7 +176,7 @@ describe Kirico::Form, type: :model do
       let(:result) { form.to_csv.split("\r\n") }
       describe '1st line' do
         subject { result[0].encode('UTF-8') }
-        it { is_expected.to eq ',,0007,004,20170227,22223' }
+        it { is_expected.to eq ',,00000007,004,20170227,22223' }
       end
       describe '2nd line' do
         subject { result[1].encode('UTF-8') }
