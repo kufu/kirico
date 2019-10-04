@@ -48,7 +48,6 @@ module Kirico
       yield(self) if block_given?
     end
 
-    # rubocop:disable all
     def to_csv
       [
         DOC_CODE,
@@ -74,7 +73,6 @@ module Kirico
         submit_only_seventy_years_and_over
       ].map { |attr| attr.to_s.encode('CP932') }.join(',')
     end
-    # rubocop:enable all
 
     def bonus_total(currency, goods)
       total = currency.to_i + goods.to_i
