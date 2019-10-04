@@ -187,7 +187,7 @@ end
 |  住所変更届データレコード | Kirico::DataRecord22187041 | ◯ |
 |  算定基礎届データレコード | Kirico::DataRecord22257041 | ◯ |
 |  月額変更届データレコード | Kirico::DataRecord22217041 | △ |
-|  賞与支払届データレコード | Kirico::DataRecord22657041 | △ |
+|  賞与支払届データレコード | Kirico::DataRecord2265700 | ◯ |
 |  被扶養者（異動）届データレコード | Kirico::DataRecord22027051 | △ |
 |  3号関係届（資格取得）データレコード | Kirico::DataRecord52805011 | △ |
 |  3号関係届（資格喪失）データレコード | Kirico::DataRecord52805021 | △ |
