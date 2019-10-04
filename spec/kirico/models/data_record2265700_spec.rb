@@ -18,23 +18,28 @@ describe Kirico::DataRecord2265700, type: :model do
     end
     context 'when currency is nil' do
       let(:currency) { nil }
-      let(:goods) { 100 }
-      it { is_expected.to eq 100 }
+      let(:goods) { 10_000 }
+      it { is_expected.to eq 10_000 }
     end
     context 'when goods is nil' do
-      let(:currency) { 200 }
+      let(:currency) { 20_000 }
       let(:goods) { nil }
-      it { is_expected.to eq 200 }
+      it { is_expected.to eq 20_000 }
     end
     context 'when both exists' do
-      let(:currency) { 200 }
-      let(:goods) { 100 }
-      it { is_expected.to eq 300 }
+      let(:currency) { 20_000 }
+      let(:goods) { 10_000 }
+      it { is_expected.to eq 30_000 }
+    end
+    context 'when the total has less thousand' do
+      let(:currency) { 10_200 }
+      let(:goods) { 10_200 }
+      it { is_expected.to eq 20_000 }
     end
     context 'when the total is 9,999,999' do
       let(:currency) { 9_999_999 }
       let(:goods) { 0 }
-      it { is_expected.to eq 9_999_999 }
+      it { is_expected.to eq 9_999_000 }
     end
     context 'when the total is 10,000,000' do
       let(:currency) { 9_999_999 }
@@ -47,7 +52,7 @@ describe Kirico::DataRecord2265700, type: :model do
     subject { FactoryBot.build(:data_record2265700).to_csv.encode('UTF-8') }
     it {
       is_expected.to eq '2265700,21,14,ｸﾄﾜ,000002,ﾖｼﾀﾞ ﾀﾛｳ,吉田　太郎,5,590527,9,010901,' \
-        '0444444,0555555,0999999,012345678901,0123,123456,,,,'
+        '444444,555555,999000,012345678901,0123,123456,,,,'
     }
   end
 end

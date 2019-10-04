@@ -61,9 +61,9 @@ module Kirico
         fmt_era_ymd_birth_at,
         mapped_payed_bonus_at_era_nengo,
         fmt_era_ymd_payed_bonus_at,
-        payment_in_currency.to_s.rjust(7, '0'),
-        payment_in_goods.to_s.rjust(7, '0'),
-        bonus_total(payment_in_currency, payment_in_goods).to_s.rjust(7, '0'),
+        payment_in_currency,
+        payment_in_goods,
+        bonus_total(payment_in_currency, payment_in_goods),
         my_number,
         area_code_of_basic_pension_number,
         serial_number_of_basic_pension_number,
@@ -76,7 +76,7 @@ module Kirico
 
     def bonus_total(currency, goods)
       total = currency.to_i + goods.to_i
-      total < 10_000_000 ? total : 9_999_999
+      total < 10_000_000 ? total.floor(-3) : 9_999_999
     end
 
     private
