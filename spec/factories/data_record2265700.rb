@@ -8,7 +8,7 @@ FactoryBot.define do
     office_code { 'ｸﾄﾜ' }
     ip_code { '000002' }
     birth_at { Date.new(1984, 5, 27) }
-    payed_bonus_at { Date.new(2019, 9, 1) }
+    bonus_payment_at { Date.new(2019, 9, 1) }
     ip_name_yomi { 'ﾖｼﾀﾞ ﾀﾛｳ' }
     ip_name { '吉田　太郎' }
     payment_in_currency { 444_444 }

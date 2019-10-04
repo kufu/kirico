@@ -12,7 +12,7 @@ module Kirico
     attribute :ip_name_yomi, String
     attribute :ip_name, String
     attribute :birth_at, Date
-    attribute :payed_bonus_at, Date
+    attribute :bonus_payment_at, Date
     attribute :payment_in_currency, Integer
     attribute :payment_in_goods, Integer
     attribute :my_number, String
@@ -23,8 +23,8 @@ module Kirico
     attribute :first_payment_day_of_multiple_payments_within_the_same_month, Integer
     attribute :submit_only_seventy_years_and_over, Integer
 
-    define_format_date_method :birth_at, :payed_bonus_at
-    define_code_mapper_method :birth_at_era_nengo, :payed_bonus_at_era_nengo
+    define_format_date_method :birth_at, :bonus_payment_at
+    define_code_mapper_method :birth_at_era_nengo, :bonus_payment_at_era_nengo
 
     validates :prefecture_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
     validates :area_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
@@ -32,7 +32,7 @@ module Kirico
     validates :ip_code, charset: { accept: [:numeric] }, sjis_bytesize: { in: 1..6 }
     validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :half_width }
     validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true, space_divider: { space: :full_width }
-    validates :payed_bonus_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
+    validates :bonus_payment_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
     validates :payment_in_currency, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
     validates :payment_in_goods, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
     validates :my_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 12 }, allow_nil: true
@@ -59,8 +59,8 @@ module Kirico
         ip_name,
         mapped_birth_at_era_nengo,
         fmt_era_ymd_birth_at,
-        mapped_payed_bonus_at_era_nengo,
-        fmt_era_ymd_payed_bonus_at,
+        mapped_bonus_payment_at_era_nengo,
+        fmt_era_ymd_bonus_payment_at,
         payment_in_currency,
         payment_in_goods,
         bonus_total(payment_in_currency, payment_in_goods),

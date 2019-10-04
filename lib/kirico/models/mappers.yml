@@ -92,6 +92,6 @@ mappers:
       S: 5
       H: 7
       R: 9
-    payed_bonus_at_era_nengo:
+    bonus_payment_at_era_nengo:
       H: 7
       R: 9
