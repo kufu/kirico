@@ -120,6 +120,25 @@ ja:
         annual_average_caluculation: 年間平均
         memo: 備考欄
         submit_only_seventy_years_and_over: 70歳以上被用者届のみ提出
+      # 賞与支払届
+      kirico/data_record2265700:
+        prefecture_code: 都道府県コード
+        area_code: 群市区符号
+        office_code: 事業所記号
+        ip_code: 被保険者整理番号
+        ip_name_yomi: 被保険者氏名（カナ）
+        ip_name: 被保険者氏名（漢字）
+        birth_at: 生年月日
+        bonus_payment_at: 賞与支払日
+        payment_in_currency: 通貨支給額
+        payment_in_goods: 現物支給額
+        my_number: 個人番号
+        area_code_of_basic_pension_number: 基礎年金番号 課所符号
+        serial_number_of_basic_pension_number: 基礎年金番号 一連番号
+        seventy_years_and_over: 70歳以上被用者算定
+        work_in_multiple_company: 二以上勤務
+        first_payment_day_of_multiple_payments_within_the_same_month: 同一月内の賞与合算 初回支払日
+        submit_only_seventy_years_and_over: 70歳以上被用者届のみ提出
       kirico/company:
         sr_name: 社会保険労務士氏名
         count: 事業所数情報
