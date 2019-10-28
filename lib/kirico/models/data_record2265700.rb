@@ -20,7 +20,7 @@ module Kirico
     attribute :serial_number_of_basic_pension_number, String
     attribute :seventy_years_and_over, Integer
     attribute :work_in_multiple_company, Integer
-    attribute :first_payment_day_of_multiple_payments_within_the_same_month, Integer
+    attribute :first_payment_day_of_multiple_payments_within_the_same_month, String
     attribute :submit_only_seventy_years_and_over, Integer
 
     define_format_date_method :birth_at, :bonus_payment_at
