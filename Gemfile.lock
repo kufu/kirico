@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     kirico (1.0.5)
-      activemodel (~> 5.2)
-      activesupport (~> 5.2)
+      activemodel (>= 5.2)
+      activesupport (>= 5.2)
       era_ja
       validates_timeliness
       virtus
