@@ -50,11 +50,20 @@ describe Kirico::DataRecord2265700, type: :model do
   end
 
   describe '#to_csv' do
-    subject { FactoryBot.build(:data_record2265700).to_csv.encode('UTF-8') }
+    subject { data_record.to_csv.encode('UTF-8') }
+    let(:data_record) { FactoryBot.build(:data_record2265700) }
     it {
       is_expected.to eq '2265700,21,14,ｸﾄﾜ,000002,ﾖｼﾀﾞ ﾀﾛｳ,吉田　太郎,5,590527,9,010901,' \
         '444444,555555,999000,012345678901,0123,123456,,,,'
     }
+
+    context 'if payment_in_currency and payment_in_goods are more than 9_999_999' do
+      let(:data_record) { FactoryBot.build(:data_record2265700, payment_in_currency: 10_000_000, payment_in_goods: 10_000_000) }
+      it {
+        is_expected.to eq '2265700,21,14,ｸﾄﾜ,000002,ﾖｼﾀﾞ ﾀﾛｳ,吉田　太郎,5,590527,9,010901,' \
+          '9999999,9999999,9999999,012345678901,0123,123456,,,,'
+      }
+    end
   end
 
   describe '#adjusted_payment_in_currency' do
