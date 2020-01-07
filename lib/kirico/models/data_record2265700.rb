@@ -33,8 +33,8 @@ module Kirico
     validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :half_width }
     validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true, space_divider: { space: :full_width }
     validates :bonus_payment_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
-    validates :payment_in_currency, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
-    validates :payment_in_goods, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
+    validates :payment_in_currency, numericality: { greater_than_or_equal_to: 0 }
+    validates :payment_in_goods, numericality: { greater_than_or_equal_to: 0 }
     validates :my_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 12 }, allow_nil: true
     validates :area_code_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 4 }, allow_nil: true
     validates :serial_number_of_basic_pension_number, charset: { accept: [:numeric] }, sjis_bytesize: { is: 6 }, allow_nil: true
@@ -61,8 +61,8 @@ module Kirico
         fmt_era_ymd_birth_at,
         mapped_bonus_payment_at_era_nengo,
         fmt_era_ymd_bonus_payment_at,
-        payment_in_currency,
-        payment_in_goods,
+        adjusted_payment_in_currency,
+        adjusted_payment_in_goods,
         bonus_total(payment_in_currency, payment_in_goods),
         my_number,
         area_code_of_basic_pension_number,
@@ -77,6 +77,14 @@ module Kirico
     def bonus_total(currency, goods)
       total = currency.to_i + goods.to_i
       total < 10_000_000 ? total.floor(-3) : 9_999_999
+    end
+
+    def adjusted_payment_in_currency
+      payment_in_currency < 10_000_000 ? payment_in_currency : 9_999_999
+    end
+
+    def adjusted_payment_in_goods
+      payment_in_goods < 10_000_000 ? payment_in_goods : 9_999_999
     end
 
     private

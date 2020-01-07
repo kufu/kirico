@@ -1,7 +1,7 @@
 version: 2.1
 
 executors:
-  working_directory: /root/jpostcode-rb
+  working_directory: /root/kirico
   ruby_2_7:
     docker:
       - image: rubylang/ruby:2.7.0-bionic
@@ -32,7 +32,6 @@ commands:
           command: |
             gem install bundler -v 1.17.3 --no-document --force
             bundle install
-
   run_tests:
     description: "Run tests"
     steps:
