@@ -11,9 +11,6 @@ executors:
   ruby_2_5:
     docker:
       - image: rubylang/ruby:2.5.7-bionic
-  ruby_2_4:
-    docker:
-      - image: rubylang/ruby:2.4.9-bionic
 
 commands:
   install_system_dependencies:
@@ -63,13 +60,6 @@ jobs:
       - checkout
       - bundle_gems
       - run_tests
-  run_tests_on_ruby_2_4:
-    executor: ruby_2_4
-    steps:
-      - install_system_dependencies
-      - checkout
-      - bundle_gems
-      - run_tests
 
 workflows:
   version: 2
@@ -78,4 +68,3 @@ workflows:
       - run_tests_on_ruby_2_7
       - run_tests_on_ruby_2_6
       - run_tests_on_ruby_2_5
-      - run_tests_on_ruby_2_4
