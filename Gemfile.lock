@@ -82,7 +82,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     rainbow (3.0.0)
-    rake (10.5.0)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -135,7 +135,7 @@ DEPENDENCIES
   kirico!
   pry
   pry-byebug
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec
 
 BUNDLED WITH
