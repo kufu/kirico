@@ -131,7 +131,7 @@ module Kirico
         income_total(apr_income_currency, apr_income_goods).to_s.rjust(7, '0'),
         income_total(may_income_currency, may_income_goods).to_s.rjust(7, '0'),
         income_total(jun_income_currency, jun_income_goods).to_s.rjust(7, '0'),
-        income_all_total.to_s.rjust(7, '0'),
+        income_all_total_with_round.to_s.rjust(7, '0'),
         income_average.to_s.rjust(7, '0'),
         avg_adjustment.nil? ? nil : avg_adjustment.to_s.rjust(7, '0'),
         my_number,
@@ -165,6 +165,13 @@ module Kirico
       target_months.map do |month|
         send("#{month}_income_currency").to_i + send("#{month}_income_goods").to_i
       end.inject(:+)
+    end
+
+    # 総計を計算する
+    # CSVへ出力する際、10,000,000 円以上は 9,999,999 を返す
+    def income_all_total_with_round
+      total = income_all_total
+      total < 10_000_000 ? total : 9_999_999
     end
 
     # 平均額を計算する
