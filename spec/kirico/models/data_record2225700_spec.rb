@@ -149,13 +149,13 @@ describe Kirico::DataRecord2225700, type: :model do
     before do
       allow(rec).to receive(:target_months).and_return(%i[apr may jun])
     end
-    context 'not round' do
+    context 'when income_all_total is 9_999_999 or less' do
       let(:apr_income_currency) { 100 }
       let(:may_income_currency) { 200 }
       let(:jun_income_currency) { 300 }
       it { is_expected.to eq 600 }
     end
-    context 'round' do
+    context 'when income_all_total is more than 9_999_999' do
       let(:apr_income_currency) { 10_000_000 }
       let(:may_income_currency) { 0 }
       let(:jun_income_currency) { 0 }
