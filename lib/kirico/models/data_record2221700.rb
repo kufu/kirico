@@ -54,7 +54,7 @@ module Kirico
     validates :income_updated_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }, allow_blank: true
     validates :income_updated_type, inclusion: { in: %i[income_updated_type_0 income_updated_type_1] }, allow_blank: true
     validates :retroacted_payment_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }, allow_blank: true
-    validates :retroacted_payment, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, allow_blank: true
+    validates :retroacted_payment, numericality: { greater_than_or_equal_to: -9_999_999, less_than_or_equal_to: 9_999_999 }, allow_blank: true
     [3, 2, 1].each do |month|
       validates "before_#{month}_month_income_currency", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
       validates "before_#{month}_month_income_goods", numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }
