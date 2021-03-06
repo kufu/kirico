@@ -128,7 +128,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.10)
+  bundler (>= 2.2.13)
   factory_bot
   guard
   guard-bundler
@@ -141,4 +141,4 @@ DEPENDENCIES
   rspec
 
 BUNDLED WITH
-   1.17.3
+   2.2.13

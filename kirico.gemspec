@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'validates_timeliness'
   spec.add_dependency 'virtus'
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'bundler', '>= 2.2.13'
   spec.add_development_dependency 'factory_bot'
   spec.add_development_dependency 'guard'
   spec.add_development_dependency 'guard-bundler'
