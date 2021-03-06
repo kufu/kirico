@@ -35,7 +35,6 @@ commands:
           name: Install System Dependencies
           # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers
           command: apt-get update -y && apt-get install -y ssh
-
   bundle_gems:
     description: "Bundle gems"
     steps:
