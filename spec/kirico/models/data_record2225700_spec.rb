@@ -8,6 +8,31 @@ describe Kirico::DataRecord2225700, type: :model do
     subject { FactoryBot.build(:data_record2225700).valid? }
     it { is_expected.to be_truthy }
   end
+
+  describe 'over 70 valid factory' do
+    subject { FactoryBot.build(:data_record2225700, ip_code: nil, seventy_years_and_over: 1).valid? }
+    it { is_expected.to be_truthy }
+  end
+
+  describe 'no my_number over 70 valid factory' do
+    subject { FactoryBot.build(:data_record2225700, ip_code: nil, my_number: nil, seventy_years_and_over: 1).valid? }
+    it { is_expected.to be_truthy }
+  end
+
+  describe 'over 70 invalid factory' do
+    subject {
+      FactoryBot.build(
+        :data_record2225700,
+        ip_code: nil,
+        my_number: nil,
+        area_code_of_basic_pension_number: nil,
+        serial_number_of_basic_pension_number: nil,
+        seventy_years_and_over: 1
+      ).valid?
+    }
+    it { is_expected.to be_falsey }
+  end
+
   describe '#income_total' do
     let(:rec) { FactoryBot.build(:data_record2225700) }
     subject { rec.income_total(currency, goods) }
