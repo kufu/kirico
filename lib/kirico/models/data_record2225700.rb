@@ -52,7 +52,8 @@ module Kirico
     validates :prefecture_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
     validates :area_code, charset: { accept: [:numeric] }, sjis_bytesize: { is: 2 }
     validates :office_code, charset: { accept: %i[numeric latin katakana] }, sjis_bytesize: { in: 1..4 }
-    validates :ip_code, charset: { accept: [:numeric] }, sjis_bytesize: { in: 1..6 }
+    validates :ip_code, charset: { accept: [:numeric] }, sjis_bytesize: { in: 1..6 }, allow_blank: true
+    validates :ip_code, presence: true, if: proc { |record| record.seventy_years_and_over.nil? }
     validates :ip_name_yomi, charset: { accept: [:katakana] }, sjis_bytesize: { in: 1..25 }, space_divider: { space: :half_width }
     validates :ip_name, charset: { accept: [:all] }, sjis_bytesize: { in: 0..24 }, allow_blank: true, space_divider: { space: :full_width }
     validates :applied_at, timeliness: { on_or_after: -> { Date.new(1989, 1, 8) }, type: :date }
