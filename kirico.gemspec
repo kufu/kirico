@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '~> 2.5'
+  spec.required_ruby_version = '~> 2.6'
 
   spec.add_dependency 'activemodel', '>= 5.2'
   spec.add_dependency 'activesupport', '>= 5.2'
@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'validates_timeliness'
   spec.add_dependency 'virtus'
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'bundler', '~> 1.17'
   spec.add_development_dependency 'factory_bot'
   spec.add_development_dependency 'guard'
   spec.add_development_dependency 'guard-bundler'

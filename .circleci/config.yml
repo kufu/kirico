@@ -14,12 +14,6 @@ executors:
         auth:
           username: smarthrinc
           password: $DOCKER_HUB_ACCESS_TOKEN
-  ruby_2_5:
-    docker:
-      - image: rubylang/ruby:2.5.8-bionic
-        auth:
-          username: smarthrinc
-          password: $DOCKER_HUB_ACCESS_TOKEN
 
 commands:
   install_system_dependencies:
@@ -62,13 +56,6 @@ jobs:
       - checkout
       - bundle_gems
       - run_tests
-  run_tests_on_ruby_2_5:
-    executor: ruby_2_5
-    steps:
-      - install_system_dependencies
-      - checkout
-      - bundle_gems
-      - run_tests
 
 workflows:
   version: 2
@@ -76,4 +63,3 @@ workflows:
     jobs:
       - run_tests_on_ruby_2_7
       - run_tests_on_ruby_2_6
-      - run_tests_on_ruby_2_5

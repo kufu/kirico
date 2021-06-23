@@ -128,7 +128,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.10)
+  bundler (~> 1.17)
   factory_bot
   guard
   guard-bundler
