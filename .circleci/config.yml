@@ -1,7 +1,6 @@
 version: 2.1
 
 executors:
-  working_directory: /root/kirico
   ruby_3_0:
     docker:
       - image: rubylang/ruby:3.0.0-focal
