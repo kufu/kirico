@@ -1,7 +1,6 @@
 version: 2.1
 
 executors:
-  working_directory: /root/kirico
   ruby_2_7:
     docker:
       - image: rubylang/ruby:2.7.2-bionic
