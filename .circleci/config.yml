@@ -1,7 +1,6 @@
 version: 2.1
 
 executors:
-  working_directory: /root/kirico
   ruby_3_0:
     docker:
       - image: rubylang/ruby:3.0.0-focal
@@ -10,19 +9,13 @@ executors:
           password: $DOCKER_HUB_ACCESS_TOKEN
   ruby_2_7:
     docker:
-      - image: rubylang/ruby:2.7.2-bionic
+      - image: rubylang/ruby:2.7.3-bionic
         auth:
           username: smarthrinc
           password: $DOCKER_HUB_ACCESS_TOKEN
   ruby_2_6:
     docker:
-      - image: rubylang/ruby:2.6.6-bionic
-        auth:
-          username: smarthrinc
-          password: $DOCKER_HUB_ACCESS_TOKEN
-  ruby_2_5:
-    docker:
-      - image: rubylang/ruby:2.5.8-bionic
+      - image: rubylang/ruby:2.6.7-bionic
         auth:
           username: smarthrinc
           password: $DOCKER_HUB_ACCESS_TOKEN
@@ -74,13 +67,6 @@ jobs:
       - checkout
       - bundle_gems
       - run_tests
-  run_tests_on_ruby_2_5:
-    executor: ruby_2_5
-    steps:
-      - install_system_dependencies
-      - checkout
-      - bundle_gems
-      - run_tests
 
 workflows:
   version: 2
@@ -89,4 +75,3 @@ workflows:
       - run_tests_on_ruby_3_0
       - run_tests_on_ruby_2_7
       - run_tests_on_ruby_2_6
-      - run_tests_on_ruby_2_5
