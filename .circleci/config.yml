@@ -3,13 +3,13 @@ version: 2.1
 executors:
   ruby_2_7:
     docker:
-      - image: rubylang/ruby:2.7.2-bionic
+      - image: rubylang/ruby:2.7.3-bionic
         auth:
           username: smarthrinc
           password: $DOCKER_HUB_ACCESS_TOKEN
   ruby_2_6:
     docker:
-      - image: rubylang/ruby:2.6.6-bionic
+      - image: rubylang/ruby:2.6.7-bionic
         auth:
           username: smarthrinc
           password: $DOCKER_HUB_ACCESS_TOKEN
