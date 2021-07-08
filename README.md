@@ -175,7 +175,7 @@ end
 <img width="400" alt="kirico-logo" src="https://cloud.githubusercontent.com/assets/2214179/23650706/609ed1e6-0366-11e7-92d9-625354982b9f.png">
 
 検証プログラムのダウンロードはこちらから。
-[届出システムを自社開発または市販ソフトを使用する場合｜日本年金機構](https://www.nenkin.go.jp/denshibenri/setsumei/20150415.html)
+[電子申請を利用中の方へ｜日本年金機構](https://www.nenkin.go.jp/denshibenri/program/download.html)
 
 
 ## 対応手続き
@@ -202,7 +202,7 @@ end
 
 ## 参考リンク
 
-- [届出システムを自社開発または市販ソフトを使用する場合｜日本年金機構](https://www.nenkin.go.jp/denshibenri/setsumei/20150415.html)
+- [電子申請を利用中の方へ｜日本年金機構](https://www.nenkin.go.jp/denshibenri/program/download.html)
     届書作成プログラム仕様について
 
 ## Contributing
