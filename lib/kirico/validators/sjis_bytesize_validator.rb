@@ -52,9 +52,7 @@ module Kirico
         check_value = options[key]
         next unless check_value
 
-        if !value.nil? || skip_nil_check?(key)
-          next if value_length.send(validity_check, check_value)
-        end
+        next if (!value.nil? || skip_nil_check?(key)) && value_length.send(validity_check, check_value)
 
         errors_options[:count] = check_value
 

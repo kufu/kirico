@@ -77,12 +77,7 @@ describe Kirico::CharsetValidator do
       end
 
       context '半角記号' do
-        %w(
-          ! " # $ % & ' ( ) * + , - . /
-          : ; < = > ? @
-          [ \ ] ^ _ `
-          { | } ~
-        ).each do |ch|
+        ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ' ]', '^', '_', '`', '{', '|', '}', '~'].each do |ch|
           let(:my_field) { ch }
           it "#{ch} is allowed" do
             expect(subject).not_to be_valid
