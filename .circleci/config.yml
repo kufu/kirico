@@ -3,19 +3,19 @@ version: 2.1
 executors:
   ruby_3_1:
     docker:
-      - image: rubylang/ruby:3.1-focal
+      - image: rubylang/ruby:3.1-dev-focal
         auth:
           username: smarthrinc
           password: $DOCKER_HUB_ACCESS_TOKEN
   ruby_3_0:
     docker:
-      - image: rubylang/ruby:3.0.0-focal
+      - image: rubylang/ruby:3.0-dev-focal
         auth:
           username: smarthrinc
           password: $DOCKER_HUB_ACCESS_TOKEN
   ruby_2_7:
     docker:
-      - image: rubylang/ruby:2.7.3-bionic
+      - image: rubylang/ruby:2.7-dev-bionic
         auth:
           username: smarthrinc
           password: $DOCKER_HUB_ACCESS_TOKEN
