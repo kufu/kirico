@@ -220,7 +220,7 @@ Everyone interacting in the kirico project’s codebases, issue trackers, chat r
 
 ## Copyright
 
-Copyright (c) 2017 Kensuke NAITO and SmartHR, Inc.
+Copyright (c) 2023 SmartHR, Inc.
 ライセンスはこちら: [kirico/LICENSE.md](https://github.com/kufu/kirico/blob/master/LICENSE.md)
 
 
