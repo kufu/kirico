@@ -18,7 +18,7 @@ module Kirico
     validates :fd, :company_count, :company, :records, presence: true
     validate :validate_children
 
-    def initialize(fd:, company_count: Kirico::CompanyCount.new, company:, records: [])
+    def initialize(fd:, company:, company_count: Kirico::CompanyCount.new, records: [])
       @fd = fd
       @company_count = company_count
       @company = company

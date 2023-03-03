@@ -76,7 +76,7 @@ module Kirico
 
     def bonus_total(currency, goods)
       total = currency.to_i + goods.to_i
-      total < 10_000_000 ? total.floor(-3) : 9_999_999
+      total >= 10_000_000 ? 9_999_000 : total.floor(-3)
     end
 
     def adjusted_payment_in_currency
