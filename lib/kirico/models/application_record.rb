@@ -16,7 +16,7 @@ module Kirico
     end
 
     def to_csv
-      raise NoMethodError
+      raise NotImplementedError
     end
   end
 end

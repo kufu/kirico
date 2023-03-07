@@ -45,7 +45,7 @@ describe Kirico::DataRecord2265700, type: :model do
     context 'when the total is 10,000,000' do
       let(:currency) { 9_999_999 }
       let(:goods) { 1 }
-      it { is_expected.to eq 9_999_999 }
+      it { is_expected.to eq 9_999_000 }
     end
   end
 
@@ -61,7 +61,7 @@ describe Kirico::DataRecord2265700, type: :model do
       let(:data_record) { FactoryBot.build(:data_record2265700, payment_in_currency: 10_000_000, payment_in_goods: 10_000_000) }
       it {
         is_expected.to eq '2265700,21,14,ｸﾄﾜ,000002,ﾖｼﾀﾞ ﾀﾛｳ,吉田　太郎,5,590527,9,010901,' \
-          '9999999,9999999,9999999,012345678901,0123,123456,,,,'
+          '9999999,9999999,9999000,012345678901,0123,123456,,,,'
       }
     end
   end

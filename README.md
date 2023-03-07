@@ -8,7 +8,7 @@ A Ruby implementation of 届書作成プログラム
 
 ## 理念
 
-2008 年より[電子政府（e-Gov）のウェブサイト](http://www.e-gov.go.jp/shinsei/index.html)上で社会保険・労働保険関連手続きの電子申請の受付が開始されました。
+2008 年より[電子政府（e-Gov）のウェブサイト](https://shinsei.e-gov.go.jp/)上で社会保険・労働保険関連手続きの電子申請の受付が開始されました。
 2010 年には e-Gov の使い勝手の向上を図り、一括申請機能の提供が開始されました。
 そして 2014 年 10 月、さらなる利便性の向上を目的に、外部連携 API 仕様が公開されました。
 
@@ -175,7 +175,7 @@ end
 <img width="400" alt="kirico-logo" src="https://cloud.githubusercontent.com/assets/2214179/23650706/609ed1e6-0366-11e7-92d9-625354982b9f.png">
 
 検証プログラムのダウンロードはこちらから。
-[届出システムを自社開発または市販ソフトを使用する場合｜日本年金機構](https://www.nenkin.go.jp/denshibenri/setsumei/20150415.html)
+[電子申請を利用中の方へ｜日本年金機構](https://www.nenkin.go.jp/denshibenri/program/download.html)
 
 
 ## 対応手続き
@@ -202,7 +202,7 @@ end
 
 ## 参考リンク
 
-- [届出システムを自社開発または市販ソフトを使用する場合｜日本年金機構](https://www.nenkin.go.jp/denshibenri/setsumei/20150415.html)
+- [電子申請を利用中の方へ｜日本年金機構](https://www.nenkin.go.jp/denshibenri/program/download.html)
     届書作成プログラム仕様について
 
 ## Contributing
@@ -220,7 +220,7 @@ Everyone interacting in the kirico project’s codebases, issue trackers, chat r
 
 ## Copyright
 
-Copyright (c) 2017 Kensuke NAITO and SmartHR, Inc.
+Copyright (c) 2023 SmartHR, Inc.
 ライセンスはこちら: [kirico/LICENSE.md](https://github.com/kufu/kirico/blob/master/LICENSE.md)
 
 
