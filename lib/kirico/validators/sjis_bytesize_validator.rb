@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'active_model'
-require 'active_model/validator'
 
 # SJIS 換算の文字長を検証する
 # SJIS 変換不可文字が設定された場合は 1 文字としてカウントする
