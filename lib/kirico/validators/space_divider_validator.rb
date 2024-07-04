@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'active_model'
-require 'active_model/validator'
-require 'active_model/validations/format'
 
 # 文字種別を検証する
 #
