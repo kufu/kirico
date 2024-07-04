@@ -18,7 +18,7 @@ module Kirico
     RESERVED_OPTIONS = %i[minimum maximum within is too_short too_long]
 
     def initialize(options)
-      range = (options.delete(:in) || options.delete(:within))
+      range = options.delete(:in) || options.delete(:within)
       if range
         raise ArgumentError, ':in and :within must be a Range' unless range.is_a?(Range)
 
