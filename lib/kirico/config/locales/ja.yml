@@ -33,7 +33,7 @@ ja:
     attributes:
       # 住所変更届
       kirico/data_record22187041:
-        area_code: 都市区符号
+        area_code: 郡市区符号
         office_code: 事業所記号
         ip_code: 被保険者整理番号
         basic_pension_number1: 基礎年金番号（課所符号）
@@ -52,7 +52,7 @@ ja:
       # 月額変更届
       kirico/data_record2221700:
         prefecture_code: 都道府県コード
-        area_code: 群市区符号
+        area_code: 郡市区符号
         office_code: 事業所記号
         ip_code: 被保険者整理番号
         ip_name_yomi: 被保険者氏名（カナ）
@@ -88,7 +88,7 @@ ja:
         submit_only_seventy_years_and_over: 70歳以上被用者届のみ提出
       # 算定基礎届
       kirico/data_record22257041:
-        area_code: 都市区符号
+        area_code: 郡市区符号
         office_code: 事業所記号
         ip_code: 被保険者整理番号
         birth_at: 生年月日
@@ -118,7 +118,7 @@ ja:
       # 2018年3月以降 算定基礎届
       kirico/data_record2225700:
         prefecture_code: 都道府県コード
-        area_code: 群市区符号
+        area_code: 郡市区符号
         office_code: 事業所記号
         ip_code: 被保険者整理番号
         ip_name_yomi: 被保険者氏名（カナ）
@@ -160,7 +160,7 @@ ja:
       # 賞与支払届
       kirico/data_record2265700:
         prefecture_code: 都道府県コード
-        area_code: 群市区符号
+        area_code: 郡市区符号
         office_code: 事業所記号
         ip_code: 被保険者整理番号
         ip_name_yomi: 被保険者氏名（カナ）
@@ -180,7 +180,7 @@ ja:
         sr_name: 社会保険労務士氏名
         count: 事業所数情報
         prefecture_code: 都道府県コード
-        area_code: 都市区符号
+        area_code: 郡市区符号
         office_code: 事業所記号
         office_number: 事業所番号
         zip_code1: 郵便番号.親番号
@@ -193,7 +193,7 @@ ja:
         tel_subscriber_number: 電話番号 加入者番号
       kirico/fd_management_record:
         prefecture_code: 都道府県コード
-        area_code: 都市区符号
+        area_code: 郡市区符号
         office_code: 事業所記号
         fd_seq_number: FD通番
         created_at: 作成年月日
