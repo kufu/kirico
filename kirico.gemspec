@@ -30,12 +30,18 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'activemodel', '>= 5.2'
   spec.add_dependency 'activesupport', '>= 5.2'
+  spec.add_dependency 'bigdecimal'
   spec.add_dependency 'era_ja'
+  spec.add_dependency 'logger'
+  spec.add_dependency 'mutex_m'
+  spec.add_dependency 'ostruct'
   spec.add_dependency 'validates_timeliness'
   spec.add_dependency 'virtus'
 
   spec.add_development_dependency 'bundler', '>= 2.2.13'
+  spec.add_development_dependency 'csv'
   spec.add_development_dependency 'factory_bot'
+  spec.add_development_dependency 'observer'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop'

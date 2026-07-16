@@ -8,7 +8,7 @@ describe Kirico::DataRecord2221700, type: :model do
     it { expect(FactoryBot.build(:data_record2221700)).to be_valid }
 
     describe '#each_month_days_should_be_greater_than_or_equal_11_or_17' do
-      let(:record) { FactoryBot.build(:data_record2221700, short_time_worker: short_time_worker, before_1_month_days: days) }
+      let(:record) { FactoryBot.build(:data_record2221700, short_time_worker:, before_1_month_days: days) }
 
       context '一般の被保険者の場合' do
         let(:short_time_worker) { nil }
@@ -59,10 +59,10 @@ describe Kirico::DataRecord2221700, type: :model do
       let(:record) do
         FactoryBot.build(
           :data_record2221700,
-          seventy_years_and_over: seventy_years_and_over,
-          my_number: my_number,
-          area_code_of_basic_pension_number: area_code_of_basic_pension_number,
-          serial_number_of_basic_pension_number: serial_number_of_basic_pension_number
+          seventy_years_and_over:,
+          my_number:,
+          area_code_of_basic_pension_number:,
+          serial_number_of_basic_pension_number:
         )
       end
 

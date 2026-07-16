@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Kirico::Form, type: :model do
   context 'when the form is for general use' do
-    let(:form) { FactoryBot.build(:form, fd: fd, company_count: company_count, company: company, records: records) }
+    let(:form) { FactoryBot.build(:form, fd:, company_count:, company:, records:) }
     let(:fd) { FactoryBot.build(:fd_management_record) }
     let(:company_count) { FactoryBot.build(:company_count) }
     let(:company) { FactoryBot.build(:company) }
@@ -124,7 +124,7 @@ describe Kirico::Form, type: :model do
   end
 
   context 'when the form is for SR use' do
-    let(:form) { FactoryBot.build(:sr_form, fd: fd, company_count: company_count, company: company, records: records) }
+    let(:form) { FactoryBot.build(:sr_form, fd:, company_count:, company:, records:) }
     let(:fd) { FactoryBot.build(:sr_fd_management_record) }
     let(:company_count) { FactoryBot.build(:sr_company_count) }
     let(:company) { FactoryBot.build(:company) }

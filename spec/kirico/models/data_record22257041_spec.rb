@@ -47,10 +47,10 @@ describe Kirico::DataRecord22257041, type: :model do
     let(:rec) {
       FactoryBot.build(
         :data_record22257041,
-        ip_type: ip_type,
-        apr_days: apr_days,
-        may_days: may_days,
-        jun_days: jun_days
+        ip_type:,
+        apr_days:,
+        may_days:,
+        jun_days:
       )
     }
     subject { rec.target_months }
@@ -137,9 +137,9 @@ describe Kirico::DataRecord22257041, type: :model do
     let(:rec) {
       FactoryBot.build(
         :data_record22257041,
-        apr_income_currency: apr_income_currency,
-        may_income_currency: may_income_currency,
-        jun_income_currency: jun_income_currency,
+        apr_income_currency:,
+        may_income_currency:,
+        jun_income_currency:,
         apr_income_goods: 0,
         may_income_goods: 0,
         jun_income_goods: 0

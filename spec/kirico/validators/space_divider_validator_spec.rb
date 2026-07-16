@@ -34,7 +34,7 @@ describe Kirico::SpaceDividerValidator do
 
   describe '#validate_each' do
     context 'when :space option is :full_width' do
-      subject { SpaceDividerTestFullWidth.new(my_field: my_field).valid? }
+      subject { SpaceDividerTestFullWidth.new(my_field:).valid? }
       context 'when the field is nil' do
         let(:my_field) { nil }
         it { is_expected.to be_falsy }
@@ -61,7 +61,7 @@ describe Kirico::SpaceDividerValidator do
       end
     end
     context 'when :space option is :half_width' do
-      subject { SpaceDividerTestHalfWidth.new(my_field: my_field).valid? }
+      subject { SpaceDividerTestHalfWidth.new(my_field:).valid? }
       context 'when the field is nil' do
         let(:my_field) { nil }
         it { is_expected.to be_falsy }
@@ -88,7 +88,7 @@ describe Kirico::SpaceDividerValidator do
       end
     end
     context 'when :space option is :both_width' do
-      subject { SpaceDividerTestBothWidth.new(my_field: my_field).valid? }
+      subject { SpaceDividerTestBothWidth.new(my_field:).valid? }
       context 'when the field is nil' do
         let(:my_field) { nil }
         it { is_expected.to be_falsy }
@@ -115,7 +115,7 @@ describe Kirico::SpaceDividerValidator do
       end
     end
     context 'when :space option is :blank' do
-      subject { SpaceDividerTestDefault.new(my_field: my_field).valid? }
+      subject { SpaceDividerTestDefault.new(my_field:).valid? }
       context 'when the field is nil' do
         let(:my_field) { nil }
         it { is_expected.to be_falsy }
