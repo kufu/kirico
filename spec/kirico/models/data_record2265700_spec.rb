@@ -68,7 +68,7 @@ describe Kirico::DataRecord2265700, type: :model do
 
   describe '#adjusted_payment_in_currency' do
     subject { data_record.adjusted_payment_in_currency }
-    let(:data_record) { FactoryBot.build(:data_record2265700, payment_in_currency: payment_in_currency) }
+    let(:data_record) { FactoryBot.build(:data_record2265700, payment_in_currency:) }
 
     context 'payment_in_currency is less than or equal to 9_999_999' do
       let(:payment_in_currency) { 9_999_998 }
@@ -85,7 +85,7 @@ describe Kirico::DataRecord2265700, type: :model do
 
   describe '#adjusted_payment_in_goods' do
     subject { data_record.adjusted_payment_in_goods }
-    let(:data_record) { FactoryBot.build(:data_record2265700, payment_in_goods: payment_in_goods) }
+    let(:data_record) { FactoryBot.build(:data_record2265700, payment_in_goods:) }
 
     context 'payment_in_goods is less than or equal to 9_999_999' do
       let(:payment_in_goods) { 9_999_998 }

@@ -380,7 +380,7 @@ describe Kirico::CharsetValidator do
     end
 
     context 'when accept: [:numeric]' do
-      subject { CharSetTestNumeric.new(my_field: my_field) }
+      subject { CharSetTestNumeric.new(my_field:) }
 
       context 'empty' do
         let(:my_field) { nil }
@@ -394,7 +394,7 @@ describe Kirico::CharsetValidator do
     end
 
     context 'when accept: [:latin]' do
-      subject { CharSetTestLatin.new(my_field: my_field) }
+      subject { CharSetTestLatin.new(my_field:) }
 
       context 'empty' do
         let(:my_field) { nil }
@@ -408,7 +408,7 @@ describe Kirico::CharsetValidator do
     end
 
     context 'when accept: [:katakana]' do
-      subject { CharSetTestKatakana.new(my_field: my_field) }
+      subject { CharSetTestKatakana.new(my_field:) }
 
       context 'empty' do
         let(:my_field) { nil }
@@ -422,7 +422,7 @@ describe Kirico::CharsetValidator do
     end
 
     context 'when accept: [:kanji]' do
-      subject { CharSetTestKanji.new(my_field: my_field) }
+      subject { CharSetTestKanji.new(my_field:) }
 
       context 'empty' do
         let(:my_field) { nil }
@@ -436,7 +436,7 @@ describe Kirico::CharsetValidator do
     end
 
     context 'when accept: [:all]' do
-      subject { CharSetTestAll.new(my_field: my_field) }
+      subject { CharSetTestAll.new(my_field:) }
 
       context 'empty' do
         let(:my_field) { nil }
