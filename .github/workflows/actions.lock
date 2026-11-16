@@ -6,7 +6,7 @@ workflows:
     '.github/workflows/release.yml':
         - 'actions/checkout@v7.0.1'
         - 'ruby/setup-ruby@v1.300.0'
-        - 'rubygems/release-gem@v1.2.0'
+        - 'rubygems/release-gem@v1.4.1'
     '.github/workflows/test.yml':
         - 'actions/checkout@v7.0.1'
         - 'ruby/setup-ruby@v1.310.0'
@@ -28,15 +28,15 @@ dependencies:
         commit: 'sha1-afeafc3d1ab54a631816aba4c914a0081c12ff2f'
         owner_id: 210414
         repo_id: 231208785
-    'rubygems/configure-rubygems-credentials@bc6dd217f8a4f919d6835fcfefd470ef821f5c44':
-        ref: 'v1.0.0'
-        commit: 'sha1-bc6dd217f8a4f919d6835fcfefd470ef821f5c44'
+    'rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a':
+        ref: 'v2.1.0'
+        commit: 'sha1-dc5a8d8553e6ee01fc26761a49e99e733d17954a'
         owner_id: 208761
         repo_id: 631633510
-    'rubygems/release-gem@v1.2.0':
-        ref: 'v1.2.0'
-        commit: 'sha1-6317d8d1f7e28c24d28f6eff169ea854948bd9f7'
+    'rubygems/release-gem@v1.4.1':
+        ref: 'v1.4.1'
+        commit: 'sha1-7f9650160c1a4e7989fdc9855807bdbd421d8b6b'
         owner_id: 208761
         repo_id: 731435765
         uses:
-            - 'rubygems/configure-rubygems-credentials@bc6dd217f8a4f919d6835fcfefd470ef821f5c44'
+            - 'rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a'
