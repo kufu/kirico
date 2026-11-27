@@ -21,4 +21,4 @@ jobs:
           ruby-version: '3.3'
           rubygems: latest
           bundler-cache: true
-      - uses: rubygems/release-gem@v1.4.1
+      - uses: rubygems/release-gem@v1.4.2
